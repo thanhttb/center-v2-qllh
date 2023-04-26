@@ -18,6 +18,7 @@ import {
   // NewPasswordPage,
   // ResetPasswordPage,
   // Dashboard: General
+  GeneralDashboardPage,
   GeneralAppPage,
   GeneralFilePage,
   GeneralBankingPage,
@@ -165,12 +166,20 @@ export default function Router() {
     // },
 
     // Dashboard
-    { path: '/login', 
-    element: (
-      // <GuestGuard>
-        <LoginPage />
-      // </GuestGuard>
-    ) },
+    {
+      path: '/',
+      children: [
+        { element: <Navigate to={PATH_AFTER_LOGIN} replace />, index: true },
+        {
+          path: 'login',
+          element: (
+            <GuestGuard>
+              <LoginPage />
+            </GuestGuard>
+          ),
+        },
+      ],
+    },
     {
       path: '/',
       element: (
@@ -178,10 +187,11 @@ export default function Router() {
           <DashboardLayout />
         </AuthGuard>
       ),
-      
+
       children: [
         { element: <Navigate to={PATH_AFTER_LOGIN} replace />, index: true },
         { path: 'app', element: <GeneralAppPage /> },
+        { path: 'dashboard', element: <GeneralDashboardPage /> },
         { path: 'ecommerce', element: <GeneralEcommercePage /> },
         { path: 'analytics', element: <GeneralAnalyticsPage /> },
         { path: 'banking', element: <GeneralBankingPage /> },

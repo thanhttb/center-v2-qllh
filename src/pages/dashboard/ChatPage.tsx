@@ -8,7 +8,7 @@ export default function ChatPage() {
   return (
     <>
       <Helmet>
-        <title> Chat | VietELite Eduction</title>
+        <title> Chat | VietELite Education</title>
       </Helmet>
 
       <Chat />

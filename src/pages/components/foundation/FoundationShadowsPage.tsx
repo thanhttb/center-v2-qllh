@@ -44,7 +44,7 @@ export default function FoundationShadowsPage() {
   return (
     <>
       <Helmet>
-        <title> Foundations: Shadows | VietELite Eduction</title>
+        <title> Foundations: Shadows | VietELite Education</title>
       </Helmet>
 
       <Box

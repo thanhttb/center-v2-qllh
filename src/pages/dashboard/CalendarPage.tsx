@@ -244,7 +244,7 @@ export default function CalendarPage() {
   return (
     <>
       <Helmet>
-        <title> Calendar | VietELite Eduction</title>
+        <title> Calendar | VietELite Education</title>
       </Helmet>
 
       <Container maxWidth={themeStretch ? false : 'xl'}>

@@ -20,7 +20,7 @@ export default function ComingSoonPage() {
   return (
     <>
       <Helmet>
-        <title> Coming Soon | VietELite Eduction</title>
+        <title> Coming Soon | VietELite Education</title>
       </Helmet>
 
       <Typography variant="h3" paragraph>

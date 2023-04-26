@@ -11,7 +11,7 @@ export default function BlankPage() {
   return (
     <>
       <Helmet>
-        <title> Blank Page | VietELite Eduction</title>
+        <title> Blank Page | VietELite Education</title>
       </Helmet>
 
       <Container maxWidth={themeStretch ? false : 'xl'}>

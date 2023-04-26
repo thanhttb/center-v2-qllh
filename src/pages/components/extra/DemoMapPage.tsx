@@ -56,7 +56,7 @@ export default function DemoMapPage() {
   return (
     <>
       <Helmet>
-        <title> Extra Components: Map | VietELite Eduction</title>
+        <title> Extra Components: Map | VietELite Education</title>
       </Helmet>
 
       <Box

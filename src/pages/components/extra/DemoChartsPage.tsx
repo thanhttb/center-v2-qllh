@@ -27,7 +27,7 @@ export default function DemoChartsPage() {
   return (
     <>
       <Helmet>
-        <title> Extra Components: Charts | VietELite Eduction</title>
+        <title> Extra Components: Charts | VietELite Education</title>
       </Helmet>
 
       <Box

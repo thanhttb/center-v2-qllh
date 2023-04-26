@@ -28,7 +28,7 @@ export default function DemoEditorPage() {
   return (
     <>
       <Helmet>
-        <title> Extra Components: Editor | VietELite Eduction</title>
+        <title> Extra Components: Editor | VietELite Education</title>
       </Helmet>
 
       <Box

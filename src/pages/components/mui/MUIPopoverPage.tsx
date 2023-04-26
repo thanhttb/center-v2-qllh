@@ -67,7 +67,7 @@ export default function MUIPopoverPage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Popover | VietELite Eduction</title>
+        <title> MUI Components: Popover | VietELite Education</title>
       </Helmet>
 
       <Box

@@ -14,7 +14,7 @@ export default function DemoTextMaxLinePage() {
   return (
     <>
       <Helmet>
-        <title> Extra Components: Text Max Line | VietELite Eduction</title>
+        <title> Extra Components: Text Max Line | VietELite Education</title>
       </Helmet>
 
       <Box

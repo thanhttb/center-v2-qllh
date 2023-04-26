@@ -29,7 +29,7 @@ export default function GeneralAnalyticsPage() {
   return (
     <>
       <Helmet>
-        <title> General: Analytics | VietELite Eduction</title>
+        <title> General: Analytics | VietELite Education</title>
       </Helmet>
 
       <Container maxWidth={themeStretch ? false : 'xl'}>

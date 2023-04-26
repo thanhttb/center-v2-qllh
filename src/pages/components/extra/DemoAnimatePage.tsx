@@ -33,7 +33,7 @@ export default function DemoAnimatePage() {
   return (
     <>
       <Helmet>
-        <title> Extra Components: Animate | VietELite Eduction</title>
+        <title> Extra Components: Animate | VietELite Education</title>
       </Helmet>
 
       <Box

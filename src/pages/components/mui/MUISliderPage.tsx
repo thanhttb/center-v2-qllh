@@ -73,7 +73,7 @@ export default function MUISliderPage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Slider | VietELite Eduction</title>
+        <title> MUI Components: Slider | VietELite Education</title>
       </Helmet>
 
       <Box

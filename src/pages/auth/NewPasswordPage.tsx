@@ -17,7 +17,7 @@ export default function NewPasswordPage() {
   return (
     <>
       <Helmet>
-        <title> New Password | VietELite Eduction</title>
+        <title> New Password | VietELite Education</title>
       </Helmet>
 
       <SentIcon sx={{ mb: 5, height: 96 }} />

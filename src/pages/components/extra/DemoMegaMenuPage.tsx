@@ -23,7 +23,7 @@ export default function DemoMegaMenuPage() {
   return (
     <>
       <Helmet>
-        <title> Extra Components: Mega Menu | VietELite Eduction</title>
+        <title> Extra Components: Mega Menu | VietELite Education</title>
       </Helmet>
 
       <Box

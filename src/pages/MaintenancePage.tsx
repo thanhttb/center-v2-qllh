@@ -11,7 +11,7 @@ export default function MaintenancePage() {
   return (
     <>
       <Helmet>
-        <title> Maintenance | VietELite Eduction</title>
+        <title> Maintenance | VietELite Education</title>
       </Helmet>
 
       <Stack sx={{ alignItems: 'center' }}>

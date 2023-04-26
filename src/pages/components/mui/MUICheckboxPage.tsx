@@ -46,7 +46,7 @@ export default function MUICheckboxPage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Checkbox | VietELite Eduction</title>
+        <title> MUI Components: Checkbox | VietELite Education</title>
       </Helmet>
 
       <Box

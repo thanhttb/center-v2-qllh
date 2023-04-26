@@ -43,7 +43,7 @@ export default function MUIButtonsPage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Buttons | VietELite Eduction</title>
+        <title> MUI Components: Buttons | VietELite Education</title>
       </Helmet>
 
       <Box

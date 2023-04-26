@@ -54,7 +54,7 @@ export default function FoundationGridPage() {
   return (
     <>
       <Helmet>
-        <title> Foundations: Grid | VietELite Eduction</title>
+        <title> Foundations: Grid | VietELite Education</title>
       </Helmet>
 
       <Box

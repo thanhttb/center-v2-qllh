@@ -26,7 +26,7 @@ export default function FoundationIconsPage() {
   return (
     <>
       <Helmet>
-        <title> Foundations: Icons | VietELite Eduction</title>
+        <title> Foundations: Icons | VietELite Education</title>
       </Helmet>
 
       <Box

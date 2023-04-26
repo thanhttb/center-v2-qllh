@@ -9,7 +9,7 @@ export default function LoginPage() {
   return (
     <>
       <Helmet>
-        <title> Login | VietELite Eduction</title>
+        <title> Login | VietELite Education</title>
       </Helmet>
 
       <Login />

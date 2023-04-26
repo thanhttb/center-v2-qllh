@@ -14,12 +14,19 @@ import Iconify from '../../../components/iconify';
 import { useSettingsContext } from '../../../components/settings';
 //
 import Searchbar from './Searchbar';
+import YearToolBar from './YearToolBar';
+import SearchStudents from './SearchStudents';
 import AccountPopover from './AccountPopover';
 import LanguagePopover from './LanguagePopover';
 import ContactsPopover from './ContactsPopover';
 import NotificationsPopover from './NotificationsPopover';
 
 // ----------------------------------------------------------------------
+const topFilms = [
+  { title: 'The Shawshank Redemption', year: 1994 },
+  { title: 'The Godfather', year: 1972 },
+  { title: 'The Godfather: Part II', year: 1974 }
+];
 
 type Props = {
   onOpenNav?: VoidFunction;
@@ -48,7 +55,10 @@ export default function Header({ onOpenNav }: Props) {
         </IconButton>
       )}
 
-      <Searchbar />
+      {/* <Searchbar /> */}
+      <YearToolBar 
+       optionsRole={topFilms}
+       />
 
       <Stack
         flexGrow={1}
@@ -56,12 +66,15 @@ export default function Header({ onOpenNav }: Props) {
         alignItems="center"
         justifyContent="flex-end"
         spacing={{ xs: 0.5, sm: 1.5 }}
+        
       >
-        <LanguagePopover />
+        {/* <Searchbar /> */}
+        <SearchStudents />
+        {/* <LanguagePopover /> */}
 
         <NotificationsPopover />
 
-        <ContactsPopover />
+        {/* <ContactsPopover /> */}
 
         <AccountPopover />
       </Stack>
@@ -71,7 +84,8 @@ export default function Header({ onOpenNav }: Props) {
   return (
     <AppBar
       sx={{
-        boxShadow: 'none',
+        boxShadow: theme.customShadows.z4,
+        // background: '#8bc34a',
         height: HEADER.H_MOBILE,
         zIndex: theme.zIndex.appBar + 1,
         ...bgBlur({

@@ -187,7 +187,7 @@ export default function UserListPage() {
   return (
     <>
       <Helmet>
-        <title> User: List | VietELite Eduction</title>
+        <title> User: List | VietELite Education</title>
       </Helmet>
 
       <Container maxWidth={themeStretch ? false : 'lg'}>

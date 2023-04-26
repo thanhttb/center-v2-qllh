@@ -20,7 +20,7 @@ export default function DemoNavigationBarPage() {
   return (
     <>
       <Helmet>
-        <title> Extra Components: Navigation Bar | VietELite Eduction</title>
+        <title> Extra Components: Navigation Bar | VietELite Education</title>
       </Helmet>
 
       <Box

@@ -8,7 +8,7 @@ export default function MailPage() {
   return (
     <>
       <Helmet>
-        <title> Mail | VietELite Eduction</title>
+        <title> Mail | VietELite Education</title>
       </Helmet>
 
       <Mail />

@@ -17,7 +17,7 @@ export default function MUITablePage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Table | VietELite Eduction</title>
+        <title> MUI Components: Table | VietELite Education</title>
       </Helmet>
 
       <Box

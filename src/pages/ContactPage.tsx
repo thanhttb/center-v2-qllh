@@ -12,7 +12,7 @@ export default function ContactPage() {
   return (
     <>
       <Helmet>
-        <title> Contact us | VietELite Eduction</title>
+        <title> Contact us | VietELite Education</title>
       </Helmet>
 
       <ContactHero />

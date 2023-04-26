@@ -16,7 +16,7 @@ export default function MUIBadgePage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Badge | VietELite Eduction</title>
+        <title> MUI Components: Badge | VietELite Education</title>
       </Helmet>
 
       <Box

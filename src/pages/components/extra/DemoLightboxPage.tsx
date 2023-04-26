@@ -36,7 +36,7 @@ export default function DemoLightboxPage() {
   return (
     <>
       <Helmet>
-        <title> Extra Components: Lightbox | VietELite Eduction</title>
+        <title> Extra Components: Lightbox | VietELite Education</title>
       </Helmet>
 
       <Box

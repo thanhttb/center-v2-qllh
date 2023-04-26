@@ -188,7 +188,7 @@ export default function EcommerceProductListPage() {
   return (
     <>
       <Helmet>
-        <title> Ecommerce: Product List | VietELite Eduction</title>
+        <title> Ecommerce: Product List | VietELite Education</title>
       </Helmet>
 
       <Container maxWidth={themeStretch ? false : 'lg'}>

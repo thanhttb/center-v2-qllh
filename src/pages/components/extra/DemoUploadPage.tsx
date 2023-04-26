@@ -81,7 +81,7 @@ export default function DemoUploadPage() {
   return (
     <>
       <Helmet>
-        <title> Extra Components: Upload | VietELite Eduction</title>
+        <title> Extra Components: Upload | VietELite Education</title>
       </Helmet>
 
       <Box

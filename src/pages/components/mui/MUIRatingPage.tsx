@@ -74,7 +74,7 @@ export default function MUIRatingPage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Rating | VietELite Eduction</title>
+        <title> MUI Components: Rating | VietELite Education</title>
       </Helmet>
 
       <Box

@@ -37,7 +37,7 @@ export default function MUIRadioButtonsPage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Radio Buttons | VietELite Eduction</title>
+        <title> MUI Components: Radio Buttons | VietELite Education</title>
       </Helmet>
 
       <Box

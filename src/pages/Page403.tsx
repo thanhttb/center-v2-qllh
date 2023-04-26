@@ -14,7 +14,7 @@ export default function Page403() {
   return (
     <>
       <Helmet>
-        <title> 403 Forbidden | VietELite Eduction</title>
+        <title> 403 Forbidden | VietELite Education</title>
       </Helmet>
 
       <MotionContainer>

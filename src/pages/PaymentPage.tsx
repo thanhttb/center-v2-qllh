@@ -14,7 +14,7 @@ export default function PaymentPage() {
   return (
     <>
       <Helmet>
-        <title> Payment | VietELite Eduction</title>
+        <title> Payment | VietELite Education</title>
       </Helmet>
 
       <Container

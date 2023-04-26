@@ -99,7 +99,7 @@ export default function MUITimelinePage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Timeline | VietELite Eduction</title>
+        <title> MUI Components: Timeline | VietELite Education</title>
       </Helmet>
 
       <Box

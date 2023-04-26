@@ -58,7 +58,7 @@ export default function DemoCopyToClipboardPage() {
   return (
     <>
       <Helmet>
-        <title> Extra Components: Copy To Clipboard | VietELite Eduction</title>
+        <title> Extra Components: Copy To Clipboard | VietELite Education</title>
       </Helmet>
 
       <Box

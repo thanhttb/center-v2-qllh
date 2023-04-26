@@ -25,7 +25,7 @@ export default function MUITransferListPage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Transfer List | VietELite Eduction</title>
+        <title> MUI Components: Transfer List | VietELite Education</title>
       </Helmet>
 
       <Box

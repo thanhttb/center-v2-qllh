@@ -25,7 +25,7 @@ export default function UserEditPage() {
   return (
     <>
       <Helmet>
-        <title> User: Edit user | VietELite Eduction</title>
+        <title> User: Edit user | VietELite Education</title>
       </Helmet>
 
       <Container maxWidth={themeStretch ? false : 'lg'}>

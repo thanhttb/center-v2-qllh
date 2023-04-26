@@ -44,7 +44,7 @@ export default function MUIAccordionPage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Accordion | VietELite Eduction</title>
+        <title> MUI Components: Accordion | VietELite Education</title>
       </Helmet>
 
       <Box

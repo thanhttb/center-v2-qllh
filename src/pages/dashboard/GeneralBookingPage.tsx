@@ -35,7 +35,7 @@ export default function GeneralBookingPage() {
   return (
     <>
       <Helmet>
-        <title> General: Booking | VietELite Eduction</title>
+        <title> General: Booking | VietELite Education</title>
       </Helmet>
 
       <Container maxWidth={themeStretch ? false : 'xl'}>

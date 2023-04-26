@@ -48,7 +48,7 @@ export default function FoundationTypographyPage() {
   return (
     <>
       <Helmet>
-        <title> Foundations: Typography | VietELite Eduction</title>
+        <title> Foundations: Typography | VietELite Education</title>
       </Helmet>
 
       <Box

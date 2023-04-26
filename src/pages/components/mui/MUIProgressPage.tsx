@@ -64,7 +64,7 @@ export default function MUIProgressPage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Progress | VietELite Eduction</title>
+        <title> MUI Components: Progress | VietELite Education</title>
       </Helmet>
 
       <Box

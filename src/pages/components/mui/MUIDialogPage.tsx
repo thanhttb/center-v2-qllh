@@ -30,7 +30,7 @@ export default function MUIDialogPage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Dialog | VietELite Eduction</title>
+        <title> MUI Components: Dialog | VietELite Education</title>
       </Helmet>
 
       <Box

@@ -5,10 +5,12 @@ function path(root: string, sublink: string) {
 }
 
 const ROOTS_AUTH = '/auth';
-const ROOTS_DASHBOARD = '/';
+const ROOTS_DASHBOARD = '';
 
 // ----------------------------------------------------------------------
-
+export const PATH_AUTH = {
+  login: '/login',
+};
 // export const PATH_AUTH = {
 //   root: ROOTS_AUTH,
 //   login: path(ROOTS_AUTH, '/login'),
@@ -35,8 +37,9 @@ export const PATH_PAGE = {
 };
 
 export const PATH_DASHBOARD = {
-  root: ROOTS_DASHBOARD,
-  login: path(ROOTS_DASHBOARD, '/login'),
+  // dashboard:  path(ROOTS_DASHBOARD, '/dashboard'),
+  root:  path(ROOTS_DASHBOARD, '/dashboard'),
+  
   kanban: path(ROOTS_DASHBOARD, '/kanban'),
   calendar: path(ROOTS_DASHBOARD, '/calendar'),
   fileManager: path(ROOTS_DASHBOARD, '/files-manager'),
@@ -44,6 +47,7 @@ export const PATH_DASHBOARD = {
   blank: path(ROOTS_DASHBOARD, '/blank'),
   general: {
     app: path(ROOTS_DASHBOARD, '/app'),
+    dashboard:  path(ROOTS_DASHBOARD, '/dashboard'),
     ecommerce: path(ROOTS_DASHBOARD, '/ecommerce'),
     analytics: path(ROOTS_DASHBOARD, '/analytics'),
     banking: path(ROOTS_DASHBOARD, '/banking'),

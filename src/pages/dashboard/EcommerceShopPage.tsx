@@ -87,7 +87,7 @@ export default function EcommerceShopPage() {
   return (
     <>
       <Helmet>
-        <title> Ecommerce: Shop | VietELite Eduction</title>
+        <title> Ecommerce: Shop | VietELite Education</title>
       </Helmet>
 
       <FormProvider methods={methods}>

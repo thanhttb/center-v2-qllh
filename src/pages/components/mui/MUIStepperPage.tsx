@@ -18,7 +18,7 @@ export default function MUIStepperPage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Stepper | VietELite Eduction</title>
+        <title> MUI Components: Stepper | VietELite Education</title>
       </Helmet>
 
       <Box

@@ -14,7 +14,7 @@ export default function Page404() {
   return (
     <>
       <Helmet>
-        <title> 404 Page Not Found | VietELite Eduction</title>
+        <title> 404 Page Not Found | VietELite Education</title>
       </Helmet>
 
       <MotionContainer>

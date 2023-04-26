@@ -100,7 +100,7 @@ export default function KanbanPage() {
   return (
     <>
       <Helmet>
-        <title> Kanban | VietELite Eduction</title>
+        <title> Kanban | VietELite Education</title>
       </Helmet>
 
       <Container maxWidth={false} sx={{ height: 1 }}>

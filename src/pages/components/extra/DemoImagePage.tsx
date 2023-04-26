@@ -22,7 +22,7 @@ export default function DemoImagePage() {
   return (
     <>
       <Helmet>
-        <title> Extra Components: Image | VietELite Eduction</title>
+        <title> Extra Components: Image | VietELite Education</title>
       </Helmet>
 
       <Box

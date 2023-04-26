@@ -10,7 +10,7 @@ export default function AboutPage() {
   return (
     <>
       <Helmet>
-        <title> About us | VietELite Eduction</title>
+        <title> About us | VietELite Education</title>
       </Helmet>
 
       <AboutHero />

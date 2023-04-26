@@ -8,7 +8,7 @@ export default function RegisterPage() {
   return (
     <>
       <Helmet>
-        <title> Register | VietELite Eduction</title>
+        <title> Register | VietELite Education</title>
       </Helmet>
 
       <Register />

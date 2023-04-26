@@ -24,7 +24,7 @@ export default function InvoiceDetailsPage() {
   return (
     <>
       <Helmet>
-        <title> Invoice: View | VietELite Eduction</title>
+        <title> Invoice: View | VietELite Education</title>
       </Helmet>
 
       <Container maxWidth={themeStretch ? false : 'lg'}>

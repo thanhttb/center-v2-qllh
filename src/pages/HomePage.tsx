@@ -49,7 +49,7 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title> The starting point for your next project | VietELite Eduction</title>
+        <title> The starting point for your next project | VietELite Education</title>
       </Helmet>
 
       {progress}

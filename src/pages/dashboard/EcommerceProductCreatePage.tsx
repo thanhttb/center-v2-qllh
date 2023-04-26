@@ -17,7 +17,7 @@ export default function EcommerceProductCreatePage() {
   return (
     <>
       <Helmet>
-        <title> Ecommerce: Create a new product | VietELite Eduction</title>
+        <title> Ecommerce: Create a new product | VietELite Education</title>
       </Helmet>
 
       <Container maxWidth={themeStretch ? false : 'lg'}>

@@ -112,7 +112,7 @@ export default function EcommerceCheckoutPage() {
   return (
     <>
       <Helmet>
-        <title> Ecommerce: Checkout | VietELite Eduction</title>
+        <title> Ecommerce: Checkout | VietELite Education</title>
       </Helmet>
 
       <Container maxWidth={themeStretch ? false : 'lg'}>

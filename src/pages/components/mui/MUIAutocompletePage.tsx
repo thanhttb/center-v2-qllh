@@ -33,7 +33,7 @@ export default function MUIAutocompletePage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Autocomplete | VietELite Eduction</title>
+        <title> MUI Components: Autocomplete | VietELite Education</title>
       </Helmet>
 
       <Box

@@ -38,7 +38,7 @@ export default function MUITreesViewPage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Tree View | VietELite Eduction</title>
+        <title> MUI Components: Tree View | VietELite Education</title>
       </Helmet>
 
       <Box

@@ -14,7 +14,7 @@ export default function MUIChipPage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Chip | VietELite Eduction</title>
+        <title> MUI Components: Chip | VietELite Education</title>
       </Helmet>
 
       <Box

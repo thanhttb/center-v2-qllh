@@ -33,7 +33,7 @@ export default function MUITooltipPage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Tooltip | VietELite Eduction</title>
+        <title> MUI Components: Tooltip | VietELite Education</title>
       </Helmet>
 
       <Box

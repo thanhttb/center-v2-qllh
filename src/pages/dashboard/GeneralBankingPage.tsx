@@ -30,7 +30,7 @@ export default function GeneralBankingPage() {
   return (
     <>
       <Helmet>
-        <title> General: Banking | VietELite Eduction</title>
+        <title> General: Banking | VietELite Education</title>
       </Helmet>
 
       <Container maxWidth={themeStretch ? false : 'xl'}>

@@ -14,7 +14,7 @@ export default function DemoFormValidationPage() {
   return (
     <>
       <Helmet>
-        <title> Extra Components: Form Validation | VietELite Eduction</title>
+        <title> Extra Components: Form Validation | VietELite Education</title>
       </Helmet>
 
       <Box

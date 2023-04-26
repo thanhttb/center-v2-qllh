@@ -17,7 +17,7 @@ export default function InvoiceCreatePage() {
   return (
     <>
       <Helmet>
-        <title> Invoices: Create a new invoice | VietELite Eduction</title>
+        <title> Invoices: Create a new invoice | VietELite Education</title>
       </Helmet>
 
       <Container maxWidth={themeStretch ? false : 'lg'}>

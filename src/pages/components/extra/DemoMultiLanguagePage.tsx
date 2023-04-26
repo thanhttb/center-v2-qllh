@@ -46,7 +46,7 @@ export default function DemoMultiLanguagePage() {
   return (
     <>
       <Helmet>
-        <title> Extra Components: Multi Language | VietELite Eduction</title>
+        <title> Extra Components: Multi Language | VietELite Education</title>
       </Helmet>
 
       <Box

@@ -35,7 +35,7 @@ export default function EcommerceProductEditPage() {
   return (
     <>
       <Helmet>
-        <title> Ecommerce: Edit product | VietELite Eduction</title>
+        <title> Ecommerce: Edit product | VietELite Education</title>
       </Helmet>
 
       <Container maxWidth={themeStretch ? false : 'lg'}>

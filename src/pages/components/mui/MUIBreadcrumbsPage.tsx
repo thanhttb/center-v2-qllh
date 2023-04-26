@@ -15,7 +15,7 @@ export default function MUIBreadcrumbsPage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Breadcrumbs | VietELite Eduction</title>
+        <title> MUI Components: Breadcrumbs | VietELite Education</title>
       </Helmet>
 
       <Box

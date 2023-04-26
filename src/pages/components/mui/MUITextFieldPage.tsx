@@ -26,7 +26,7 @@ export default function MUITextFieldPage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Textfield | VietELite Eduction</title>
+        <title> MUI Components: Textfield | VietELite Education</title>
       </Helmet>
 
       <Box

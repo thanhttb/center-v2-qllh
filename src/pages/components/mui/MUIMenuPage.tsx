@@ -92,7 +92,7 @@ export default function MUIMenuPage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Menu | VietELite Eduction</title>
+        <title> MUI Components: Menu | VietELite Education</title>
       </Helmet>
 
       <Box

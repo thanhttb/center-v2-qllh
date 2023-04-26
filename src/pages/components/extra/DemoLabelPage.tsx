@@ -19,7 +19,7 @@ export default function DemoLabelPage() {
   return (
     <>
       <Helmet>
-        <title> Extra Components: Label | VietELite Eduction</title>
+        <title> Extra Components: Label | VietELite Education</title>
       </Helmet>
 
       <Box

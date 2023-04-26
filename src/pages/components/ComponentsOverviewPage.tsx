@@ -12,7 +12,7 @@ export default function ComponentsOverviewPage() {
   return (
     <>
       <Helmet>
-        <title> Components Overview | VietELite Eduction</title>
+        <title> Components Overview | VietELite Education</title>
       </Helmet>
 
       <ComponentHero />

@@ -30,7 +30,7 @@ export default function MUIPickersPage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Pickers | VietELite Eduction</title>
+        <title> MUI Components: Pickers | VietELite Education</title>
       </Helmet>
 
       <Box

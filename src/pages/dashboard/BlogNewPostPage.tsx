@@ -17,7 +17,7 @@ export default function BlogNewPostPage() {
   return (
     <>
       <Helmet>
-        <title> Blog: New Post | VietELite Eduction</title>
+        <title> Blog: New Post | VietELite Education</title>
       </Helmet>
 
       <Container maxWidth={themeStretch ? false : 'lg'}>

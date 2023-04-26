@@ -21,6 +21,7 @@ export const LoginPage = Loadable(lazy(() => import('../pages/auth/LoginPage')))
 // export const ResetPasswordPage = Loadable(lazy(() => import('../pages/auth/ResetPasswordPage')));
 
 // DASHBOARD: GENERAL
+export const GeneralDashboardPage = Loadable(lazy(() => import('../pages/dashboard/GeneralDashboardPage')));
 export const GeneralAppPage = Loadable(lazy(() => import('../pages/dashboard/GeneralAppPage')));
 export const GeneralEcommercePage = Loadable(
   lazy(() => import('../pages/dashboard/GeneralEcommercePage'))

@@ -47,7 +47,7 @@ export default function FoundationColorsPage() {
   return (
     <>
       <Helmet>
-        <title> Foundations: Colors | VietELite Eduction</title>
+        <title> Foundations: Colors | VietELite Education</title>
       </Helmet>
 
       <Box

@@ -52,7 +52,7 @@ export default function DemoSnackbarPage() {
   return (
     <>
       <Helmet>
-        <title> Extra Components: Snackbar | VietELite Eduction</title>
+        <title> Extra Components: Snackbar | VietELite Education</title>
       </Helmet>
 
       <Box

@@ -33,7 +33,7 @@ export default function MUIDataGridPage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: DataGrid | VietELite Eduction</title>
+        <title> MUI Components: DataGrid | VietELite Education</title>
       </Helmet>
 
       <Box

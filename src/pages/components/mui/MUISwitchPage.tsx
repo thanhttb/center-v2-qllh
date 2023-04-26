@@ -29,7 +29,7 @@ export default function MUISwitchPage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Switch | VietELite Eduction</title>
+        <title> MUI Components: Switch | VietELite Education</title>
       </Helmet>
 
       <Box

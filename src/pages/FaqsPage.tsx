@@ -10,7 +10,7 @@ export default function FaqsPage() {
   return (
     <>
       <Helmet>
-        <title> Faqs | VietELite Eduction</title>
+        <title> Faqs | VietELite Education</title>
       </Helmet>
 
       <FaqsHero />

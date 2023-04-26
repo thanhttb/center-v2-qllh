@@ -88,7 +88,7 @@ export default function EcommerceProductDetailsPage() {
   return (
     <>
       <Helmet>
-        <title>{`Ecommerce: ${product?.name || ''} | VietELite Eduction`}</title>
+        <title>{`Ecommerce: ${product?.name || ''} | VietELite Education`}</title>
       </Helmet>
 
       <Container maxWidth={themeStretch ? false : 'lg'}>

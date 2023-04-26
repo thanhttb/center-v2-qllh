@@ -13,7 +13,7 @@ export default function DemoScrollbarPage() {
   return (
     <>
       <Helmet>
-        <title> Extra Components: Scrollbar | VietELite Eduction</title>
+        <title> Extra Components: Scrollbar | VietELite Education</title>
       </Helmet>
 
       <Box

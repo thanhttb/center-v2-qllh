@@ -72,7 +72,7 @@ export default function MUITabsPage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Tabs | VietELite Eduction</title>
+        <title> MUI Components: Tabs | VietELite Education</title>
       </Helmet>
 
       <Box

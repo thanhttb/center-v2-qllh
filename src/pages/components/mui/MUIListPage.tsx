@@ -91,7 +91,7 @@ export default function MUIListPage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: List | VietELite Eduction</title>
+        <title> MUI Components: List | VietELite Education</title>
       </Helmet>
 
       <Box

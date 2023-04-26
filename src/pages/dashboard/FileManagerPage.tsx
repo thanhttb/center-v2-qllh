@@ -189,7 +189,7 @@ export default function FileManagerPage() {
   return (
     <>
       <Helmet>
-        <title> File Manager | VietELite Eduction</title>
+        <title> File Manager | VietELite Education</title>
       </Helmet>
 
       <Container maxWidth={themeStretch ? false : 'lg'}>

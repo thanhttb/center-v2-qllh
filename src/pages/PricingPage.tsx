@@ -12,7 +12,7 @@ export default function PricingPage() {
   return (
     <>
       <Helmet>
-        <title> Pricing | VietELite Eduction</title>
+        <title> Pricing | VietELite Education</title>
       </Helmet>
 
       <Container

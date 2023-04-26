@@ -19,7 +19,7 @@ export default function UserCardsPage() {
   return (
     <>
       <Helmet>
-        <title> User: Cards | VietELite Eduction</title>
+        <title> User: Cards | VietELite Education</title>
       </Helmet>
 
       <Container maxWidth={themeStretch ? false : 'lg'}>

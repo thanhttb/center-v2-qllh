@@ -40,7 +40,7 @@ export default function GeneralEcommercePage() {
   return (
     <>
       <Helmet>
-        <title> General: E-commerce | VietELite Eduction</title>
+        <title> General: E-commerce | VietELite Education</title>
       </Helmet>
 
       <Container maxWidth={themeStretch ? false : 'xl'}>

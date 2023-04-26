@@ -20,7 +20,7 @@ export default function DemoOrganizationalChartPage() {
   return (
     <>
       <Helmet>
-        <title> Extra Components: Organizational Chart | VietELite Eduction</title>
+        <title> Extra Components: Organizational Chart | VietELite Education</title>
       </Helmet>
 
       <Box

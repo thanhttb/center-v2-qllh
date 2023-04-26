@@ -34,7 +34,7 @@ export default function DemoCarouselsPage() {
   return (
     <>
       <Helmet>
-        <title> Extra Components: Carousels | VietELite Eduction</title>
+        <title> Extra Components: Carousels | VietELite Education</title>
       </Helmet>
 
       <Box

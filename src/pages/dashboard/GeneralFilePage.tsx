@@ -128,7 +128,7 @@ export default function GeneralFilePage() {
   return (
     <>
       <Helmet>
-        <title> General: File | VietELite Eduction</title>
+        <title> General: File | VietELite Education</title>
       </Helmet>
 
       <Container maxWidth={themeStretch ? false : 'xl'}>

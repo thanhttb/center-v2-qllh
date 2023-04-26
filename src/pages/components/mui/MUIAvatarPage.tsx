@@ -33,7 +33,7 @@ export default function MUIAvatarPage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Avatar | VietELite Eduction</title>
+        <title> MUI Components: Avatar | VietELite Education</title>
       </Helmet>
 
       <Box

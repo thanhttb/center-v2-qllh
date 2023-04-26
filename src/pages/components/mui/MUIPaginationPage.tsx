@@ -46,7 +46,7 @@ export default function MUIPaginationPage() {
   return (
     <>
       <Helmet>
-        <title> MUI Components: Pagination | VietELite Eduction</title>
+        <title> MUI Components: Pagination | VietELite Education</title>
       </Helmet>
 
       <Box

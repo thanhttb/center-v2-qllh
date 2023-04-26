@@ -78,7 +78,7 @@ export default function BlogPostPage() {
   return (
     <>
       <Helmet>
-        <title>{`Blog: ${post?.title || ''} | VietELite Eduction`}</title>
+        <title>{`Blog: ${post?.title || ''} | VietELite Education`}</title>
       </Helmet>
 
       <Container maxWidth={themeStretch ? false : 'lg'}>
