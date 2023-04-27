@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 // @mui
 import { useTheme } from '@mui/material/styles';
@@ -15,18 +16,23 @@ import {
 // components
 import { useSettingsContext } from '../../components/settings';
 // sections
+// import {
+//   AppWidget,
+//   AppWelcome,
+//   AppFeatured,
+//   AppNewInvoice,
+//   AppTopAuthors,
+//   AppTopRelated,
+//   AppAreaInstalled,
+//   AppWidgetSummary,
+//   AppCurrentDownload,
+//   AppTopInstalledCountries,
+// } from '../../sections/@dashboard/general/app';
+
 import {
-  AppWidget,
-  AppWelcome,
-  AppFeatured,
-  AppNewInvoice,
-  AppTopAuthors,
-  AppTopRelated,
-  AppAreaInstalled,
-  AppWidgetSummary,
-  AppCurrentDownload,
-  AppTopInstalledCountries,
-} from '../../sections/@dashboard/general/app';
+  DashboardWidgetSummary,
+  DashboardSelectDate,
+} from '../../sections/@dashboard/general/dashboard';
 // assets
 import { SeoIllustration } from '../../assets/illustrations';
 
@@ -34,8 +40,11 @@ import { SeoIllustration } from '../../assets/illustrations';
 
 export default function GeneralDashboardPage() {
   const { user } = useAuthContext();
-
   const theme = useTheme();
+
+  const [filterEndDate, setFilterEndDate] = useState<Date | null>(null);
+
+  const [filterStartDate, setFilterStartDate] = useState<Date | null>(null);
 
   const { themeStretch } = useSettingsContext();
 
@@ -46,21 +55,90 @@ export default function GeneralDashboardPage() {
       </Helmet>
 
       <Container maxWidth={themeStretch ? false : 'xl'}>
-        <Grid container spacing={3}>
-          
+        <Grid container spacing={2}>
+          {/* Header  */}
           <Grid item xs={12} md={4}>
-            <AppWidgetSummary
-              title="Total Active Users"
-              percent={2.6}
-              total={18765}
-              chart={{
-                colors: [theme.palette.primary.main],
-                series: [5, 18, 12, 51, 68, 11, 39, 37, 27, 20],
+            <DashboardSelectDate
+              filterEndDate={filterEndDate}
+              filterStartDate={filterStartDate}
+              onFilterStartDate={(newValue) => {
+                setFilterStartDate(newValue);
+              }}
+              onFilterEndDate={(newValue) => {
+                setFilterEndDate(newValue);
               }}
             />
           </Grid>
-
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={8} container spacing={2}>
+            <Grid item xs={4} md={2}>
+              <DashboardWidgetSummary
+                title="Total Active Users"
+                percent={2.6}
+                total={18765}
+                chart={{
+                  colors: [theme.palette.primary.main],
+                  series: [5, 18, 12, 51, 68, 11, 39, 37, 27, 20],
+                }}
+              />
+            </Grid>
+            <Grid item xs={4} md={2}>
+              <DashboardWidgetSummary
+                title="Total Active Users"
+                percent={2.6}
+                total={18765}
+                chart={{
+                  colors: [theme.palette.primary.main],
+                  series: [5, 18, 12, 51, 68, 11, 39, 37, 27, 20],
+                }}
+              />
+            </Grid>
+            <Grid item xs={4} md={2}>
+              <DashboardWidgetSummary
+                title="Total Active Users"
+                percent={2.6}
+                total={18765}
+                chart={{
+                  colors: [theme.palette.primary.main],
+                  series: [5, 18, 12, 51, 68, 11, 39, 37, 27, 20],
+                }}
+              />
+            </Grid>
+            <Grid item xs={4} md={2}>
+              <DashboardWidgetSummary
+                title="Total Active Users"
+                percent={2.6}
+                total={18765}
+                chart={{
+                  colors: [theme.palette.primary.main],
+                  series: [5, 18, 12, 51, 68, 11, 39, 37, 27, 20],
+                }}
+              />
+            </Grid>
+            <Grid item xs={4} md={2}>
+              <DashboardWidgetSummary
+                title="Total Active Users"
+                percent={2.6}
+                total={18765}
+                chart={{
+                  colors: [theme.palette.primary.main],
+                  series: [5, 18, 12, 51, 68, 11, 39, 37, 27, 20],
+                }}
+              />
+            </Grid>
+            <Grid item xs={4} md={2}>
+              <DashboardWidgetSummary
+                title="Total Active Users"
+                percent={2.6}
+                total={18765}
+                chart={{
+                  colors: [theme.palette.primary.main],
+                  series: [5, 18, 12, 51, 68, 11, 39, 37, 27, 20],
+                }}
+              />
+            </Grid>
+          </Grid>
+          {/* Table  */}
+          {/* <Grid item xs={12} md={4}>
             <AppWidgetSummary
               title="Total Installed"
               percent={0.2}
@@ -102,8 +180,8 @@ export default function GeneralDashboardPage() {
                 ],
               }}
             />
-          </Grid>
-
+          </Grid> */}
+          {/* 
           <Grid item xs={12} md={6} lg={8}>
             <AppAreaInstalled
               title="Area Installed"
@@ -177,7 +255,7 @@ export default function GeneralDashboardPage() {
                 }}
               />
             </Stack>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Container>
     </>
