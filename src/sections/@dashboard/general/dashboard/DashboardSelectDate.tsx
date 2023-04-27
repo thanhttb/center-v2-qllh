@@ -1,9 +1,14 @@
 // @mui
-import { Stack, InputAdornment, TextField, MenuItem, Button } from '@mui/material';
+import { Stack, InputAdornment, TextField, MenuItem, Button,Chip, FormControl } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers';
 // components
 import Iconify from '../../../../components/iconify';
 import { alpha } from '@mui/material/styles';
+
+import FormProvider, {
+    RHFAutocomplete,
+  } from '../../../../components/hook-form';
+
 const TAGS_OPTION = [
     'Toy Story 3',
     'Logan',
@@ -20,7 +25,7 @@ const TAGS_OPTION = [
     '3 Idiots',
   ];
 // mui
-import { useTheme } from '@mui/material/styles';
+// import { useTheme } from '@mui/material/styles';
 // ----------------------------------------------------------------------
 
 const INPUT_WIDTH = 180;
@@ -39,7 +44,7 @@ export default function DashboardSelectdate({
   onFilterStartDate,
    ...other
 }: Props) {
-    const theme = useTheme();
+    // const theme = useTheme();
   return (
     <Stack
       spacing={1}
@@ -48,7 +53,7 @@ export default function DashboardSelectdate({
         md: 'row',
       }}
       
-      sx={{ p:1, justifyContent: 'space-between',boxShadow: theme.customShadows.dropdown, borderRadius: "16px" }}
+      sx={{ p:1, justifyContent: 'space-between',borderRadius: "16px" }}
       {...other}
     >
      
@@ -81,11 +86,12 @@ export default function DashboardSelectdate({
           />
         )}
       />
-       {/* <RHFAutocomplete
+      {/* <FormControl>
+       <RHFAutocomplete
                   name="tags"
                   multiple
                   freeSolo
-                  onChange={(event, newValue) => setValue('tags', newValue)}
+                //   onChange={(event, newValue) => setValue('tags', newValue)}
                   options={TAGS_OPTION.map((option) => option)}
                   renderTags={(value, getTagProps) =>
                     value.map((option, index) => (
@@ -93,7 +99,8 @@ export default function DashboardSelectdate({
                     ))
                   }
                   renderInput={(params) => <TextField label="Tags" {...params} />}
-                /> */}
+                />
+                </FormControl> */}
     </Stack>
   );
 }
