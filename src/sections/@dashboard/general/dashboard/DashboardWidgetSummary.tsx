@@ -27,9 +27,9 @@ export default function DashboardWidgetSummary({ title, percent, total, chart, s
   const theme = useTheme();
  
   return (
-    <Card sx={{ display: 'flex', alignItems: 'center', p: 1, ...sx, boxShadow: theme.customShadows.dropdown,  }} {...other}>
+    <Card sx={{ display: 'flex', alignItems: 'center', p: 1.5, ...sx, boxShadow: theme.customShadows.dropdown,  }} {...other}>
       <Box sx={{ flexGrow: 1 }}>
-        <Typography>{title}:</Typography>
+        <Typography style={{fontSize: 14}}>{title}:</Typography>
         <Typography variant="h5">{fNumber(total)}</Typography>
       </Box>
 

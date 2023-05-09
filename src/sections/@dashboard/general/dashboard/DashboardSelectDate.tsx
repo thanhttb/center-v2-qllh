@@ -9,10 +9,10 @@ import {
   FormControl,
   Box,
   Button,
+  InputLabel
 } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers';
 // components
-import Iconify from '../../../../components/iconify';
 import { alpha, styled } from '@mui/material/styles';
 
 import { Theme, useTheme } from '@mui/material/styles';
@@ -35,16 +35,13 @@ const MenuProps = {
 };
 
 const names = [
-  'Oliver Hansen',
-  'Van Henry',
-  'April Tucker',
-  'Ralph Hubbard',
-  'Omar Alexander',
-  'Carlos Abbott',
-  'Miriam Wagner',
-  'Bradley Wilkerson',
-  'Virginia Andrews',
-  'Kelly Snyder',
+  {id: 1, cs: 'Tất cả cơ sở'},
+  {id: 2, cs: 'VietElite Trụ sở điều hành'},
+  {id: 3, cs: 'VietElite Trần Duy Hưng'},
+  {id: 4, cs: 'VietElite Phạm Tuấn Tài'},
+  {id: 5, cs: 'VietElite Đỗ Quang'},
+  {id: 6, cs: 'VietElite Đỗ Quang Tiểu Học'},
+  {id: 7, cs: 'VietElite Văn Quán'},
 ];
 
 
@@ -90,8 +87,6 @@ const BootstrapButton = styled(Button)({
 });
 // ----------------------------------------------------------------------
 
-const INPUT_WIDTH = 180;
-
 interface Props extends CardProps {
   filterEndDate: Date | null;
   filterStartDate: Date | null;
@@ -117,7 +112,7 @@ export default function DashboardSelectdate({
   ...other
 }: Props) {
   const theme = useTheme();
-  const [personName, setPersonName] = useState<string[]>([]);
+  const [personName, setPersonName] = useState<string[]>(['Tất cả cơ sở']);
 
   const handleChange = (event: SelectChangeEvent<typeof personName>) => {
     const {
@@ -146,6 +141,7 @@ export default function DashboardSelectdate({
           xs: 'column',
           md: 'row',
         }}
+        sx={{ width: '100%'}}
         {...other}
       >
         <DatePicker
@@ -156,9 +152,7 @@ export default function DashboardSelectdate({
             <TextField
               {...params}
               fullWidth
-              // sx={{
-              //   maxWidth: { md: INPUT_WIDTH },
-              // }}
+              // sx={{width: '100%'}}
             />
           )}
         />
@@ -171,37 +165,43 @@ export default function DashboardSelectdate({
             <TextField
               {...params}
               fullWidth
-              // sx={{
-              //   maxWidth: { md: INPUT_WIDTH },
-              // }}
+              // sx={{width: '100%' }}
             />
           )}
         />
       </Stack>
 
-      <Select
-        labelId="demo-multiple-chip-label"
-        id="demo-multiple-chip"
-        multiple
-        sx={{ width: '100%', p: 0, marginY: 1 }}
-        value={personName}
-        onChange={handleChange}
-        input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
-        renderValue={(selected) => (
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-            {selected.map((value) => (
-              <Chip key={value} label={value} />
-            ))}
-          </Box>
-        )}
-        MenuProps={MenuProps}
-      >
-        {names.map((name) => (
-          <MenuItem key={name} value={name} style={getStyles(name, personName, theme)}>
-            {name}
-          </MenuItem>
-        ))}
-      </Select>
+      <FormControl sx={{ m: 1, width: '100%' }}>
+        <InputLabel id="demo-multiple-chip-label">Cơ sở</InputLabel>
+        <Select
+          labelId="demo-multiple-chip-label"
+          id="demo-multiple-chip"
+          multiple
+          value={personName}
+          onChange={handleChange}
+          input={<OutlinedInput id="select-multiple-chip" label="Cơ sở" />}
+          renderValue={(selected) => (
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+              {selected.map((value) => (
+                <Chip key={value} label={value} />
+              ))}
+            </Box>
+          )}
+          MenuProps={MenuProps}
+        >
+          {names.map((name) => (
+            <MenuItem
+              key={name.id}
+              value={name.cs}
+              style={getStyles(name.cs, personName, theme)}
+            >
+              {name.cs}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+
+     
 
       <BootstrapButton variant="contained" disableRipple>
         LÀM MỚI
