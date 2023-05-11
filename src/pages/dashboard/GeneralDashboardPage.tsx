@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 // @mui
 import { useTheme } from '@mui/material/styles';
-import { Container, Grid, Stack, Button, Tooltip } from '@mui/material';
+import { Container, Grid, Stack, Button, Tooltip, Card, CardHeader, Box } from '@mui/material';
 import {
   DataGridPro,
   GridRow,
@@ -16,6 +16,7 @@ import {
   GridToolbarDensitySelector,
   GridColDef,
   GridColumnHeaderParams,
+  GridValueGetterParams,
 } from '@mui/x-data-grid-pro';
 import { useDemoData } from '@mui/x-data-grid-generator/';
 import { IconButton } from '@mui/material';
@@ -23,6 +24,7 @@ import CreateIcon from '@mui/icons-material/Create';
 import AccessibilityNewRoundedIcon from '@mui/icons-material/AccessibilityNewRounded';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import QueueIcon from '@mui/icons-material/Queue';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 // auth
 import { useAuthContext } from '../../auth/useAuthContext';
 // _mock_
@@ -44,6 +46,15 @@ import {
 import { SeoIllustration } from '../../assets/illustrations';
 import Typography from 'src/theme/overrides/Typography';
 
+const MemoizedRow = React.memo(GridRow);
+
+const MemoizedColumnHeaders = React.memo(GridColumnHeaders);
+
+interface CustomColumnProps {
+  name: string;
+  email: string;
+  phone: string;
+}
 // ----------------------------------------------------------------------
 
 export default function GeneralDashboardPage() {
@@ -57,35 +68,15 @@ export default function GeneralDashboardPage() {
 
   const { themeStretch } = useSettingsContext();
 
-  const [filterModel, setFilterModel] = useState({ items: [] });
-
-  const handleFilterChange = (params: any) => {
-    setFilterModel(params.filterModel);
-  };
-
-  const handleHeaderFilterChange = (column: any, filterModel: any) => {
-    const newFilterModel = { ...filterModel };
-    const index = newFilterModel.items.findIndex((item: any) => item.columnField === column.field);
-
-    if (index === -1) {
-      newFilterModel.items.push({
-        columnField: column.field,
-        operatorValue: 'contains',
-        value: '',
-      });
-    } else {
-      newFilterModel.items[index] = {
-        ...newFilterModel.items[index],
-        ...filterModel,
-      };
-    }
-
-    setFilterModel(newFilterModel);
-  };
-
   const { data } = useDemoData({
     dataSet: 'Commodity',
     rowLength: 20,
+    maxColumns: 10,
+  });
+
+  const data_tuition_fee_list = useDemoData({
+    dataSet: 'Employee',
+    rowLength: 100,
     maxColumns: 10,
   });
 
@@ -107,6 +98,17 @@ export default function GeneralDashboardPage() {
     console.log(`Xóa dòng có id ${id}`);
     // Xử lý xóa tại đây
   };
+
+  const CustomColumn: React.FC<CustomColumnProps> = ({ name, email, phone }) => {
+    return (
+      <div style={{ flexDirection: 'column', display: 'flex' }}>
+        <span style={{ fontSize: 11 }}>{name}</span>
+        <span style={{ fontSize: 11 }}>{email}</span>
+        <span style={{ fontSize: 11 }}>{phone}</span>
+      </div>
+    );
+  };
+
   const columns = [
     {
       field: 'actions',
@@ -152,18 +154,88 @@ export default function GeneralDashboardPage() {
     { field: 'unitPrice', headerName: 'Vắng', width: 120 },
   ];
 
+  const columns_tuition = [
+   
+    {
+      field: 'actions',
+      headerName: 'Actions',
+      width: 60,
+      sortable: false,
+      disableColumnFilter: true,
+      disableColumnMenu: true,
+      disableColumnSelector: true,
+      renderCell: (params: any) => {
+        return (
+          <>
+            <Tooltip title="Xem bảng kê">
+              <IconButton>
+                <AttachMoneyIcon />
+              </IconButton>
+            </Tooltip>
+          </>
+        );
+      },
+    },
+    {
+      field: 'phone',
+      headerName: 'Lớp',
+      width: 100,
+    },
+    {
+      field: 'name',
+      headerName: 'Học sinh',
+      width: 120,
+    },
+    {
+      field: 'customColumn',
+      headerName: 'Phụ huynh',
+      width: 150,
+      flex: 1,
+      renderCell: (params: any) => (
+        <CustomColumn
+          {...params.row}
+          name={params.row.name}
+          email={params.row.email}
+          phone={params.row.phone}
+        />
+      ),
+      sortable: true,
+      sortComparator: (v1: any, v2: any) => v1.email.localeCompare(v2.email), // Sắp xếp theo field2
+      valueGetter: (params: any) => `${params.row.name} - ${params.row.email}`, // Kết hợp giá trị từ field1 và field2
+    },
+  ];
+
   function MyToolbar() {
     return (
-      <GridToolbarContainer sx={{ justifyContent: 'flex-end' }}>
-        <GridToolbarQuickFilter placeholder='Tìm kiếm'/>
-       
-        <GridToolbarDensitySelector />
-        <GridToolbarExport/>
-        <Tooltip title="Thêm mới ca học">
-          <IconButton>
-            <QueueIcon />
-          </IconButton>
-        </Tooltip>
+      <GridToolbarContainer title="Danh Sách Ca Học" sx={{ justifyContent: 'space-between' }}>
+        <div>
+          <h3>Danh Sách Ca Học</h3>
+        </div>
+        <div>
+          <GridToolbarQuickFilter placeholder="Tìm kiếm" />
+
+          <GridToolbarDensitySelector />
+          <GridToolbarExport />
+          <Tooltip title="Thêm mới ca học">
+            <IconButton>
+              <QueueIcon />
+            </IconButton>
+          </Tooltip>
+        </div>
+      </GridToolbarContainer>
+    );
+  }
+
+  function MyToolbarTuition() {
+    return (
+      <GridToolbarContainer title="Danh Sách Học Phí" sx={{ justifyContent: 'space-between' }}>
+        <div>
+          <h3>Danh Sách Học Phí</h3>
+        </div>
+        <div>
+          <GridToolbarQuickFilter placeholder="Tìm kiếm" />
+          <GridToolbarExport />
+        </div>
       </GridToolbarContainer>
     );
   }
@@ -203,6 +275,7 @@ export default function GeneralDashboardPage() {
             </Grid>
           </Grid>
 
+          {/* Danh sách ca học  */}
           <Grid
             item
             md={12}
@@ -212,55 +285,62 @@ export default function GeneralDashboardPage() {
               m: 2,
             }}
           >
-            <div style={{ width: '100%' }}>
-              <DataGridPro
-                {...data}
-                rows={rowsData.rows}
-                columns={columns}
-                rowSelection={false}
-                initialState={{
-                  ...data.initialState,
-                  pagination: {
-                    ...data.initialState?.pagination,
-                    paginationModel: { pageSize: 5 },
-                  },
-                }}
-                components={{
-                  Toolbar: MyToolbar,
-                }}
-                pagination
-                pageSizeOptions={[5, 10, 25, 50, 100]}
-              
-              />
-            </div>
+            {/* <Card>
+              <Box sx={{ width: '100%' }}> */}
+            <DataGridPro
+              {...data}
+              rows={rowsData.rows}
+              columns={columns}
+              loading={data.rows.length === 0}
+              rowSelection={false}
+              initialState={{
+                ...data.initialState,
+                pagination: {
+                  ...data.initialState?.pagination,
+                  paginationModel: { pageSize: 5 },
+                },
+              }}
+              components={{
+                Toolbar: MyToolbar,
+                Row: MemoizedRow,
+                ColumnHeaders: MemoizedColumnHeaders,
+              }}
+              pagination
+              pageSizeOptions={[5, 10, 25, 50, 100]}
+            />
+            {/* </Box>
+            </Card> */}
+          </Grid>
+          {/* Danh sách học phí */}
+          <Grid
+            item
+            sm={12}
+            md={7}
+            sx={{
+              boxShadow: theme.customShadows.dropdown,
+              borderRadius: 2,
+              m: 2,
+            }}
+          >
+            <DataGridPro
+              rows={data_tuition_fee_list.data.rows}
+              columns={columns_tuition}
+              loading={data.rows.length === 0}
+              initialState={{
+                ...data_tuition_fee_list.data.initialState,
+                pagination: { paginationModel: { pageSize: 5 } },
+              }}
+              components={{
+                Toolbar: MyToolbarTuition,
+                Row: MemoizedRow,
+                ColumnHeaders: MemoizedColumnHeaders,
+              }}
+              pagination
+              pageSizeOptions={[5, 10, 25, 50, 100]}
+            />
           </Grid>
         </Grid>
       </Container>
     </>
-  );
-}
-
-interface ColumnHeaderProps {
-  column: GridColDef;
-  onFilterChange: (params: { columnField: string; operatorValue: string; value: any }) => void;
-}
-
-function ColumnHeader({ column, onFilterChange }: ColumnHeaderProps) {
-  const handleFilterChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    onFilterChange({
-      columnField: column.field as string,
-      operatorValue: 'contains',
-      value,
-    });
-  };
-  console.log('columnHeader', column);
-
-  return (
-    <div>
-      <h1>{column?.headerName}</h1>
-      <br />
-      <input type="text" onChange={handleFilterChange} />
-    </div>
   );
 }

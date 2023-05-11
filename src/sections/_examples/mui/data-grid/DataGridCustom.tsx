@@ -6,7 +6,7 @@ import {
   DataGrid,
   GridColDef,
   GridToolbar,
-  GridSelectionModel,
+  GridRowSelectionModel,
   getGridNumericOperators,
   GridFilterInputValueProps,
 } from '@mui/x-data-grid';
@@ -39,7 +39,7 @@ const columns: GridColDef[] = [
 
   {
     field: 'id',
-    hide: true,
+    // hide: true,
   },
   {
     field: 'avatar',
@@ -171,7 +171,7 @@ type Props = {
 };
 
 export default function DataGridCustom({ data }: Props) {
-  const [selectionModel, setSelectionModel] = useState<GridSelectionModel>([]);
+  const [selectionModel, setSelectionModel] = useState<GridRowSelectionModel>([]);
 
   if (columns.length > 0) {
     const ratingColumn = columns.find((column) => column.field === 'rating')!;
@@ -189,19 +189,17 @@ export default function DataGridCustom({ data }: Props) {
 
   const selected = data.filter((row) => selectionModel.includes(row.id));
 
-  console.log('SELECTED', selected);
-
   return (
     <>
       <DataGrid
         checkboxSelection
-        disableSelectionOnClick
+        // disableSelectionOnClick
         rows={data}
         columns={columns}
         pagination
-        onSelectionModelChange={(newSelectionModel) => {
-          setSelectionModel(newSelectionModel);
-        }}
+        // onSelectionModelChange={(newSelectionModel : any) => {
+        //   setSelectionModel(newSelectionModel);
+        // }}
         components={{
           Toolbar: GridToolbar,
         }}
