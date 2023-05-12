@@ -25,6 +25,9 @@ import {
   GeneralBookingPage,
   GeneralEcommercePage,
   GeneralAnalyticsPage,
+  // Đào tạo
+  ClassesPage,
+  ClassPage,
   // Dashboard: User
   UserListPage,
   UserEditPage,
@@ -190,8 +193,9 @@ export default function Router() {
 
       children: [
         { element: <Navigate to={PATH_AFTER_LOGIN} replace />, index: true },
-        { path: 'app', element: <GeneralAppPage /> },
         { path: 'dashboard', element: <GeneralDashboardPage /> },
+        { path: 'classes', element: <ClassesPage /> },
+        { path: 'class/:id', element: <ClassPage /> },
         { path: 'ecommerce', element: <GeneralEcommercePage /> },
         { path: 'analytics', element: <GeneralAnalyticsPage /> },
         { path: 'banking', element: <GeneralBankingPage /> },

@@ -15,13 +15,14 @@ const Loadable = (Component: ElementType) => (props: any) =>
 
 // AUTH
 export const LoginPage = Loadable(lazy(() => import('../pages/auth/LoginPage')));
-// export const RegisterPage = Loadable(lazy(() => import('../pages/auth/RegisterPage')));
-// export const VerifyCodePage = Loadable(lazy(() => import('../pages/auth/VerifyCodePage')));
-// export const NewPasswordPage = Loadable(lazy(() => import('../pages/auth/NewPasswordPage')));
-// export const ResetPasswordPage = Loadable(lazy(() => import('../pages/auth/ResetPasswordPage')));
-
 // DASHBOARD: GENERAL
 export const GeneralDashboardPage = Loadable(lazy(() => import('../pages/dashboard/GeneralDashboardPage')));
+// Đào tạo
+export const ClassesPage = Loadable(lazy(() => import('../pages/dashboard/ClassesPage')));
+export const ClassPage = Loadable(lazy(() => import('../pages/dashboard/ClassPage')));
+
+
+
 export const GeneralAppPage = Loadable(lazy(() => import('../pages/dashboard/GeneralAppPage')));
 export const GeneralEcommercePage = Loadable(
   lazy(() => import('../pages/dashboard/GeneralEcommercePage'))
@@ -100,7 +101,7 @@ export const BlankPage = Loadable(lazy(() => import('../pages/dashboard/BlankPag
 // MAIN
 // export const Page500 = Loadable(lazy(() => import('../pages/Page500')));
 // export const Page403 = Loadable(lazy(() => import('../pages/Page403')));
-// export const Page404 = Loadable(lazy(() => import('../pages/Page404')));
+export const Page404 = Loadable(lazy(() => import('../pages/Page404')));
 // export const HomePage = Loadable(lazy(() => import('../pages/HomePage')));
 // export const FaqsPage = Loadable(lazy(() => import('../pages/FaqsPage')));
 // export const AboutPage = Loadable(lazy(() => import('../pages/AboutPage')));

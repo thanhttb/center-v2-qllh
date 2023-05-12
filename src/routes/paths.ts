@@ -39,7 +39,16 @@ export const PATH_PAGE = {
 export const PATH_DASHBOARD = {
   // dashboard:  path(ROOTS_DASHBOARD, '/dashboard'),
   root:  path(ROOTS_DASHBOARD, '/dashboard'),
-  
+  classes: {
+    root: path(ROOTS_DASHBOARD, '/classes'),
+    attendance: path(ROOTS_DASHBOARD, '/attendance'),
+    cauHoi: path(ROOTS_DASHBOARD, '/cau-hoi'),
+    mucTieu: path(ROOTS_DASHBOARD, '/muc-tieu'),
+    events: path(ROOTS_DASHBOARD, '/events'),
+    khoaHoc: path(ROOTS_DASHBOARD, '/khoa-hoc'),
+  },
+
+
   kanban: path(ROOTS_DASHBOARD, '/kanban'),
   calendar: path(ROOTS_DASHBOARD, '/calendar'),
   fileManager: path(ROOTS_DASHBOARD, '/files-manager'),

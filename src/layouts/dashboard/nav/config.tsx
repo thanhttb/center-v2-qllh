@@ -50,15 +50,15 @@ const navConfig = [
       // Đào tạo
       {
         title: 'Đào tạo',
-        path: PATH_DASHBOARD.user.root,
+        path: PATH_DASHBOARD.classes.root,
         icon: <LocalLibraryIcon/>,
         children: [
-          { title: 'Lớp học', path: PATH_DASHBOARD.user.profile },
-          { title: 'Điểm danh', path: PATH_DASHBOARD.user.cards },
-          { title: 'Kho bài tập', path: PATH_DASHBOARD.user.list },
-          { title: 'Mục tiêu KS', path: PATH_DASHBOARD.user.new },
-          { title: 'Thi thử', path: PATH_DASHBOARD.user.demoEdit },
-          { title: 'Khóa học', path: PATH_DASHBOARD.user.account },
+          { title: 'Lớp học', path: PATH_DASHBOARD.classes.root },
+          { title: 'Điểm danh', path: PATH_DASHBOARD.classes.attendance },
+          { title: 'Kho bài tập', path: PATH_DASHBOARD.classes.cauHoi },
+          { title: 'Mục tiêu KS', path: PATH_DASHBOARD.classes.mucTieu },
+          { title: 'Thi thử', path: PATH_DASHBOARD.classes.events },
+          { title: 'Khóa học', path: PATH_DASHBOARD.classes.khoaHoc },
         ],
       },
        // Công tác học sinh

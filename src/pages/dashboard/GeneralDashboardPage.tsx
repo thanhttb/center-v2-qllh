@@ -282,7 +282,7 @@ export default function GeneralDashboardPage() {
             sx={{
               boxShadow: theme.customShadows.dropdown,
               borderRadius: 2,
-              m: 2,
+              mt: 2,
             }}
           >
             {/* <Card>
