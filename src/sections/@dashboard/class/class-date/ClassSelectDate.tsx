@@ -112,36 +112,16 @@ import {
     ...other
   }: Props) {
     const theme = useTheme();
-    const [personName, setPersonName] = useState<string[]>(['Tất cả cơ sở']);
   
-    const handleChange = (event: SelectChangeEvent<typeof personName>) => {
-      const {
-        target: { value },
-      } = event;
-      setPersonName(
-        // On autofill we get a stringified value.
-        typeof value === 'string' ? value.split(',') : value
-      );
-    };
+    
     return (
-      <Card
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          p: 1,
-          ...sx,
-          boxShadow: theme.customShadows.dropdown,
-        }}
-        {...other}
-      >
         <Stack
           spacing={1}
           direction={{
             xs: 'column',
             md: 'row',
           }}
-          sx={{ width: '100%'}}
+          sx={{ width: '40%'}}
           {...other}
         >
           <DatePicker
@@ -165,50 +145,10 @@ import {
               <TextField
                 {...params}
                 fullWidth
-                // sx={{width: '100%' }}
               />
             )}
           />
         </Stack>
-  
-        <FormControl sx={{ m: 1, width: '100%' }}>
-          <InputLabel id="demo-multiple-chip-label">Cơ sở</InputLabel>
-          <Select
-            labelId="demo-multiple-chip-label"
-            id="demo-multiple-chip"
-            multiple
-            value={personName}
-            onChange={handleChange}
-            input={<OutlinedInput id="select-multiple-chip" label="Cơ sở" />}
-            renderValue={(selected) => (
-              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-                {selected.map((value) => (
-                  <Chip key={value} label={value} />
-                ))}
-              </Box>
-            )}
-            MenuProps={MenuProps}
-          >
-            {names.map((name) => (
-              <MenuItem
-                key={name.id}
-                value={name.cs}
-                style={getStyles(name.cs, personName, theme)}
-              >
-                {name.cs}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-  
-       
-  
-        <BootstrapButton variant="contained" disableRipple>
-          LÀM MỚI
-        </BootstrapButton>
-  
-       
-      </Card>
     );
   }
   

@@ -2,21 +2,15 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 // @mui
 import { useTheme } from '@mui/material/styles';
-import { Container, Grid, Stack, Button, Tooltip, Card, CardHeader, Box } from '@mui/material';
+import { Container, Grid, Stack, Button, Tooltip, Card, CardHeader, Box, Chip,Typography } from '@mui/material';
 import {
   DataGridPro,
   GridRow,
   GridColumnHeaders,
-  GridToolbar,
   GridToolbarContainer,
   GridToolbarExport,
-  GridToolbarFilterButton,
   GridToolbarQuickFilter,
-  GridFilterModel,
   GridToolbarDensitySelector,
-  GridColDef,
-  GridColumnHeaderParams,
-  GridValueGetterParams,
 } from '@mui/x-data-grid-pro';
 import { useDemoData } from '@mui/x-data-grid-generator/';
 import { IconButton } from '@mui/material';
@@ -43,8 +37,6 @@ import {
   DashboardSelectDate,
 } from '../../sections/@dashboard/general/dashboard';
 // assets
-import { SeoIllustration } from '../../assets/illustrations';
-import Typography from 'src/theme/overrides/Typography';
 
 const MemoizedRow = React.memo(GridRow);
 
@@ -55,6 +47,20 @@ interface CustomColumnProps {
   email: string;
   phone: string;
 }
+
+const rows = [
+  { id: 1, german: "der Kuchen", english: "cake", p_name: "Nguyễn Minh Ngọc 1", p_phone: "098124234", p_email:"bqminh30@gmail.com", pay: 0 },
+  { id: 2, german: "rot", english: "red",  p_name: "Nguyễn Minh Ngọc 2", p_phone: "098124234", p_email:"bqminh30@gmail.com", pay: 0 },
+  { id: 3, german: "das Auto", english: "car",  p_name: "Nguyễn Minh Ngọc 3", p_phone: "098124234", p_email:"bqminh30@gmail.com", pay: 0},
+  { id: 4, german: "fliegend", english: "flying",  p_name: "Nguyễn Minh Ngọc 4", p_phone: "098124234", p_email:"bqminh30@gmail.com",pay: 0},
+  { id: 5, german: "grün", english: "green",  p_name: "Nguyễn Minh Ngọc 5", p_phone: "098124234", p_email:"bqminh30@gmail.com",pay: 0},
+  { id: 6, german: "der Hubschrauber Gun", english: "helicopter", p_name: "Nguyễn Minh Ngọc 6", p_phone: "098124234", p_email:"bqminh30@gmail.com", pay: 0},
+  { id: 7, german: "die Gabel", english: "fork",  p_name: "Nguyễn Minh Ngọc 7", p_phone: "098124234", p_email:"bqminh30@gmail.com", pay: 0},
+  { id: 8, german: "das Hemd", english: "shirt",  p_name: "Nguyễn Minh Ngọc 8", p_phone: "098124234", p_email:"bqminh30@gmail.com", pay: 0},
+  { id: 9, german: "tatsächlich", english: "actual", p_name: "Nguyễn Minh Ngọc 9", p_phone: "098124234", p_email:"bqminh30@gmail.com",pay: 0},
+  { id: 10, german: "der Bus", english: "bus", p_name: "Nguyễn Minh Ngọc 10", p_phone: "088888888", p_email:"bqminh30@gmail.com", pay: 0}
+]
+
 // ----------------------------------------------------------------------
 
 export default function GeneralDashboardPage() {
@@ -71,12 +77,6 @@ export default function GeneralDashboardPage() {
   const { data } = useDemoData({
     dataSet: 'Commodity',
     rowLength: 20,
-    maxColumns: 10,
-  });
-
-  const data_tuition_fee_list = useDemoData({
-    dataSet: 'Employee',
-    rowLength: 100,
     maxColumns: 10,
   });
 
@@ -102,7 +102,7 @@ export default function GeneralDashboardPage() {
   const CustomColumn: React.FC<CustomColumnProps> = ({ name, email, phone }) => {
     return (
       <div style={{ flexDirection: 'column', display: 'flex' }}>
-        <span style={{ fontSize: 11 }}>{name}</span>
+        <span style={{ fontSize: 12, fontWeight: 600 }}>{name}</span>
         <span style={{ fontSize: 11 }}>{email}</span>
         <span style={{ fontSize: 11 }}>{phone}</span>
       </div>
@@ -159,7 +159,7 @@ export default function GeneralDashboardPage() {
     {
       field: 'actions',
       headerName: 'Actions',
-      width: 60,
+      width: 100,
       sortable: false,
       disableColumnFilter: true,
       disableColumnMenu: true,
@@ -177,32 +177,35 @@ export default function GeneralDashboardPage() {
       },
     },
     {
-      field: 'phone',
+      field: 'english',
       headerName: 'Lớp',
       width: 100,
     },
     {
-      field: 'name',
+      field: 'german',
       headerName: 'Học sinh',
-      width: 120,
+      width: 150,
     },
     {
-      field: 'customColumn',
+      field: 'tags',
       headerName: 'Phụ huynh',
       width: 150,
       flex: 1,
+      // type: "singleSelect",
       renderCell: (params: any) => (
         <CustomColumn
           {...params.row}
-          name={params.row.name}
-          email={params.row.email}
-          phone={params.row.phone}
+          name={params.row.p_name}
+          email={params.row.p_email}
+          phone={params.row.p_phone}
         />
       ),
+      valueGetter: (params : any) => `${params.row.p_name + params.row.p_email + params.row.p_phone}` ,
       sortable: true,
-      sortComparator: (v1: any, v2: any) => v1.email.localeCompare(v2.email), // Sắp xếp theo field2
-      valueGetter: (params: any) => `${params.row.name} - ${params.row.email}`, // Kết hợp giá trị từ field1 và field2
+      // sortComparator: tagsSortComparator,
+      // filterOperators: tagsFilterOperators
     },
+    { field: "pay", headerName: "Học phí", width: 100},
   ];
 
   function MyToolbar() {
@@ -315,20 +318,23 @@ export default function GeneralDashboardPage() {
           <Grid
             item
             sm={12}
-            md={7}
+            md={8}
             sx={{
               boxShadow: theme.customShadows.dropdown,
               borderRadius: 2,
-              m: 2,
+              mt: 2,
             }}
           >
             <DataGridPro
-              rows={data_tuition_fee_list.data.rows}
+              rows={rows}
               columns={columns_tuition}
-              loading={data.rows.length === 0}
+              density={"comfortable"}
+              // checkboxSelection
+            disableRowSelectionOnClick
+              loading={rows.length === 0}
               initialState={{
-                ...data_tuition_fee_list.data.initialState,
-                pagination: { paginationModel: { pageSize: 5 } },
+                // ...data_tuition_fee_list.data.initialState,
+                pagination: { paginationModel: { pageSize: 10 } },
               }}
               components={{
                 Toolbar: MyToolbarTuition,

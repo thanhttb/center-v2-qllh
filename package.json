@@ -61,6 +61,8 @@
     "@mui/x-date-pickers": "^5.0.4",
     "@react-pdf/renderer": "^3.0.0",
     "@reduxjs/toolkit": "^1.8.6",
+    "@syncfusion/ej2-react-spreadsheet": "^21.2.3",
+    "@syncfusion/ej2-spreadsheet": "^21.2.3",
     "amazon-cognito-identity-js": "^5.2.11",
     "apexcharts": "^3.36.0",
     "assert": "^2.0.0",

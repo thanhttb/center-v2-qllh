@@ -46,7 +46,7 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
       }}
     >
       <Stack
-        spacing={3}
+        spacing={1}
         sx={{
           pt: 3,
           pb: 2,
@@ -68,7 +68,7 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
       component="nav"
       sx={{
         flexShrink: { lg: 0 },
-        width: { lg: NAV.W_DASHBOARD },
+        width: { lg: NAV.W_BASE },
       }}
     >
       {isDesktop ? (
@@ -77,7 +77,7 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
           variant="permanent"
           PaperProps={{
             sx: {
-              width: NAV.W_DASHBOARD,
+              width: NAV.W_BASE,
               bgcolor: 'transparent',
               borderRightStyle: 'dashed',
             },
@@ -94,7 +94,7 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
           }}
           PaperProps={{
             sx: {
-              width: NAV.W_DASHBOARD,
+              width: NAV.W_BASE,
             },
           }}
         >
