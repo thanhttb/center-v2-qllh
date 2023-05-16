@@ -26,8 +26,6 @@ const Logo = forwardRef<HTMLDivElement, LogoProps>(
       <Box
         component="img"
         src="/logo/logo_vee.png"
-        width="140 !important"
-        height="40 !important"
         sx={{cursor: 'pointer', ...sx }}
       />
     );

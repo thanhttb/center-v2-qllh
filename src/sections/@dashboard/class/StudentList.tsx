@@ -95,7 +95,6 @@ export default function StudentList() {
   const handleSelectionChange = (selection: any) => {
     setSelectedRowIds(selection);
 
-    console.log('slect', selection.length);
     // Kiểm tra nếu có hàng được chọn
     if (selection.length > 0) {
       setToolbarIcon(true);

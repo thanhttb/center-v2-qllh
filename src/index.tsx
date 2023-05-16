@@ -50,6 +50,8 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
+import {registerLicense}  from "@syncfusion/ej2-base"
+registerLicense('Mgo+DSMBaFt+QHJqVk1hXk5Hd0BLVGpAblJ3T2ZQdVt5ZDU7a15RRnVfR1xmS39QckViX3pdeQ==;Mgo+DSMBPh8sVXJ1S0R+X1pFdEBBXHxAd1p/VWJYdVt5flBPcDwsT3RfQF5jTH9WdERgXX9fdnJSTw==;ORg4AjUWIQA/Gnt2VFhiQlJPd11dXmJWd1p/THNYflR1fV9DaUwxOX1dQl9gSXtSc0diWntecXJdRmk=;MjA2Nzc1OUAzMjMxMmUzMjJlMzNDUnUzY2tHMGVENGJXSG9lSkVkeDdDUUw2cnFCcm82U3hxMEhmVmZ2UXU0PQ==;MjA2Nzc2MEAzMjMxMmUzMjJlMzNOdFFUTy9VV21MOG0wUnhLU3dXUHdLZHVzaW1YcytoMzNxSUpidlpRQ2dNPQ==;NRAiBiAaIQQuGjN/V0d+Xk9HfV5AQmBIYVp/TGpJfl96cVxMZVVBJAtUQF1hSn5Wd0BhWHxacHVSQmlV;MjA2Nzc2MkAzMjMxMmUzMjJlMzNXYWd3UG1vL3llKzRPYnE4SXk4UGFyT3JtcDlnNDJkdDN1eEF6RXg0TWNVPQ==;MjA2Nzc2M0AzMjMxMmUzMjJlMzNhSi9wQUR0azVHNTU2MVNsa1BzSHZtd2RqT2s1ZUNQS2swQUJGTzVYcUJJPQ==;Mgo+DSMBMAY9C3t2VFhiQlJPd11dXmJWd1p/THNYflR1fV9DaUwxOX1dQl9gSXtSc0diWntecXxUTmk=;MjA2Nzc2NUAzMjMxMmUzMjJlMzNVc0JYcE9RYWhkak1jdnVjdVdYbUNkbk1Ick14K1RhUHZKZ3IyMUFJMHpFPQ==;MjA2Nzc2NkAzMjMxMmUzMjJlMzNpTVo3Zm9kUDVsOWpvNmlicEpJQjJBdjFibmZ3SWpnK294RkxvS3RWbWg4PQ==;MjA2Nzc2N0AzMjMxMmUzMjJlMzNXYWd3UG1vL3llKzRPYnE4SXk4UGFyT3JtcDlnNDJkdDN1eEF6RXg0TWNVPQ==');
 // ----------------------------------------------------------------------
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);

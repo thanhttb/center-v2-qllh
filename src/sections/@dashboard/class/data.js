@@ -8,6 +8,7 @@ exports.FormattingData = [
         "Selling Price": "172",
         "Profit": "=E3-D3",
         "Last Updated": "5/25/19",
+        "WEEKDAY": "Thu",
         "Rating": "4.5"
     },
     {
@@ -15,9 +16,10 @@ exports.FormattingData = [
         "Item Name": "Scientific Calculator",
         "Quantity": "116",
         "Purchase Price": "21.80",
-        "Selling Price": "23",
+        "Selling Price": "41.80",
         "Profit": "=E4-D4",
         "Last Updated": "7/28/19",
+        "WEEKDAY": "Thu",
         "Rating": "4.0"
     },
     {
@@ -28,6 +30,7 @@ exports.FormattingData = [
         "Selling Price": "29",
         "Profit": "=E5-D5",
         "Last Updated": "3/30/20",
+        "WEEKDAY": "Thu",
         "Rating": "4.25"
     },
     {
@@ -38,6 +41,7 @@ exports.FormattingData = [
         "Selling Price": "25",
         "Profit": "=E6-D6",
         "Last Updated": "8/20/19",
+        "WEEKDAY": "Mon",
         "Rating": "3.5"
     },
     {
@@ -48,6 +52,7 @@ exports.FormattingData = [
         "Selling Price": "59",
         "Profit": "=E7-D7",
         "Last Updated": "2/2/20",
+        "WEEKDAY": "Thu",
         "Rating": "4.5"
     },
     {
@@ -58,6 +63,7 @@ exports.FormattingData = [
         "Selling Price": "25",
         "Profit": "=E8-D8",
         "Last Updated": "11/11/19",
+        "WEEKDAY": "Tus",
         "Rating": "5.0"
     },
     {
@@ -68,6 +74,7 @@ exports.FormattingData = [
         "Selling Price": "177",
         "Profit": "=E9-D9",
         "Last Updated": "4/13/19",
+        "WEEKDAY": "Thu",
         "Rating": "4.75"
     },
     {
@@ -78,6 +85,7 @@ exports.FormattingData = [
         "Selling Price": "35",
         "Profit": "=E10-D10",
         "Last Updated": "2/14/20",
+        "WEEKDAY": "Thu",
         "Rating": "4.4"
     },
     {
@@ -88,6 +96,7 @@ exports.FormattingData = [
         "Selling Price": "19",
         "Profit": "=E11-D11",
         "Last Updated": "6/10/19",
+        "WEEKDAY": "Wed",
         "Rating": "3.9"
     },
     {
@@ -98,6 +107,7 @@ exports.FormattingData = [
         "Selling Price": "35",
         "Profit": "=E12-D12",
         "Last Updated": "5/28/19",
+        "WEEKDAY": "Thu",
         "Rating": "3.75"
     },
     {
@@ -108,6 +118,7 @@ exports.FormattingData = [
         "Selling Price": "155",
         "Profit": "=E13-D13",
         "Last Updated": "12/18/19",
+        "WEEKDAY": "Thu",
         "Rating": "3.9"
     },
     {
@@ -118,6 +129,7 @@ exports.FormattingData = [
         "Selling Price": "204",
         "Profit": "=E14-D14",
         "Last Updated": "3/13/20",
+        "WEEKDAY": "Thu",
         "Rating": "4.35"
     },
     {
@@ -128,6 +140,7 @@ exports.FormattingData = [
         "Selling Price": "185",
         "Profit": "=E15-D15",
         "Last Updated": "8/26/19",
+        "WEEKDAY": "Thu",
         "Rating": "4.0"
     },
     {
@@ -138,6 +151,7 @@ exports.FormattingData = [
         "Selling Price": "38",
         "Profit": "=E16-D16",
         "Last Updated": "1/12/20",
+        "WEEKDAY": "Mon",
         "Rating": "4.2"
     },
     {
@@ -148,6 +162,7 @@ exports.FormattingData = [
         "Selling Price": "108",
         "Profit": "=E17-D17",
         "Last Updated": "4/12/19",
+        "WEEKDAY": "Tue",
         "Rating": "3.25"
     },
     {
@@ -158,6 +173,54 @@ exports.FormattingData = [
         "Selling Price": "21",
         "Profit": "=E18-D18",
         "Last Updated": "11/22/19",
+        "WEEKDAY": "Tue",
         "Rating": "3.85"
     }
 ];
+
+exports.jsonData = [
+    {
+      "id": "111",
+      "name": "Minh",
+      "sdt": "0999999",
+      "status": "active",
+      "data": [
+        {
+          "p_gv": "GV1",
+          "sum": "4",
+          "desc": "Lam tot",
+          "week": "wed"
+        },
+        {
+           "p_gv": "GV1",
+          "sum": "5",
+          "desc": "Lam tot",
+          "week": "tus"
+        }
+      ]
+    } ,
+    {
+      "id": "113",
+      "name": "Quang",
+      "sdt": "0999999",
+      "status": "active",
+      "data": [
+        {
+          "p_gv": "GV1",
+          "sum": "4",
+          "desc": "Lam tot",
+          "week": "wed"
+        },
+        {
+           "p_gv": "GV1",
+          "sum": "5",
+          "desc": "Lam tot",
+          "week": "tus"
+        }
+      ]
+    }  
+      
+      
+      
+      
+    ]

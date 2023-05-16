@@ -56,25 +56,23 @@ export default function Header({ onOpenNav }: Props) {
       )}
 
       {/* <Searchbar /> */}
-      <YearToolBar 
-       optionsRole={topFilms}
-       />
+     {
+      isDesktop && <YearToolBar 
+      optionsRole={topFilms}
+      />
+     }
 
       <Stack
         flexGrow={1}
         direction="row"
         alignItems="center"
         justifyContent="flex-end"
-        spacing={{ xs: 0.5, sm: 1.5 }}
+        spacing={{ md: 1, sm:0.5}}
         
       >
-        {/* <Searchbar /> */}
         <SearchStudents />
-        {/* <LanguagePopover /> */}
-
         <NotificationsPopover />
 
-        {/* <ContactsPopover /> */}
 
         <AccountPopover />
       </Stack>
@@ -95,14 +93,13 @@ export default function Header({ onOpenNav }: Props) {
           duration: theme.transitions.duration.shorter,
         }),
         ...(isDesktop && {
-          width: `calc(100% - ${NAV.W_DASHBOARD + 1}px)`,
+          width: `calc(100% - ${NAV.W_BASE + 1}px)`,
           height: HEADER.H_DASHBOARD_DESKTOP,
           ...(isOffset && {
             height: HEADER.H_DASHBOARD_DESKTOP_OFFSET,
           }),
           ...(isNavHorizontal && {
             width: 1,
-            bgcolor: 'background.default',
             height: HEADER.H_DASHBOARD_DESKTOP_OFFSET,
             borderBottom: (theme) => `dashed 1px ${theme.palette.divider}`,
           }),
