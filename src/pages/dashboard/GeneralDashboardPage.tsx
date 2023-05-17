@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 // @mui
 import { useTheme } from '@mui/material/styles';
-import { Container, Grid, Stack, Button, Tooltip, Card, CardHeader, Box, Chip,Typography } from '@mui/material';
+import { Container, Grid, Stack, Button, Tooltip, Card, CardHeader, Box, Chip,Typography, Slide,Dialog } from '@mui/material';
 import {
   DataGridPro,
   GridRow,
@@ -11,6 +11,8 @@ import {
   GridToolbarExport,
   GridToolbarQuickFilter,
   GridToolbarDensitySelector,
+  GridRowParams,
+  GridCellParams,
 } from '@mui/x-data-grid-pro';
 import { useDemoData } from '@mui/x-data-grid-generator/';
 import { IconButton } from '@mui/material';
@@ -19,6 +21,8 @@ import AccessibilityNewRoundedIcon from '@mui/icons-material/AccessibilityNewRou
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import QueueIcon from '@mui/icons-material/Queue';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+
+import { TransitionProps } from '@mui/material/transitions';
 // auth
 import { useAuthContext } from '../../auth/useAuthContext';
 // _mock_
@@ -35,6 +39,7 @@ import { useSettingsContext } from '../../components/settings';
 import {
   DashboardWidgetSummary,
   DashboardSelectDate,
+  EditDashboardInfoLesson,
 } from '../../sections/@dashboard/general/dashboard';
 // assets
 
@@ -62,6 +67,15 @@ const rows = [
 ]
 
 // ----------------------------------------------------------------------
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & {
+    children: React.ReactElement;
+  },
+  ref: React.Ref<unknown>,
+) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
+
 
 export default function GeneralDashboardPage() {
   const { user } = useAuthContext();
@@ -71,6 +85,9 @@ export default function GeneralDashboardPage() {
   const [filterEndDate, setFilterEndDate] = useState<Date | null>(dateNow);
 
   const [filterStartDate, setFilterStartDate] = useState<Date | null>(dateNow);
+
+  const [showLesson, setShowLesson] = useState(false);
+  const [editValue, setEditValue] = useState<Object | null | undefined>();
 
   const { themeStretch } = useSettingsContext();
 
@@ -118,11 +135,11 @@ export default function GeneralDashboardPage() {
       disableColumnFilter: true,
       disableColumnMenu: true,
       disableColumnSelector: true,
-      renderCell: (params: any) => {
+      renderCell: (params: GridCellParams) => {
         return (
           <>
             <Tooltip title="Sửa ca học">
-              <IconButton>
+              <IconButton onClick={() => handleShowLesson(params.row)}>
                 <CreateIcon />
               </IconButton>
             </Tooltip>
@@ -243,6 +260,15 @@ export default function GeneralDashboardPage() {
     );
   }
 
+  const handleShowLesson = (item : any) => {
+    setShowLesson(true)
+    setEditValue(JSON.stringify(item));
+  }
+
+  const handleCloseLesson = () => {
+    setShowLesson(false)
+  }
+
   return (
     <>
       <Helmet>
@@ -252,7 +278,7 @@ export default function GeneralDashboardPage() {
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <Grid container spacing={2}>
           {/* Header  */}
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} >
             <DashboardSelectDate
               filterEndDate={filterEndDate}
               filterStartDate={filterStartDate}
@@ -346,6 +372,16 @@ export default function GeneralDashboardPage() {
             />
           </Grid>
         </Grid>
+
+        <Dialog
+        fullWidth={true}
+        maxWidth={'xl'}
+        open={showLesson}
+        onClose={handleCloseLesson}
+        TransitionComponent={Transition}
+      >
+        <EditDashboardInfoLesson data={editValue} handleCloseLesson={handleCloseLesson}/>
+        </Dialog>
       </Container>
     </>
   );

@@ -63,8 +63,6 @@ function StudentClassInformation() {
   //     }
   // }
 
-  console.log('jsonData',jsonData)
-
   return (
     <div className="App">
       <SpreadsheetComponent 
@@ -75,6 +73,7 @@ function StudentClassInformation() {
         allowSave={true}
         saveUrl="https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save"
         // beforeCellRender={beforeCellRender} 
+        
         >
         <SheetsDirective>
           <SheetDirective name="Tình hình học tập"
