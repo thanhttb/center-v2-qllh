@@ -79,7 +79,7 @@ const TAGS_OPTION = [
   '3 Idiots',
 ];
 
-export default function CheckoutBillingNewAddressForm({ open, onClose }: Props) {
+export default function NewDashboardInfoLesson({ open, onClose }: Props) {
   const [preview, setPreview] = useState(false);
   const [files, setFiles] = useState<(File | string)[]>([]);
 
@@ -184,7 +184,7 @@ export default function CheckoutBillingNewAddressForm({ open, onClose }: Props) 
   return (
     <Dialog fullWidth maxWidth="xl" open={open} onClose={onClose}>
       <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
-        <DialogTitle bgcolor={'green'} color={'white'}>Sửa thông tin buổi học</DialogTitle>
+        <DialogTitle bgcolor={'green'} color={'white'}>Thêm buổi học</DialogTitle>
 
         <DialogContent dividers>
           <Stack spacing={2}>
@@ -422,7 +422,7 @@ export default function CheckoutBillingNewAddressForm({ open, onClose }: Props) 
 
         <DialogActions>
           <LoadingButton type="submit" variant="contained" loading={isSubmitting}>
-            Tạo mới buổi học
+            Lưu thay đổi
           </LoadingButton>
 
           <Button color="inherit" variant="outlined" onClick={onClose}>

@@ -36,6 +36,7 @@ export default function Upload({
   multiple = false,
   error,
   helperText,
+  title,
   //
   file,
   onDelete,
@@ -85,6 +86,7 @@ export default function Upload({
         <input {...getInputProps()} />
 
         <Placeholder
+        title={title}
           sx={{
             ...(hasFile && {
               opacity: 0,
@@ -146,7 +148,7 @@ export default function Upload({
 
 // ----------------------------------------------------------------------
 
-function Placeholder({ sx, ...other }: StackProps) {
+function Placeholder({title, sx, ...other }: any) {
   return (
     <Stack
       spacing={2}
@@ -166,7 +168,7 @@ function Placeholder({ sx, ...other }: StackProps) {
       }}
       {...other}
     >
-      <UploadIllustration sx={{ width: 220 }} />
+      <UploadIllustration sx={{ width: 150 }} />
 
       <Box sx={{ p: 3 }}>
         <Typography gutterBottom variant="h5">
@@ -174,19 +176,7 @@ function Placeholder({ sx, ...other }: StackProps) {
         </Typography>
 
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          Drop files here or click
-          <Typography
-            variant="body2"
-            component="span"
-            sx={{
-              mx: 0.5,
-              color: 'primary.main',
-              textDecoration: 'underline',
-            }}
-          >
-            browse
-          </Typography>
-          thorough your machine
+          {title}
         </Typography>
       </Box>
     </Stack>

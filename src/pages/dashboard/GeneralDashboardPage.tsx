@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 // @mui
 import { useTheme } from '@mui/material/styles';
-import { Container, Grid, Stack, Button, Tooltip, Card, CardHeader, Box, Chip,Typography, Slide,Dialog } from '@mui/material';
+import { Container, Grid, Tooltip, Slide, Dialog, makeStyles, useMediaQuery } from '@mui/material';
 import {
   DataGridPro,
   GridRow,
@@ -40,6 +40,8 @@ import {
   DashboardWidgetSummary,
   DashboardSelectDate,
   EditDashboardInfoLesson,
+  NewDashboardInfoLesson,
+  AttendanceDashboardLesson
 } from '../../sections/@dashboard/general/dashboard';
 // assets
 
@@ -54,28 +56,107 @@ interface CustomColumnProps {
 }
 
 const rows = [
-  { id: 1, german: "der Kuchen", english: "cake", p_name: "Nguyễn Minh Ngọc 1", p_phone: "098124234", p_email:"bqminh30@gmail.com", pay: 0 },
-  { id: 2, german: "rot", english: "red",  p_name: "Nguyễn Minh Ngọc 2", p_phone: "098124234", p_email:"bqminh30@gmail.com", pay: 0 },
-  { id: 3, german: "das Auto", english: "car",  p_name: "Nguyễn Minh Ngọc 3", p_phone: "098124234", p_email:"bqminh30@gmail.com", pay: 0},
-  { id: 4, german: "fliegend", english: "flying",  p_name: "Nguyễn Minh Ngọc 4", p_phone: "098124234", p_email:"bqminh30@gmail.com",pay: 0},
-  { id: 5, german: "grün", english: "green",  p_name: "Nguyễn Minh Ngọc 5", p_phone: "098124234", p_email:"bqminh30@gmail.com",pay: 0},
-  { id: 6, german: "der Hubschrauber Gun", english: "helicopter", p_name: "Nguyễn Minh Ngọc 6", p_phone: "098124234", p_email:"bqminh30@gmail.com", pay: 0},
-  { id: 7, german: "die Gabel", english: "fork",  p_name: "Nguyễn Minh Ngọc 7", p_phone: "098124234", p_email:"bqminh30@gmail.com", pay: 0},
-  { id: 8, german: "das Hemd", english: "shirt",  p_name: "Nguyễn Minh Ngọc 8", p_phone: "098124234", p_email:"bqminh30@gmail.com", pay: 0},
-  { id: 9, german: "tatsächlich", english: "actual", p_name: "Nguyễn Minh Ngọc 9", p_phone: "098124234", p_email:"bqminh30@gmail.com",pay: 0},
-  { id: 10, german: "der Bus", english: "bus", p_name: "Nguyễn Minh Ngọc 10", p_phone: "088888888", p_email:"bqminh30@gmail.com", pay: 0}
-]
+  {
+    id: 1,
+    german: 'der Kuchen',
+    english: 'cake',
+    p_name: 'Nguyễn Minh Ngọc 1',
+    p_phone: '098124234',
+    p_email: 'bqminh30@gmail.com',
+    pay: 0,
+  },
+  {
+    id: 2,
+    german: 'rot',
+    english: 'red',
+    p_name: 'Nguyễn Minh Ngọc 2',
+    p_phone: '098124234',
+    p_email: 'bqminh30@gmail.com',
+    pay: 0,
+  },
+  {
+    id: 3,
+    german: 'das Auto',
+    english: 'car',
+    p_name: 'Nguyễn Minh Ngọc 3',
+    p_phone: '098124234',
+    p_email: 'bqminh30@gmail.com',
+    pay: 0,
+  },
+  {
+    id: 4,
+    german: 'fliegend',
+    english: 'flying',
+    p_name: 'Nguyễn Minh Ngọc 4',
+    p_phone: '098124234',
+    p_email: 'bqminh30@gmail.com',
+    pay: 0,
+  },
+  {
+    id: 5,
+    german: 'grün',
+    english: 'green',
+    p_name: 'Nguyễn Minh Ngọc 5',
+    p_phone: '098124234',
+    p_email: 'bqminh30@gmail.com',
+    pay: 0,
+  },
+  {
+    id: 6,
+    german: 'der Hubschrauber Gun',
+    english: 'helicopter',
+    p_name: 'Nguyễn Minh Ngọc 6',
+    p_phone: '098124234',
+    p_email: 'bqminh30@gmail.com',
+    pay: 0,
+  },
+  {
+    id: 7,
+    german: 'die Gabel',
+    english: 'fork',
+    p_name: 'Nguyễn Minh Ngọc 7',
+    p_phone: '098124234',
+    p_email: 'bqminh30@gmail.com',
+    pay: 0,
+  },
+  {
+    id: 8,
+    german: 'das Hemd',
+    english: 'shirt',
+    p_name: 'Nguyễn Minh Ngọc 8',
+    p_phone: '098124234',
+    p_email: 'bqminh30@gmail.com',
+    pay: 0,
+  },
+  {
+    id: 9,
+    german: 'tatsächlich',
+    english: 'actual',
+    p_name: 'Nguyễn Minh Ngọc 9',
+    p_phone: '098124234',
+    p_email: 'bqminh30@gmail.com',
+    pay: 0,
+  },
+  {
+    id: 10,
+    german: 'der Bus',
+    english: 'bus',
+    p_name: 'Nguyễn Minh Ngọc 10',
+    p_phone: '088888888',
+    p_email: 'bqminh30@gmail.com',
+    pay: 0,
+  },
+];
 
 // ----------------------------------------------------------------------
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
     children: React.ReactElement;
   },
-  ref: React.Ref<unknown>,
+  ref: React.Ref<unknown>
 ) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
-
 
 export default function GeneralDashboardPage() {
   const { user } = useAuthContext();
@@ -87,7 +168,16 @@ export default function GeneralDashboardPage() {
   const [filterStartDate, setFilterStartDate] = useState<Date | null>(dateNow);
 
   const [showLesson, setShowLesson] = useState(false);
+  const [showAddLesson, setShowAddLesson] = useState(false);
+  const [showAttendance, setShowAttendance] = useState(false);
   const [editValue, setEditValue] = useState<Object | null | undefined>();
+
+  const [responsiveFullWidth, setResponsiveFullWidth] = useState(false);
+  const isFullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
+  useEffect(() => {
+    setResponsiveFullWidth(!isFullScreen);
+  }, [isFullScreen]);
 
   const { themeStretch } = useSettingsContext();
 
@@ -144,11 +234,11 @@ export default function GeneralDashboardPage() {
               </IconButton>
             </Tooltip>
             <Tooltip title="Điểm danh ca học">
-              <IconButton>
+              <IconButton onClick={()=>handleAttendanceShow(params.row)}>
                 <AccessibilityNewRoundedIcon />
               </IconButton>
             </Tooltip>
-            <Tooltip title="Mở khóa khoa học">
+            <Tooltip title="Mở khóa khóa học">
               <IconButton aria-label="Xóa" onClick={() => handleDelete(params.id)}>
                 <LockOpenIcon />
               </IconButton>
@@ -172,7 +262,6 @@ export default function GeneralDashboardPage() {
   ];
 
   const columns_tuition = [
-   
     {
       field: 'actions',
       headerName: 'Actions',
@@ -217,17 +306,18 @@ export default function GeneralDashboardPage() {
           phone={params.row.p_phone}
         />
       ),
-      valueGetter: (params : any) => `${params.row.p_name + params.row.p_email + params.row.p_phone}` ,
+      valueGetter: (params: any) =>
+        `${params.row.p_name + params.row.p_email + params.row.p_phone}`,
       sortable: true,
       // sortComparator: tagsSortComparator,
       // filterOperators: tagsFilterOperators
     },
-    { field: "pay", headerName: "Học phí", width: 100},
+    { field: 'pay', headerName: 'Học phí', width: 100 },
   ];
 
   function MyToolbar() {
     return (
-      <GridToolbarContainer title="Danh Sách Ca Học" sx={{ justifyContent: 'space-between' }}>
+      <GridToolbarContainer sx={{ justifyContent: 'space-between' }}>
         <div>
           <h3>Danh Sách Ca Học</h3>
         </div>
@@ -236,7 +326,7 @@ export default function GeneralDashboardPage() {
 
           <GridToolbarDensitySelector />
           <GridToolbarExport />
-          <Tooltip title="Thêm mới ca học">
+          <Tooltip title="Thêm mới ca học" onClick={handleShowAddLesson}>
             <IconButton>
               <QueueIcon />
             </IconButton>
@@ -260,13 +350,29 @@ export default function GeneralDashboardPage() {
     );
   }
 
-  const handleShowLesson = (item : any) => {
-    setShowLesson(true)
+  const handleShowLesson = (item: any) => {
+    setShowLesson(true);
     setEditValue(JSON.stringify(item));
-  }
+  };
 
   const handleCloseLesson = () => {
-    setShowLesson(false)
+    setShowLesson(false);
+  };
+
+  const handleShowAddLesson = () => {
+    setShowAddLesson(true)
+  }
+
+  const handleCloseAddlesson=() =>{
+    setShowAddLesson(false);
+  }
+
+  const handleAttendanceShow = (item: any) => {
+    setShowAttendance(true)
+  }
+
+  const handleCloseAttendance = () => {
+    setShowAttendance(false)
   }
 
   return (
@@ -278,7 +384,7 @@ export default function GeneralDashboardPage() {
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <Grid container spacing={2}>
           {/* Header  */}
-          <Grid item xs={12} md={4} >
+          <Grid item xs={12} md={4}>
             <DashboardSelectDate
               filterEndDate={filterEndDate}
               filterStartDate={filterStartDate}
@@ -354,9 +460,9 @@ export default function GeneralDashboardPage() {
             <DataGridPro
               rows={rows}
               columns={columns_tuition}
-              density={"comfortable"}
+              density={'comfortable'}
               // checkboxSelection
-            disableRowSelectionOnClick
+              disableRowSelectionOnClick
               loading={rows.length === 0}
               initialState={{
                 // ...data_tuition_fee_list.data.initialState,
@@ -373,15 +479,9 @@ export default function GeneralDashboardPage() {
           </Grid>
         </Grid>
 
-        <Dialog
-        fullWidth={true}
-        maxWidth={'xl'}
-        open={showLesson}
-        onClose={handleCloseLesson}
-        TransitionComponent={Transition}
-      >
-        <EditDashboardInfoLesson data={editValue} handleCloseLesson={handleCloseLesson}/>
-        </Dialog>
+        <EditDashboardInfoLesson open={showLesson} onClose={handleCloseLesson} />
+        <NewDashboardInfoLesson open={showAddLesson} onClose={handleCloseAddlesson} />
+        <AttendanceDashboardLesson open={showAttendance} onClose={handleCloseAttendance} />
       </Container>
     </>
   );

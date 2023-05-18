@@ -96,14 +96,14 @@ export default function DateRangePicker({
                 label="Start date"
                 value={startDate}
                 onChange={onChangeStartDate}
-                renderInput={(params) => <TextField {...params} />}
+                renderInput={(params: any) => <TextField {...params} />}
               />
 
               <DatePicker
                 label="End date"
                 value={endDate}
                 onChange={onChangeEndDate}
-                renderInput={(params) => <TextField {...params} />}
+                renderInput={(params: any) => <TextField {...params} />}
               />
             </>
           )}
