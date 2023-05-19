@@ -1,13 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  Button,
-  Card,
+Tooltip,
   Grid,
-  Paper,
   TextField,
   MenuItem,
   Box,
@@ -18,7 +12,23 @@ import {
   OutlinedInput,
 } from '@mui/material';
 import { SelectChangeEvent } from '@mui/material/Select';
-import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
+import { DataGrid, GridColDef,  } from '@mui/x-data-grid';
+import {
+    DataGridPro,
+    GridRow,
+    GridColumnHeaders,
+    GridToolbarContainer,
+    GridToolbarExport,
+    GridToolbarQuickFilter,
+    GridToolbarDensitySelector,
+    GridValueGetterParams
+  } from '@mui/x-data-grid-pro';
+import { IconButton } from '@mui/material';
+import CreateIcon from '@mui/icons-material/Create';
+import AccessibilityNewRoundedIcon from '@mui/icons-material/AccessibilityNewRounded';
+import LockOpenIcon from '@mui/icons-material/LockOpen';
+import QueueIcon from '@mui/icons-material/Queue';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 //theme
 import { Theme, useTheme } from '@mui/material/styles';
 
@@ -37,6 +47,10 @@ const MenuProps = {
     },
   },
 };
+
+function getFullName(params: GridValueGetterParams) {
+    return `${params.row.firstName || ''} ${params.row.lastName || ''}`;
+  }
 
 const names = [
   'Oliver Hansen',
@@ -74,12 +88,12 @@ const currencies = [
     label: 'TNC9.2 - Toán nâng cao 9.2',
   },
   {
-    value: 'JPY',
-    label: '¥',
+    value: 'TNC9.1 - Toán nâng cao 9.1',
+    label: 'TNC9.1 - Toán nâng cao 9.1',
   },
 ];
 
-const columns: GridColDef[] = [
+const columns = [
   { field: 'id', headerName: 'ID', width: 90 },
   {
     field: 'firstName',
@@ -103,11 +117,8 @@ const columns: GridColDef[] = [
   {
     field: 'fullName',
     headerName: 'Full name',
-    description: 'This column has a value getter and is not sortable.',
-    sortable: false,
     width: 160,
-    valueGetter: (params: GridValueGetterParams) =>
-      `${params.row.firstName || ''} ${params.row.lastName || ''}`,
+    valueGetter: getFullName,
   },
 ];
 
@@ -123,9 +134,13 @@ const rows = [
   { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
 ];
 
-export default function AttendanceDashboardLesson({ open, onClose }: Props) {
+
+
+export default function AttendancesPage() {
   const theme = useTheme();
-  const [personName, setPersonName] = React.useState<string[]>([]);
+  const [personName, setPersonName] = useState<string[]>([]);
+  const [selectedRowIds, setSelectedRowIds] = useState([]);
+  const [toolbarIcon, setToolbarIcon] = useState(false);
 
   const handleChange = (event: SelectChangeEvent<typeof personName>) => {
     const {
@@ -137,10 +152,36 @@ export default function AttendanceDashboardLesson({ open, onClose }: Props) {
     );
   };
 
+
+const handleSelectionChange = (selection: any) => {
+    setSelectedRowIds(selection);
+
+    // Kiểm tra nếu có hàng được chọn
+    if (selection.length > 0) {
+      setToolbarIcon(true);
+    } else {
+      setToolbarIcon(false);
+    }
+  };
+  function MyToolbar() {
+    return (
+      <GridToolbarContainer sx={{ justifyContent: 'space-between' }}>
+        <div>
+          <h3>Danh Sách Ca Học</h3>
+        </div>
+        <div>
+          <GridToolbarQuickFilter placeholder="Tìm kiếm" />
+          <GridToolbarExport />
+        </div>
+      </GridToolbarContainer>
+    );
+  }
+  const [selectionModel, setSelectionModel] = React.useState([]);
+
+  const handleSelectionModelChange = (newSelectionModel) => {
+    setSelectionModel(newSelectionModel);
+  };
   return (
-    <Dialog fullScreen open={open} onClose={onClose}>
-      <DialogTitle>Điểm danh ca học</DialogTitle>
-      <DialogContent dividers>
         <Box sx={{ boxShadow: theme.customShadows.dropdown, p: 2, borderRadius: 2 }}>
           <Grid container spacing={2}>
             <Grid xs={4} item>
@@ -188,9 +229,16 @@ export default function AttendanceDashboardLesson({ open, onClose }: Props) {
             </Grid>
           </Grid>
 
-          <DataGrid
+          <DataGridPro
             rows={rows}
             columns={columns}
+            loading={rows.length === 0}
+            checkboxSelection
+            onRowSelectionModelChange={handleSelectionChange}
+            // rowSelection={false}
+            components={{
+                Toolbar: MyToolbar
+            }}
             initialState={{
               pagination: {
                 paginationModel: {
@@ -198,18 +246,10 @@ export default function AttendanceDashboardLesson({ open, onClose }: Props) {
                 },
               },
             }}
-            pageSizeOptions={[5]}
-            checkboxSelection
-            disableRowSelectionOnClick
+            pagination
+            pageSizeOptions={[5, 10, 25, 50, 100]}
+            
           />
         </Box>
-      </DialogContent>
-
-      <DialogActions>
-        <Button color="inherit" variant="outlined" onClick={onClose}>
-          Hủy bỏ
-        </Button>
-      </DialogActions>
-    </Dialog>
   );
 }

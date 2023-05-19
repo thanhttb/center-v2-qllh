@@ -28,6 +28,8 @@ import {
   // Đào tạo
   ClassesPage,
   ClassPage,
+
+  AttendancesPage,
   // Dashboard: User
   UserListPage,
   UserEditPage,
@@ -196,7 +198,7 @@ export default function Router() {
         { path: 'dashboard', element: <GeneralDashboardPage /> },
         { path: 'classes', element: <ClassesPage /> },
         { path: 'class/:id', element: <ClassPage /> },
-        { path: 'ecommerce', element: <GeneralEcommercePage /> },
+        { path: 'attendance', element: <AttendancesPage /> },
         { path: 'analytics', element: <GeneralAnalyticsPage /> },
         { path: 'banking', element: <GeneralBankingPage /> },
         { path: 'booking', element: <GeneralBookingPage /> },

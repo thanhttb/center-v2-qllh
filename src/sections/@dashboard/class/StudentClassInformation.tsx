@@ -17,6 +17,8 @@ import {
   CellRenderEventArgs,
   ColumnModel,
   RowModel,
+  ConditionalFormatModel,
+  SheetModel
 } from '@syncfusion/ej2-react-spreadsheet';
 import { FormattingData, jsonData } from './data';
 function StudentClassInformation() {
@@ -63,6 +65,27 @@ function StudentClassInformation() {
   //     }
   // }
 
+  const conditionalFormatSettings: ConditionalFormatModel[] = [
+    {
+      type: 'LessThan',
+      value: '20',
+      range: 'A3:G18',
+      format: { style: {
+        backgroundColor: '#FF0000'
+      } } // Apply red background color when the condition is met
+    }
+  ];
+
+  const sheets: SheetModel[] = [
+    {
+      ranges: [
+        {
+          dataSource: conditionalFormatSettings
+        }
+      ]
+    }
+  ];
+
   return (
     <div className="App">
       <SpreadsheetComponent 
@@ -73,7 +96,7 @@ function StudentClassInformation() {
         allowSave={true}
         saveUrl="https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save"
         // beforeCellRender={beforeCellRender} 
-        
+        // sheets={sheets} 
         >
         <SheetsDirective>
           <SheetDirective name="Tình hình học tập"

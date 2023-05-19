@@ -420,8 +420,6 @@ export default function GeneralDashboardPage() {
               mt: 2,
             }}
           >
-            {/* <Card>
-              <Box sx={{ width: '100%' }}> */}
             <DataGridPro
               {...data}
               rows={rowsData.rows}
@@ -443,8 +441,6 @@ export default function GeneralDashboardPage() {
               pagination
               pageSizeOptions={[5, 10, 25, 50, 100]}
             />
-            {/* </Box>
-            </Card> */}
           </Grid>
           {/* Danh sách học phí */}
           <Grid

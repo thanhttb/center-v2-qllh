@@ -15,11 +15,12 @@ const Loadable = (Component: ElementType) => (props: any) =>
 
 // AUTH
 export const LoginPage = Loadable(lazy(() => import('../pages/auth/LoginPage')));
-// DASHBOARD: GENERAL
-export const GeneralDashboardPage = Loadable(lazy(() => import('../pages/dashboard/GeneralDashboardPage')));
+// Bảng điều khiển
+export const GeneralDashboardPage = Loadable(lazy(() => import('../pages/dashboard/DashboardPage')));
 // Đào tạo
 export const ClassesPage = Loadable(lazy(() => import('../pages/dashboard/ClassesPage')));
 export const ClassPage = Loadable(lazy(() => import('../pages/dashboard/ClassPage')));
+export const AttendancesPage = Loadable(lazy(() => import('../pages/dashboard/AttendancesPage')));
 
 
 

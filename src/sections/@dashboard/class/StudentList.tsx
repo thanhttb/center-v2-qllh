@@ -120,18 +120,18 @@ export default function StudentList() {
       renderCell: (params: any) => {
         return (
           <>
-            <Tooltip title="Sửa ca học">
+            <Tooltip title="Chỉnh sửa">
               <IconButton>
                 <CreateIcon />
               </IconButton>
             </Tooltip>
             <Tooltip title="Xóa học sinh">
-              <IconButton>
+              <IconButton aria-label="Xóa" onClick={() => handleDelete(params.id)}>
                 <DeleteForeverIcon />
               </IconButton>
             </Tooltip>
-            <Tooltip title="Mở khóa khóa học">
-              <IconButton aria-label="Xóa" onClick={() => handleDelete(params.id)}>
+            <Tooltip title="Hồ sơ học">
+              <IconButton>
                 <AssignmentIndIcon />
               </IconButton>
             </Tooltip>
