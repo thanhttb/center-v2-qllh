@@ -47,6 +47,24 @@ export const PATH_DASHBOARD = {
     events: path(ROOTS_DASHBOARD, '/events'),
     khoaHoc: path(ROOTS_DASHBOARD, '/khoa-hoc'),
   },
+  entrance: {
+    root: path(ROOTS_DASHBOARD, '/entrance/quick-create'),
+    completed: path(ROOTS_DASHBOARD, '/entrance/completed'),
+    list: path(ROOTS_DASHBOARD, '/entrance/list/2_3_4_5'),
+    discount: path(ROOTS_DASHBOARD, '/discount'),
+    fee: path(ROOTS_DASHBOARD, '/fee'),
+  },
+
+  financial: {
+    finacount: path(ROOTS_DASHBOARD, '/finacount'),
+    transaction: path(ROOTS_DASHBOARD, '/transaction'),
+    payment: path(ROOTS_DASHBOARD, '/payment'),
+    receipt: path(ROOTS_DASHBOARD, '/receipt'),
+    cf: path(ROOTS_DASHBOARD, '/report/cf'),
+    book: path(ROOTS_DASHBOARD, '/report/book'),
+    revenue: path(ROOTS_DASHBOARD, '/report/revenue'),
+    misa: path(ROOTS_DASHBOARD, '/misa'),
+  },
 
 
   kanban: path(ROOTS_DASHBOARD, '/kanban'),

@@ -131,6 +131,12 @@ import {
   DemoSnackbarPage,
   DemoTextMaxLinePage,
   DemoUploadPage,
+  StudentRegister,
+  EntranceList,
+  EntranceCompleted,
+  EntranceDiscount,
+  EntranceFee,
+  FinancialFinaccount,FinancialMisa,FinancialPayment,FinancialReceipt,FinancialReportBook,FinancialReportCf,FinancialRevenue,FinancialTransaction
 } from './elements';
 
 // ----------------------------------------------------------------------
@@ -195,12 +201,37 @@ export default function Router() {
 
       children: [
         { element: <Navigate to={PATH_AFTER_LOGIN} replace />, index: true },
+        // Bảng điều khiển
         { path: 'dashboard', element: <GeneralDashboardPage /> },
+        // Đào tạo
         { path: 'classes', element: <ClassesPage /> },
         { path: 'class/:id', element: <ClassPage /> },
         { path: 'attendance', element: <AttendancesPage /> },
-        { path: 'analytics', element: <GeneralAnalyticsPage /> },
-        { path: 'banking', element: <GeneralBankingPage /> },
+        { path: 'attendance', element: <AttendancesPage /> },
+
+        // Công tác học sinh
+        { path: 'entrance/quick-create', element: <StudentRegister /> },
+        { path: 'entrance/list/:id', element: <EntranceList/> },
+        {path: 'entrance/completed', element: <EntranceCompleted/>},
+        {path: 'discount', element: <EntranceDiscount/>},
+        {path: 'fee', element: <EntranceFee/>},
+
+        // Kế toán
+        {path: 'finacount', element: <FinancialFinaccount/>},
+        {path: 'transaction', element: <FinancialTransaction/>},
+        {path: 'payment', element: <FinancialPayment/>},
+        {path: 'receipt', element: <FinancialReceipt/>},
+        {
+          path: 'report',
+          children: [
+            { path: 'cf', element: <FinancialReportCf /> },
+            { path: 'book', element: <FinancialReportBook /> },
+            { path: 'revenue', element: <FinancialRevenue /> },
+          ],
+        },
+        { path: 'misa', element: <FinancialMisa /> },
+
+        
         { path: 'booking', element: <GeneralBookingPage /> },
         { path: 'file', element: <GeneralFilePage /> },
         {

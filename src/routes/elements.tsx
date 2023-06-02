@@ -21,8 +21,21 @@ export const GeneralDashboardPage = Loadable(lazy(() => import('../pages/dashboa
 export const ClassesPage = Loadable(lazy(() => import('../pages/dashboard/ClassesPage')));
 export const ClassPage = Loadable(lazy(() => import('../pages/dashboard/ClassPage')));
 export const AttendancesPage = Loadable(lazy(() => import('../pages/dashboard/AttendancesPage')));
-
-
+// Công tác học sinh
+export const StudentRegister = Loadable(lazy(() => import('../pages/dashboard/EntranceStudentRegister')));
+export const EntranceList = Loadable(lazy(() => import('../pages/dashboard/EntranceList')));
+export const EntranceCompleted = Loadable(lazy(() => import('../pages/dashboard/EntranceCompleted')));
+export const EntranceDiscount = Loadable(lazy(() => import('../pages/dashboard/EntranceDiscount')));
+export const EntranceFee = Loadable(lazy(() => import('../pages/dashboard/EntranceFee')));
+// Kế toán
+export const FinancialFinaccount = Loadable(lazy(() => import('../pages/dashboard/FinancialFinaccount')));
+export const FinancialMisa = Loadable(lazy(() => import('../pages/dashboard/FinancialMisa')));
+export const FinancialPayment = Loadable(lazy(() => import('../pages/dashboard/FinancialPayment')));
+export const FinancialReceipt = Loadable(lazy(() => import('../pages/dashboard/FinancialReceipt')));
+export const FinancialReportBook = Loadable(lazy(() => import('../pages/dashboard/FinancialReportBook')));
+export const FinancialReportCf = Loadable(lazy(() => import('../pages/dashboard/FinancialReportCf')));
+export const FinancialRevenue = Loadable(lazy(() => import('../pages/dashboard/FinancialRevenue')));
+export const FinancialTransaction = Loadable(lazy(() => import('../pages/dashboard/FinancialTransaction')));
 
 export const GeneralAppPage = Loadable(lazy(() => import('../pages/dashboard/GeneralAppPage')));
 export const GeneralEcommercePage = Loadable(
