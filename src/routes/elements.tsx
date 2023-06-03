@@ -36,6 +36,20 @@ export const FinancialReportBook = Loadable(lazy(() => import('../pages/dashboar
 export const FinancialReportCf = Loadable(lazy(() => import('../pages/dashboard/FinancialReportCf')));
 export const FinancialRevenue = Loadable(lazy(() => import('../pages/dashboard/FinancialRevenue')));
 export const FinancialTransaction = Loadable(lazy(() => import('../pages/dashboard/FinancialTransaction')));
+//Account
+export const AccountPage = Loadable(lazy(() => import('../pages/dashboard/AccountPage')));
+//Nhân sự
+export const PersonnalBaseSalaryPage = Loadable(lazy(() => import('../pages/dashboard/PersonnalBaseSalaryPage')));
+export const PersonnalRolePage = Loadable(lazy(() => import('../pages/dashboard/PersonnalRolePage')));
+export const PersonnalTeacherPage = Loadable(lazy(() => import('../pages/dashboard/PersonnalTeacherPage')));
+export const PersonnalUserPage = Loadable(lazy(() => import('../pages/dashboard/PersonnalUserPage')));
+//Cài đặt
+export const SettingCenterPage = Loadable(lazy(() => import('../pages/dashboard/SettingCenterPage')));
+export const SettingCoursePage = Loadable(lazy(() => import('../pages/dashboard/SettingCoursePage')));
+export const SettingRelationshipPage = Loadable(lazy(() => import('../pages/dashboard/SettingRelationshipPage')));
+export const SettingRoomsPage = Loadable(lazy(() => import('../pages/dashboard/SettingRoomsPage')));
+export const SettingStatusPage = Loadable(lazy(() => import('../pages/dashboard/SettingStatusPage')));
+export const SettingStepPage = Loadable(lazy(() => import('../pages/dashboard/SettingStepPage')));
 
 export const GeneralAppPage = Loadable(lazy(() => import('../pages/dashboard/GeneralAppPage')));
 export const GeneralEcommercePage = Loadable(

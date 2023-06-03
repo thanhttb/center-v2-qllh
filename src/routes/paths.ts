@@ -65,6 +65,20 @@ export const PATH_DASHBOARD = {
     revenue: path(ROOTS_DASHBOARD, '/report/revenue'),
     misa: path(ROOTS_DASHBOARD, '/misa'),
   },
+  account: path(ROOTS_DASHBOARD, '/account'),
+  settings: {
+    role: path(ROOTS_DASHBOARD, '/role'),
+    user: path(ROOTS_DASHBOARD, '/user'),
+    relationship: path(ROOTS_DASHBOARD, '/relationship'),
+    step: path(ROOTS_DASHBOARD, '/step'),
+    status: path(ROOTS_DASHBOARD, '/status'),
+  },
+  teachers : path(ROOTS_DASHBOARD, '/teachers'),
+  base_salary: path(ROOTS_DASHBOARD, '/base-salary'),
+  centers: path(ROOTS_DASHBOARD, '/centers'),
+  rooms: path(ROOTS_DASHBOARD, '/rooms'),
+  courses: path(ROOTS_DASHBOARD, '/courses'),
+
 
 
   kanban: path(ROOTS_DASHBOARD, '/kanban'),
