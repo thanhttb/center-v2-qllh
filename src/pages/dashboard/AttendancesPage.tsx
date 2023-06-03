@@ -183,7 +183,7 @@ const handleSelectionChange = (selection: any) => {
   };
   return (
         <Box sx={{ boxShadow: theme.customShadows.dropdown, p: 2, borderRadius: 2 }}>
-          <Grid container spacing={2}>
+          <Grid container spacing={2} mb={2}>
             <Grid xs={4} item>
               <TextField
                 id="outlined-select-currency"

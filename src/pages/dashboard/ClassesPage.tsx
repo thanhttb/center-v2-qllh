@@ -227,10 +227,7 @@ function generateProducts() {
 }
 
 type Customer = typeof rows[number];
-interface RowData {
-  id: number;
-  // Các trường dữ liệu khác
-}
+
 
 export default function ClassesPage() {
   const getDetailPanelContent = React.useCallback<
@@ -270,7 +267,7 @@ export default function ClassesPage() {
         rowSelection={false}
         initialState={{
           pagination: {
-            paginationModel: { pageSize: 5 },
+            paginationModel: { pageSize: 10 },
           },
         }}
         components={{

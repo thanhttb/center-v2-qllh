@@ -99,6 +99,10 @@ import {
   SettingRelationshipPage,
   SettingStepPage,
   SettingStatusPage,
+  QuestionsPage,
+  TargetPage,
+  EventsPage,
+  CoursesPage,
 } from './elements';
 
 // ----------------------------------------------------------------------
@@ -169,10 +173,10 @@ export default function Router() {
         { path: 'classes', element: <ClassesPage /> },
         { path: 'class/:id', element: <ClassPage /> },
         { path: 'attendance', element: <AttendancesPage /> },
-        { path: 'cau-hoi', element: <AttendancesPage /> },
-        { path: 'muc-tieu', element: <AttendancesPage /> },
-        { path: 'events', element: <AttendancesPage /> },
-        { path: 'khoa-hoc', element: <AttendancesPage /> },
+        { path: 'cau-hoi', element: <QuestionsPage /> },
+        { path: 'muc-tieu', element: <TargetPage /> },
+        { path: 'events', element: <EventsPage /> },
+        { path: 'khoa-hoc', element: <CoursesPage /> },
 
         // Công tác học sinh
         { path: 'entrance/quick-create', element: <StudentRegister /> },
