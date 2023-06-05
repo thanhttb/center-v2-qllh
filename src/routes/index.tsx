@@ -170,68 +170,121 @@ export default function Router() {
         // Bảng điều khiển
         { path: 'dashboard', element: <GeneralDashboardPage /> },
         // Đào tạo
-        // {
-        //   path: 'invoice',
-        //   children: [
-        //     { element: <Navigate to="/dashboard/invoice/list" replace />, index: true },
-        //     { path: 'list', element: <InvoiceListPage /> },
-        //     { path: ':id', element: <InvoiceDetailsPage /> },
-        //     { path: ':id/edit', element: <InvoiceEditPage /> },
-        //     { path: 'new', element: <InvoiceCreatePage /> },
-        //   ],
-        // },
-        { path: 'classes', element: <ClassesPage /> },
-        { path: 'class/:id', element: <ClassPage /> },
-        { path: 'attendance', element: <AttendancesPage /> },
-        { path: 'cau-hoi', element: <QuestionsPage /> },
-        { path: 'muc-tieu', element: <TargetPage /> },
-        { path: 'events', element: <EventsPage /> },
-        { path: 'khoa-hoc', element: <CoursesPage /> },
-
-        // Công tác học sinh
-        { path: 'entrance/quick-create', element: <StudentRegister /> },
-        { path: 'entrance/list/:id', element: <EntranceList /> },
-        { path: 'entrance/completed', element: <EntranceCompleted /> },
-        { path: 'discount', element: <EntranceDiscount /> },
-        { path: 'fee', element: <EntranceFee /> },
-
-        // Kế toán
-        { path: 'finacount', element: <FinancialFinaccount /> },
-        { path: 'transaction', element: <FinancialTransaction /> },
-        { path: 'payment', element: <FinancialPayment /> },
-        { path: 'receipt', element: <FinancialReceipt /> },
         {
-          path: 'report',
+          path: 'train',
           children: [
-            { element: <Navigate to="/dashboard/report/cf" replace />, index: true },
-            { path: 'cf', element: <FinancialReportCf /> },
-            { path: 'book', element: <FinancialReportBook /> },
-            { path: 'revenue', element: <FinancialRevenue /> },
+            { element: <Navigate to="/train/classes" replace />, index: true },
+            { path: 'classes', element: <ClassesPage /> },
+            { path: 'class/:id', element: <ClassPage /> },
+            { path: 'attendance', element: <AttendancesPage /> },
+            { path: 'cau-hoi', element: <QuestionsPage /> },
+            { path: 'muc-tieu', element: <TargetPage /> },
+            { path: 'events', element: <EventsPage /> },
+            { path: 'khoa-hoc', element: <CoursesPage /> },
           ],
         },
-        { path: 'misa', element: <FinancialMisa /> },
+        // Công tác học sinh
+        {
+          path: 'entrance',
+          children: [
+            { element: <Navigate to="/entrance/quick-create" replace />, index: true },
+            { path: 'quick-create', element: <StudentRegister /> },
+            { path: 'list/:id', element: <EntranceList /> },
+            { path: 'completed', element: <EntranceCompleted /> },
+            { path: 'discount', element: <EntranceDiscount /> },
+            { path: 'fee', element: <EntranceFee /> },
+          ],
+        },
+        // Kế toán
+        {
+          path: 'accountancy',
+          children: [
+            { element: <Navigate to="/accountancy/finacount" replace />, index: true },
+            { path: 'finacount', element: <FinancialFinaccount /> },
+            { path: 'transaction', element: <FinancialTransaction /> },
+            { path: 'payment', element: <FinancialPayment /> },
+            { path: 'receipt', element: <FinancialReceipt /> },
+            {
+              path: 'report',
+              children: [
+                { element: <Navigate to="/accountancy/report/cf" replace />, index: true },
+                { path: 'cf', element: <FinancialReportCf /> },
+                { path: 'book', element: <FinancialReportBook /> },
+                { path: 'revenue', element: <FinancialRevenue /> },
+              ],
+            },
+            { path: 'misa', element: <FinancialMisa /> },
+          ],
+        },
         // Tài khoản
         { path: 'account', element: <UserAccountPage /> },
+
         // Nhân sự
-        { path: 'settings/role', element: <PersonnalRolePage /> },
-        { path: 'settings/user', element: <PersonnalUserPage /> },
-        { path: 'teachers', element: <PersonnalTeacherPage /> },
-        { path: 'base-salary', element: <PersonnalBaseSalaryPage /> },
+        {
+          path: 'personal',
+          children: [
+            { element: <Navigate to="/personal/role" replace />, index: true },
+            { path: 'role', element: <PersonnalRolePage /> },
+            { path: 'user', element: <PersonnalUserPage /> },
+            { path: 'teachers', element: <PersonnalTeacherPage /> },
+            { path: 'base-salary', element: <PersonnalBaseSalaryPage /> },
+          ],
+        },
+
         // Cài đặt
-        { path: 'centers', element: <SettingCenterPage /> },
-        { path: 'rooms', element: <SettingRoomsPage /> },
-        { path: 'courses', element: <SettingCoursePage /> },
         {
           path: 'settings',
           children: [
+            { element: <Navigate to="/settings/centers" replace />, index: true },
+            { path: 'centers', element: <SettingCenterPage /> },
+            { path: 'rooms', element: <SettingRoomsPage /> },
+            { path: 'courses', element: <SettingCoursePage /> },
             { path: 'relationship', element: <SettingRelationshipPage /> },
             { path: 'step', element: <SettingStepPage /> },
             { path: 'status', element: <SettingStatusPage /> },
-          ],
+          ]
         },
+        // { path: 'centers', element: <SettingCenterPage /> },
+        // { path: 'rooms', element: <SettingRoomsPage /> },
+        // { path: 'courses', element: <SettingCoursePage /> },
+        // {
+        //   path: 'settings',
+        //   children: [
+        //     { path: 'relationship', element: <SettingRelationshipPage /> },
+        //     { path: 'step', element: <SettingStepPage /> },
+        //     { path: 'status', element: <SettingStatusPage /> },
+        //   ],
+        // },
+        // { path: 'entrance/quick-create', element: <StudentRegister /> },
+        // { path: 'entrance/list/:id', element: <EntranceList /> },
+        // { path: 'entrance/completed', element: <EntranceCompleted /> },
+        // { path: 'discount', element: <EntranceDiscount /> },
+        // { path: 'fee', element: <EntranceFee /> },
 
-        { path: 'booking', element: <GeneralBookingPage /> },
-        { path: 'file', element: <GeneralFilePage /> },
+        // Kế toán
+        // // { path: 'finacount', element: <FinancialFinaccount /> },
+        // // { path: 'transaction', element: <FinancialTransaction /> },
+        // // { path: 'payment', element: <FinancialPayment /> },
+        // // { path: 'receipt', element: <FinancialReceipt /> },
+        // {
+        //   path: 'report',
+        //   children: [
+        //     { element: <Navigate to="/dashboard/report/cf" replace />, index: true },
+        //     { path: 'cf', element: <FinancialReportCf /> },
+        //     { path: 'book', element: <FinancialReportBook /> },
+        //     { path: 'revenue', element: <FinancialRevenue /> },
+        //   ],
+        // },
+        // { path: 'misa', element: <FinancialMisa /> },
+
+        // Nhân sự
+        // { path: 'settings/role', element: <PersonnalRolePage /> },
+        // { path: 'settings/user', element: <PersonnalUserPage /> },
+        // { path: 'teachers', element: <PersonnalTeacherPage /> },
+        // { path: 'base-salary', element: <PersonnalBaseSalaryPage /> },
+
+        // { path: 'booking', element: <GeneralBookingPage /> },
+        // { path: 'file', element: <GeneralFilePage /> },
         {
           path: 'e-commerce',
           children: [

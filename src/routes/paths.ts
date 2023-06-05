@@ -28,51 +28,62 @@ export const PATH_PAGE = {
 
 export const PATH_DASHBOARD = {
   // dashboard:  path(ROOTS_DASHBOARD, '/dashboard'),
-  root:  path(ROOTS_DASHBOARD, '/dashboard'),
-  classes: {
-    root: path(ROOTS_DASHBOARD, '/classes'),
-    attendance: path(ROOTS_DASHBOARD, '/attendance'),
-    cauHoi: path(ROOTS_DASHBOARD, '/cau-hoi'),
-    mucTieu: path(ROOTS_DASHBOARD, '/muc-tieu'),
-    events: path(ROOTS_DASHBOARD, '/events'),
-    khoaHoc: path(ROOTS_DASHBOARD, '/khoa-hoc'),
-  },
-  // cauHoi: {
-  //   root: path(ROOTS_DASHBOARD, '/cau-hoi'),
-  // },
-  entrance: {
-    root: path(ROOTS_DASHBOARD, '/entrance/quick-create'),
-    completed: path(ROOTS_DASHBOARD, '/entrance/completed'),
-    list: path(ROOTS_DASHBOARD, '/entrance/list/2_3_4_5'),
-    discount: path(ROOTS_DASHBOARD, '/discount'),
-    fee: path(ROOTS_DASHBOARD, '/fee'),
+  root: path(ROOTS_DASHBOARD, '/dashboard'),
+  view: (name: string) => path(ROOTS_DASHBOARD, `/chat/${name}`),
+  train: {
+    root: path(ROOTS_DASHBOARD, '/train'),
+    classes: path(ROOTS_DASHBOARD, '/train/classes'),
+    class: (id: string) => path(ROOTS_DASHBOARD, `/train/class/${id}`),
+    attendance: path(ROOTS_DASHBOARD, '/train/attendance'),
+    cauHoi: path(ROOTS_DASHBOARD, '/train/cau-hoi'),
+    mucTieu: path(ROOTS_DASHBOARD, '/train/muc-tieu'),
+    events: path(ROOTS_DASHBOARD, '/train/events'),
+    khoaHoc: path(ROOTS_DASHBOARD, '/train/khoa-hoc'),
   },
 
-  financial: {
-    finacount: path(ROOTS_DASHBOARD, '/finacount'),
-    transaction: path(ROOTS_DASHBOARD, '/transaction'),
-    payment: path(ROOTS_DASHBOARD, '/payment'),
-    receipt: path(ROOTS_DASHBOARD, '/receipt'),
-    cf: path(ROOTS_DASHBOARD, '/report/cf'),
-    book: path(ROOTS_DASHBOARD, '/report/book'),
-    revenue: path(ROOTS_DASHBOARD, '/report/revenue'),
-    misa: path(ROOTS_DASHBOARD, '/misa'),
+  entrance: {
+    root: path(ROOTS_DASHBOARD, '/entrance'),
+    create: path(ROOTS_DASHBOARD, '/entrance/quick-create'),
+    completed: path(ROOTS_DASHBOARD, '/entrance/completed'),
+    list: path(ROOTS_DASHBOARD, '/entrance/list/2_3_4_5'),
+    discount: path(ROOTS_DASHBOARD, '/entrance/discount'),
+    fee: path(ROOTS_DASHBOARD, '/entrance/fee'),
+  },
+
+  accountancy: {
+    root: path(ROOTS_DASHBOARD, '/accountancy'),
+    finacount: path(ROOTS_DASHBOARD, '/accountancy/finacount'),
+    transaction: path(ROOTS_DASHBOARD, '/accountancy/transaction'),
+    payment: path(ROOTS_DASHBOARD, '/accountancy/payment'),
+    receipt: path(ROOTS_DASHBOARD, '/accountancy/receipt'),
+    report: {
+      root: path(ROOTS_DASHBOARD, '/accountancy/report'),
+      cf: path(ROOTS_DASHBOARD, '/accountancy/report/cf'),
+      book: path(ROOTS_DASHBOARD, '/accountancy/report/book'),
+      revenue: path(ROOTS_DASHBOARD, '/accountancy/report/revenue'),
+    },
+    misa: path(ROOTS_DASHBOARD, '/accountancy/misa'),
   },
   account: path(ROOTS_DASHBOARD, '/account'),
-  settings: {
+ 
+  personal: {
+    root: path(ROOTS_DASHBOARD, '/personal'),
     role: path(ROOTS_DASHBOARD, '/role'),
     user: path(ROOTS_DASHBOARD, '/user'),
+    teachers: path(ROOTS_DASHBOARD, '/teachers'),
+    base_salary: path(ROOTS_DASHBOARD, '/base-salary'),
+ 
+  },
+
+  settings: {
+    root: path(ROOTS_DASHBOARD, '/settings'),
+    centers: path(ROOTS_DASHBOARD, '/centers'),
+    rooms: path(ROOTS_DASHBOARD, '/rooms'),
     relationship: path(ROOTS_DASHBOARD, '/relationship'),
     step: path(ROOTS_DASHBOARD, '/step'),
     status: path(ROOTS_DASHBOARD, '/status'),
+    courses: path(ROOTS_DASHBOARD, '/courses'),
   },
-  teachers : path(ROOTS_DASHBOARD, '/teachers'),
-  base_salary: path(ROOTS_DASHBOARD, '/base-salary'),
-  centers: path(ROOTS_DASHBOARD, '/centers'),
-  rooms: path(ROOTS_DASHBOARD, '/rooms'),
-  courses: path(ROOTS_DASHBOARD, '/courses'),
-
-
 
   kanban: path(ROOTS_DASHBOARD, '/kanban'),
   calendar: path(ROOTS_DASHBOARD, '/calendar'),
@@ -80,7 +91,7 @@ export const PATH_DASHBOARD = {
   permissionDenied: path(ROOTS_DASHBOARD, '/permission-denied'),
   blank: path(ROOTS_DASHBOARD, '/blank'),
   general: {
-    dashboard:  path(ROOTS_DASHBOARD, '/dashboard'),
+    dashboard: path(ROOTS_DASHBOARD, '/dashboard'),
   },
   mail: {
     root: path(ROOTS_DASHBOARD, '/mail'),

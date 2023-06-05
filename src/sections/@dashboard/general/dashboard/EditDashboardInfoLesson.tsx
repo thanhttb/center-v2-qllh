@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-
+import { DatePicker } from '@mui/x-date-pickers';
 import { MobileDateTimePicker } from '@mui/x-date-pickers';
 import { StaticDateTimePicker } from '@mui/x-date-pickers/StaticDateTimePicker';
 // form
@@ -23,7 +23,6 @@ import {
   Grid,
   Card,
 } from '@mui/material';
-import { DatePicker } from '@mui/x-date-pickers';
 import { LoadingButton } from '@mui/lab';
 // @types
 import { ICheckoutBillingAddress } from '../../../../@types/product';
@@ -188,7 +187,7 @@ export default function CheckoutBillingNewAddressForm({ open, onClose }: Props) 
 
         <DialogContent dividers>
           <Stack spacing={2}>
-            <Typography variant="body2" sx={{ color: 'text.secondary' }}>Vui lòng điền đầy đủ thông tin cần thiết (*)</Typography>
+            <Typography variant="body2" sx={{ color: 'text.secondary', pt: 2 }}>Vui lòng điền đầy đủ thông tin cần thiết (*)</Typography>
             <Typography variant='h5'>Thông tin buổi học</Typography>
             <Box
               mt={2}
@@ -202,6 +201,7 @@ export default function CheckoutBillingNewAddressForm({ open, onClose }: Props) 
             >
               <RHFSelect
                 fullWidth
+                size='small'
                 name="address"
                 label="Cơ sở"
                 InputLabelProps={{ shrink: true }}
@@ -228,6 +228,7 @@ export default function CheckoutBillingNewAddressForm({ open, onClose }: Props) 
 
               <RHFSelect
                 fullWidth
+                size='small'
                 name="classromm"
                 label="Phòng học"
                 InputLabelProps={{ shrink: true }}
@@ -255,6 +256,7 @@ export default function CheckoutBillingNewAddressForm({ open, onClose }: Props) 
               <Box
                 rowGap={3}
                 columnGap={2}
+                
                 display="grid"
                 gridTemplateColumns={{
                   xs: 'repeat(1, 1fr)',
@@ -270,27 +272,31 @@ export default function CheckoutBillingNewAddressForm({ open, onClose }: Props) 
                       onChange={(newValue: Date | null) => field.onChange(newValue)}
                       label="Bắt đầu"
                       inputFormat="dd/MM/yyyy hh:mm a"
-                      renderInput={(params) => <TextField {...params} fullWidth />}
+                      renderInput={(params) => <TextField {...params} fullWidth size='small'/>}
                     />
                   )}
                 />
+                
 
                 <Controller
                   name="endDate"
+                  
                   control={control}
                   render={({ field }) => (
                     <MobileDateTimePicker
                       {...field}
+                      
                       onChange={(newValue: Date | null) => field.onChange(newValue)}
                       label="Kết thúc"
                       inputFormat="dd/MM/yyyy hh:mm a"
-                      renderInput={(params) => <TextField {...params} fullWidth />}
+                      renderInput={(params) => <TextField {...params} fullWidth size='small'/>}
                     />
                   )}
                 />
               </Box>
               <RHFSelect
                 fullWidth
+                size='small'
                 name="typeClass"
                 label="Loại buổi học"
                 InputLabelProps={{ shrink: true }}
@@ -315,7 +321,7 @@ export default function CheckoutBillingNewAddressForm({ open, onClose }: Props) 
                 ))}
               </RHFSelect>
 
-              <RHFSelect name="country" label="Country">
+              <RHFSelect name="country" label="Country" size='small'>
                 {countries.map((option) => (
                   <option key={option.code} value={option.label}>
                     {option.label}
@@ -325,8 +331,9 @@ export default function CheckoutBillingNewAddressForm({ open, onClose }: Props) 
 
               <RHFAutocomplete
                 name="tags"
+                size='small'
                 multiple
-                freeSolo
+                // freeSolo
                 onChange={(event, newValue) => setValue('students', newValue)}
                 options={TAGS_OPTION.map((option) => option)}
                 renderTags={(value, getTagProps) =>
@@ -347,6 +354,7 @@ export default function CheckoutBillingNewAddressForm({ open, onClose }: Props) 
                 }}
               >
                 <RHFTextField
+                size='small'
                   name="tution"
                   type="number"
                   label="Price"
@@ -357,6 +365,7 @@ export default function CheckoutBillingNewAddressForm({ open, onClose }: Props) 
                 />
 
                 <RHFTextField
+                size='small'
                   name="expense"
                   type="number"
                   label="Price"
@@ -367,7 +376,7 @@ export default function CheckoutBillingNewAddressForm({ open, onClose }: Props) 
                 />
               </Box>
 
-              <RHFTextField name="note" label="Ghi chú" />
+              <RHFTextField name="note" label="Ghi chú" size='small'/>
             </Box>
           </Stack>
 
@@ -383,9 +392,9 @@ export default function CheckoutBillingNewAddressForm({ open, onClose }: Props) 
                 sm: 'repeat(2, 1fr)',
               }}
             >
-              <RHFTextField name="note" label="Nội dung bài tập về nhà" />
+              <RHFTextField size='small' name="note" label="Nội dung bài tập về nhà" />
 
-              <RHFTextField name="note" label="Nội dung bài học" />
+              <RHFTextField size='small' name="note" label="Nội dung bài học" />
 
               {/* <Card> */}
                 <Upload
@@ -395,6 +404,7 @@ export default function CheckoutBillingNewAddressForm({ open, onClose }: Props) 
                   onDrop={handleDrop}
                   onRemove={handleRemoveFile}
                   onRemoveAll={handleRemoveAllFiles}
+                  
                   onUpload={() => console.log('ON UPLOAD')}
                   title="Kéo thả bài tập về nhà (Ảnh, PDF, Word)"
                 />

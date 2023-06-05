@@ -228,7 +228,6 @@ function generateProducts() {
 
 type Customer = typeof rows[number];
 
-
 export default function ClassesPage() {
   const getDetailPanelContent = React.useCallback<
     NonNullable<DataGridProProps['getDetailPanelContent']>
@@ -239,49 +238,48 @@ export default function ClassesPage() {
 
   const handleRowClick = (params: any) => {
     setSelectedRowId(params.id);
-    navigate(`/class/${params.id}`, { replace: true });
+    navigate(`/train/class/${params.id}`, { replace: true });
   };
 
   const getDetailPanelHeight = React.useCallback(() => 300, []);
 
   return (
     <>
-        <Helmet>
-            <title>Danh sách lớp học</title>
-        </Helmet>
-        <Grid
-      item
-      md={12}
-      sx={{
-        boxShadow: theme.customShadows.dropdown,
-        borderRadius: 2,
-        mt: 2,
-      }}
-    >
-      <DataGridPro
-        columns={columns}
-        rows={rows}
-        onRowClick={handleRowClick}
-        rowThreshold={0}
-        loading={rows.length === 0}
-        rowSelection={false}
-        initialState={{
-          pagination: {
-            paginationModel: { pageSize: 10 },
-          },
+      <Helmet>
+        <title>Danh sách lớp học</title>
+      </Helmet>
+      <Grid
+        item
+        md={12}
+        sx={{
+          boxShadow: theme.customShadows.dropdown,
+          borderRadius: 2,
+          mt: 2,
         }}
-        components={{
-          Toolbar: MyToolbar,
-          Row: MemoizedRow,
-          ColumnHeaders: MemoizedColumnHeaders,
-        }}
-        pagination
-        pageSizeOptions={[5, 10, 25, 50, 100]}
-        getDetailPanelHeight={getDetailPanelHeight}
-        getDetailPanelContent={getDetailPanelContent}
-      />
-    </Grid>
+      >
+        <DataGridPro
+          columns={columns}
+          rows={rows}
+          onRowClick={handleRowClick}
+          rowThreshold={0}
+          loading={rows.length === 0}
+          rowSelection={false}
+          initialState={{
+            pagination: {
+              paginationModel: { pageSize: 10 },
+            },
+          }}
+          components={{
+            Toolbar: MyToolbar,
+            Row: MemoizedRow,
+            ColumnHeaders: MemoizedColumnHeaders,
+          }}
+          pagination
+          pageSizeOptions={[5, 10, 25, 50, 100]}
+          getDetailPanelHeight={getDetailPanelHeight}
+          getDetailPanelContent={getDetailPanelContent}
+        />
+      </Grid>
     </>
-    
   );
 }

@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Helmet } from 'react-helmet-async';
 import {
 Tooltip,
   Grid,
@@ -12,7 +13,6 @@ Tooltip,
   OutlinedInput,
 } from '@mui/material';
 import { SelectChangeEvent } from '@mui/material/Select';
-import { DataGrid, GridColDef,  } from '@mui/x-data-grid';
 import {
     DataGridPro,
     GridRow,
@@ -23,12 +23,6 @@ import {
     GridToolbarDensitySelector,
     GridValueGetterParams
   } from '@mui/x-data-grid-pro';
-import { IconButton } from '@mui/material';
-import CreateIcon from '@mui/icons-material/Create';
-import AccessibilityNewRoundedIcon from '@mui/icons-material/AccessibilityNewRounded';
-import LockOpenIcon from '@mui/icons-material/LockOpen';
-import QueueIcon from '@mui/icons-material/Queue';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 //theme
 import { Theme, useTheme } from '@mui/material/styles';
 
@@ -167,7 +161,7 @@ const handleSelectionChange = (selection: any) => {
     return (
       <GridToolbarContainer sx={{ justifyContent: 'space-between' }}>
         <div>
-          <h3>Danh Sách Ca Học</h3>
+          <h3>Danh Sách Học Sinh</h3>
         </div>
         <div>
           <GridToolbarQuickFilter placeholder="Tìm kiếm" />
@@ -182,6 +176,10 @@ const handleSelectionChange = (selection: any) => {
     setSelectionModel(newSelectionModel);
   };
   return (
+  <>
+      <Helmet>
+    <title>Điểm danh</title>
+</Helmet>
         <Box sx={{ boxShadow: theme.customShadows.dropdown, p: 2, borderRadius: 2 }}>
           <Grid container spacing={2} mb={2}>
             <Grid xs={4} item>
@@ -191,6 +189,7 @@ const handleSelectionChange = (selection: any) => {
                 label="Lớp học"
                 defaultValue="EUR"
                 fullWidth
+                size='small'
               >
                 {currencies.map((option) => (
                   <MenuItem key={option.value} value={option.value}>
@@ -201,15 +200,15 @@ const handleSelectionChange = (selection: any) => {
             </Grid>
             <Grid xs={8} item>
               <FormControl sx={{ width: '100%' }}>
-                <InputLabel id="demo-multiple-chip-label">Thời gian học</InputLabel>
+                <InputLabel sx={{top: '-6px'}}>Chọn ca học</InputLabel>
                 <Select
                   labelId="demo-multiple-chip-label"
                   id="demo-multiple-chip"
                   multiple
+                  size='small'
                   value={personName}
                   onChange={handleChange}
-                  defaultValue={[names[0]]}
-                  input={<OutlinedInput id="select-multiple-chip" label="Lịch học" />}
+                  input={<OutlinedInput id="select-multiple-chip" label="Chọn ca học" />}
                   renderValue={(selected) => (
                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
                       {selected.map((value) => (
@@ -217,7 +216,6 @@ const handleSelectionChange = (selection: any) => {
                       ))}
                     </Box>
                   )}
-                  MenuProps={MenuProps}
                 >
                   {names.map((name) => (
                     <MenuItem key={name} value={name} style={getStyles(name, personName, theme)}>
@@ -251,5 +249,6 @@ const handleSelectionChange = (selection: any) => {
             
           />
         </Box>
+  </>
   );
 }

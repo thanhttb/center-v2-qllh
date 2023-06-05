@@ -48,17 +48,18 @@ const navConfig = [
     items: [
       { title: 'Bảng điều khiển', path: PATH_DASHBOARD.general.dashboard, icon: <DashboardIcon /> },
       // Đào tạo
+     
       {
         title: 'Đào tạo',
-        path: PATH_DASHBOARD.classes.root,
+        path: PATH_DASHBOARD.train.root,
         icon: <LocalLibraryIcon />,
         children: [
-          { title: 'Lớp học', path: PATH_DASHBOARD.classes.root },
-          { title: 'Điểm danh', path: PATH_DASHBOARD.classes.attendance },
-          { title: 'Kho bài tập', path: PATH_DASHBOARD.classes.cauHoi },
-          { title: 'Mục tiêu KS', path: PATH_DASHBOARD.classes.mucTieu },
-          { title: 'Thi thử', path: PATH_DASHBOARD.classes.events },
-          { title: 'Khóa học', path: PATH_DASHBOARD.classes.khoaHoc },
+          { title: 'Lớp học', path: PATH_DASHBOARD.train.classes },
+          { title: 'Điểm danh', path: PATH_DASHBOARD.train.attendance },
+          { title: 'Kho bài tập', path: PATH_DASHBOARD.train.cauHoi },
+          { title: 'Mục tiêu KS', path: PATH_DASHBOARD.train.mucTieu },
+          { title: 'Thi thử', path: PATH_DASHBOARD.train.events },
+          { title: 'Khóa học', path: PATH_DASHBOARD.train.khoaHoc },
         ],
       },
       // Công tác học sinh
@@ -90,32 +91,32 @@ const navConfig = [
       // Kế toán
       {
         title: 'Kế toán',
-        path: PATH_DASHBOARD.financial.finacount,
+        path: PATH_DASHBOARD.accountancy.root,
         icon: <AccountBalanceIcon />,
         children: [
-          { title: 'Tài khoản', path: PATH_DASHBOARD.financial.finacount },
-          { title: 'Giao dịch', path: PATH_DASHBOARD.financial.transaction },
-          { title: 'Phiếu chi', path: PATH_DASHBOARD.financial.payment },
-          { title: 'Phiếu thu', path: PATH_DASHBOARD.financial.receipt },
+          { title: 'Tài khoản', path: PATH_DASHBOARD.accountancy.finacount },
+          { title: 'Giao dịch', path: PATH_DASHBOARD.accountancy.transaction },
+          { title: 'Phiếu chi', path: PATH_DASHBOARD.accountancy.payment },
+          { title: 'Phiếu thu', path: PATH_DASHBOARD.accountancy.receipt },
           {
             title: 'Báo cáo',
-            path: PATH_DASHBOARD.financial.cf,
+            path: PATH_DASHBOARD.accountancy.root,
             children: [
               {
                 title: 'Báo cáo dòng tiền',
-                path: PATH_DASHBOARD.financial.cf,
+                path: PATH_DASHBOARD.accountancy.report.cf,
               },
               {
                 title: 'Sổ quỹ tiền mặt',
-                path: PATH_DASHBOARD.financial.book,
+                path: PATH_DASHBOARD.accountancy.report.book,
               },
               {
                 title: 'Lương giáo viên',
-                path: PATH_DASHBOARD.financial.revenue,
+                path: PATH_DASHBOARD.accountancy.report.revenue,
               },
             ],
           },
-          { title: 'Kết xuất dữ liệu', path: PATH_DASHBOARD.financial.misa },
+          { title: 'Kết xuất dữ liệu', path: PATH_DASHBOARD.accountancy.misa },
         ],
       },
       {
@@ -125,23 +126,23 @@ const navConfig = [
       },
       {
         title: 'Nhân sự',
-        path: PATH_DASHBOARD.settings.role,
+        path: PATH_DASHBOARD.personal.root,
         icon: <PeopleIcon />,
         children: [
-          { title: 'Chức vụ', path: PATH_DASHBOARD.settings.role },
-          { title: 'Người dùng', path: PATH_DASHBOARD.settings.user },
-          { title: 'Giáo viên', path: PATH_DASHBOARD.teachers },
-          { title: 'Lương tối thiểu', path: PATH_DASHBOARD.base_salary },
+          { title: 'Chức vụ', path: PATH_DASHBOARD.personal.role },
+          { title: 'Người dùng', path: PATH_DASHBOARD.personal.user },
+          { title: 'Giáo viên', path: PATH_DASHBOARD.personal.teachers },
+          { title: 'Lương tối thiểu', path: PATH_DASHBOARD.personal.base_salary },
         ],
       },
       {
         title: 'Cài đặt',
-        path: PATH_DASHBOARD.centers,
+        path: PATH_DASHBOARD.settings.root,
         icon: <SettingsIcon />,
         children: [
-          { title: 'Cơ sở', path: PATH_DASHBOARD.centers },
-          { title: 'Phòng học', path: PATH_DASHBOARD.rooms },
-          { title: 'Khóa học', path: PATH_DASHBOARD.courses },
+          { title: 'Cơ sở', path: PATH_DASHBOARD.settings.centers },
+          { title: 'Phòng học', path: PATH_DASHBOARD.settings.rooms },
+          { title: 'Khóa học', path: PATH_DASHBOARD.settings.courses },
           { title: 'Cấu hình quan hệ', path: PATH_DASHBOARD.settings.relationship },
           { title: 'Cấu hình quy trình', path: PATH_DASHBOARD.settings.step },
           { title: 'Cấu hình trạng thái', path: PATH_DASHBOARD.settings.status },

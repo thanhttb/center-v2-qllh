@@ -91,6 +91,7 @@ export default function BlogNewPostForm() {
     reset,
     watch,
     setValue,
+    getValues,
     handleSubmit,
     formState: { isSubmitting, isValid },
   } = methods;
@@ -198,7 +199,11 @@ export default function BlogNewPostForm() {
                   options={TAGS_OPTION.map((option) => option)}
                   renderTags={(value, getTagProps) =>
                     value.map((option, index) => (
-                      <Chip {...getTagProps({ index })} key={option} size="small" label={option} />
+                      <Chip {...getTagProps({ index })} key={option} size="small" label={option}  onDelete={() => {
+                        const newTags = [...getValues('tags')];
+                        newTags.splice(index, 1);
+                        setValue('tags', newTags);
+                      }}/>
                     ))
                   }
                   renderInput={(params) => <TextField label="Tags" {...params} />}
