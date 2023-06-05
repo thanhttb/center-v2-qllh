@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import {
   Tooltip,
   Grid,
@@ -272,6 +273,10 @@ export default function QuestionsPage() {
     setSelectionModel(newSelectionModel);
   };
   return (
+    <>
+    <Helmet>
+    <title> Danh sách ghi danh</title>
+  </Helmet>
     <Box sx={{ boxShadow: theme.customShadows.dropdown, p: 2, borderRadius: 2 }}>
       <Grid container spacing={2} mb={2}>
         <Grid xs={2} item>
@@ -394,5 +399,6 @@ export default function QuestionsPage() {
         pageSizeOptions={[5, 10, 25, 50, 100]}
       />
     </Box>
+    </>
   );
 }

@@ -12,7 +12,6 @@ import Scrollbar from '../../../components/scrollbar';
 import { NavSectionVertical } from '../../../components/nav-section';
 //
 import navConfig from './config';
-import NavDocs from './NavDocs';
 import NavAccount from './NavAccount';
 
 // ----------------------------------------------------------------------

@@ -170,6 +170,16 @@ export default function Router() {
         // Bảng điều khiển
         { path: 'dashboard', element: <GeneralDashboardPage /> },
         // Đào tạo
+        // {
+        //   path: 'invoice',
+        //   children: [
+        //     { element: <Navigate to="/dashboard/invoice/list" replace />, index: true },
+        //     { path: 'list', element: <InvoiceListPage /> },
+        //     { path: ':id', element: <InvoiceDetailsPage /> },
+        //     { path: ':id/edit', element: <InvoiceEditPage /> },
+        //     { path: 'new', element: <InvoiceCreatePage /> },
+        //   ],
+        // },
         { path: 'classes', element: <ClassesPage /> },
         { path: 'class/:id', element: <ClassPage /> },
         { path: 'attendance', element: <AttendancesPage /> },
@@ -193,6 +203,7 @@ export default function Router() {
         {
           path: 'report',
           children: [
+            { element: <Navigate to="/dashboard/report/cf" replace />, index: true },
             { path: 'cf', element: <FinancialReportCf /> },
             { path: 'book', element: <FinancialReportBook /> },
             { path: 'revenue', element: <FinancialRevenue /> },

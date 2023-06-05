@@ -29,7 +29,7 @@ export const AUTH0_API = {
 export const MAPBOX_API = process.env.REACT_APP_MAPBOX_API;
 
 // ROOT PATH AFTER LOGIN SUCCESSFUL
-export const PATH_AFTER_LOGIN = PATH_DASHBOARD.general.dashboard; // as '/dashboard/app'
+export const PATH_AFTER_LOGIN = PATH_DASHBOARD.classes.root; // as '/dashboard/app'
 
 // LAYOUT
 // ----------------------------------------------------------------------
@@ -42,7 +42,7 @@ export const HEADER = {
 };
 
 export const NAV = {
-  W_BASE: 260,
+  W_BASE: 240,
   W_DASHBOARD: 280,
   W_DASHBOARD_MINI: 88,
   //

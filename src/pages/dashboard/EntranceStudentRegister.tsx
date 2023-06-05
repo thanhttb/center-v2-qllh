@@ -75,7 +75,7 @@ export default function StudentRegister() {
   return (
     <>
       <Helmet>
-        <title>Lớp học nâng cao 9.2</title>
+        <title>Danh sách lớp học</title>
       </Helmet>
       <Box sx={{ boxShadow: theme.customShadows.dropdown, p: 2, borderRadius: 2 }}>
         <Typography variant="h4">Ghi Danh Học Sinh</Typography>

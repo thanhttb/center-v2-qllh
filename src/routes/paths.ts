@@ -11,16 +11,6 @@ const ROOTS_DASHBOARD = '';
 export const PATH_AUTH = {
   login: '/login',
 };
-// export const PATH_AUTH = {
-//   root: ROOTS_AUTH,
-//   login: path(ROOTS_AUTH, '/login'),
-//   register: path(ROOTS_AUTH, '/register'),
-//   loginUnprotected: path(ROOTS_AUTH, '/login-unprotected'),
-//   registerUnprotected: path(ROOTS_AUTH, '/register-unprotected'),
-//   verify: path(ROOTS_AUTH, '/verify'),
-//   resetPassword: path(ROOTS_AUTH, '/reset-password'),
-//   newPassword: path(ROOTS_AUTH, '/new-password'),
-// };
 
 export const PATH_PAGE = {
   comingSoon: '/coming-soon',
@@ -47,6 +37,9 @@ export const PATH_DASHBOARD = {
     events: path(ROOTS_DASHBOARD, '/events'),
     khoaHoc: path(ROOTS_DASHBOARD, '/khoa-hoc'),
   },
+  // cauHoi: {
+  //   root: path(ROOTS_DASHBOARD, '/cau-hoi'),
+  // },
   entrance: {
     root: path(ROOTS_DASHBOARD, '/entrance/quick-create'),
     completed: path(ROOTS_DASHBOARD, '/entrance/completed'),
@@ -87,13 +80,7 @@ export const PATH_DASHBOARD = {
   permissionDenied: path(ROOTS_DASHBOARD, '/permission-denied'),
   blank: path(ROOTS_DASHBOARD, '/blank'),
   general: {
-    app: path(ROOTS_DASHBOARD, '/app'),
     dashboard:  path(ROOTS_DASHBOARD, '/dashboard'),
-    ecommerce: path(ROOTS_DASHBOARD, '/ecommerce'),
-    analytics: path(ROOTS_DASHBOARD, '/analytics'),
-    banking: path(ROOTS_DASHBOARD, '/banking'),
-    booking: path(ROOTS_DASHBOARD, '/booking'),
-    file: path(ROOTS_DASHBOARD, '/file'),
   },
   mail: {
     root: path(ROOTS_DASHBOARD, '/mail'),
