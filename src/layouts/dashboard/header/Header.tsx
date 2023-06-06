@@ -1,6 +1,6 @@
 // @mui
 import { useTheme } from '@mui/material/styles';
-import { Stack, AppBar, Toolbar, IconButton } from '@mui/material';
+import { Stack, AppBar, Toolbar, IconButton, Box } from '@mui/material';
 // utils
 import { bgBlur } from '../../../utils/cssStyles';
 // hooks
@@ -25,7 +25,7 @@ import NotificationsPopover from './NotificationsPopover';
 const topFilms = [
   { title: 'The Shawshank Redemption', year: 1994 },
   { title: 'The Godfather', year: 1972 },
-  { title: 'The Godfather: Part II', year: 1974 }
+  { title: 'The Godfather: Part II', year: 1974 },
 ];
 
 type Props = {
@@ -55,25 +55,25 @@ export default function Header({ onOpenNav }: Props) {
         </IconButton>
       )}
 
+      {isDesktop && (
+        <Box
+          component="img"
+          src="/logo/logo_vee.png"
+          sx={{ cursor: 'pointer', width: 180, height: 56, mr: 6 }}
+        />
+      )}
+
       {/* <Searchbar /> */}
-     {
-      isDesktop && <YearToolBar 
-      optionsRole={topFilms}
-      />
-     }
+      {isDesktop && <YearToolBar optionsRole={topFilms} />}
 
       <Stack
         flexGrow={1}
         direction="row"
         alignItems="center"
         justifyContent="flex-end"
-        spacing={{ md: 1, sm:0.5}}
-        
+        spacing={0.5}
       >
         <SearchStudents />
-        <NotificationsPopover />
-
-
         <AccountPopover />
       </Stack>
     </>
@@ -83,17 +83,17 @@ export default function Header({ onOpenNav }: Props) {
     <AppBar
       sx={{
         boxShadow: theme.customShadows.z4,
-        // background: '#8bc34a',
-        height: HEADER.H_MOBILE,
-        zIndex: theme.zIndex.appBar + 1,
-        ...bgBlur({
-          color: theme.palette.background.default,
-        }),
+        // height: HEADER.H_MOBILE,
+        backgroundColor: theme.palette.background.default,
+        zIndex: theme.zIndex.appBar + 1000,
+        // ...bgBlur({
+        //   color: theme.palette.background.default,
+        // }),
         transition: theme.transitions.create(['height'], {
           duration: theme.transitions.duration.shorter,
         }),
         ...(isDesktop && {
-          width: `calc(100% - ${NAV.W_BASE + 1}px)`,
+          // width: `calc(100% - ${NAV.W_BASE + 1}px)`,
           height: HEADER.H_DASHBOARD_DESKTOP,
           ...(isOffset && {
             height: HEADER.H_DASHBOARD_DESKTOP_OFFSET,

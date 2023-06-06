@@ -71,6 +71,7 @@ export default function AccountPopover() {
         onClick={handleOpenPopover}
         sx={{
           p: 0,
+          pl: 1,
           ...(openPopover && {
             '&:before': {
               zIndex: 1,

@@ -37,6 +37,7 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
     <Scrollbar
       sx={{
         height: 1,
+        zIndex: '100 !important',
         '& .simplebar-content': {
           height: 1,
           display: 'flex',
@@ -53,12 +54,21 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
           flexShrink: 0,
         }}
       >
-        <Logo />
-
-        <NavAccount />
+        <Box sx={{ height: 60 }}></Box>
       </Stack>
 
       <NavSectionVertical data={navConfig} />
+      <Stack
+        spacing={1}
+        sx={{
+          // pt: 3,
+          pb: 2,
+          px: 2.5,
+          flexShrink: 0,
+        }}
+      >
+        <NavAccount />
+      </Stack>
     </Scrollbar>
   );
 
