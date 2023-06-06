@@ -88,7 +88,6 @@ import {
   FinancialReportCf,
   FinancialRevenue,
   FinancialTransaction,
-  AccountPage,
   PersonnalRolePage,
   PersonnalUserPage,
   PersonnalTeacherPage,

@@ -1,11 +1,12 @@
 import * as Yup from 'yup';
 import { useCallback } from 'react';
 // form
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 // @mui
-import { Box, Grid, Card, Stack, Typography } from '@mui/material';
+import { Box, Grid, Card, Stack, Typography, TextField } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
+import { MobileDateTimePicker, DatePicker } from '@mui/x-date-pickers';
 // auth
 import { useAuthContext } from '../../../../auth/useAuthContext';
 // utils
@@ -20,11 +21,17 @@ import FormProvider, {
   RHFSelect,
   RHFTextField,
   RHFUploadAvatar,
+  RHFRadioGroup,
 } from '../../../../components/hook-form';
 
 // ----------------------------------------------------------------------
+const GENDER_OPTION = [
+  { label: 'Men', value: 'Men' },
+  { label: 'Women', value: 'Women' },
+];
 
 type FormValuesProps = {
+  date: Date | null;
   displayName: string;
   email: string;
   photoURL: CustomFile | string | null;
@@ -40,6 +47,7 @@ type FormValuesProps = {
 
 export default function AccountGeneral() {
   const { enqueueSnackbar } = useSnackbar();
+  const date = new Date();
 
   const { user } = useAuthContext();
 
@@ -48,6 +56,7 @@ export default function AccountGeneral() {
   });
 
   const defaultValues = {
+    date:  date || '',
     displayName: user?.displayName || '',
     email: user?.email || '',
     photoURL: user?.photoURL || '',
@@ -68,6 +77,7 @@ export default function AccountGeneral() {
 
   const {
     setValue,
+    control,
     handleSubmit,
     formState: { isSubmitting },
   } = methods;
@@ -121,13 +131,6 @@ export default function AccountGeneral() {
                 </Typography>
               }
             />
-
-            <RHFSwitch
-              name="isPublic"
-              labelPlacement="start"
-              label="Public Profile"
-              sx={{ mt: 5 }}
-            />
           </Card>
         </Grid>
 
@@ -142,6 +145,8 @@ export default function AccountGeneral() {
                 sm: 'repeat(2, 1fr)',
               }}
             >
+             
+
               <RHFTextField name="displayName" label="Name" />
 
               <RHFTextField name="email" label="Email Address" />
@@ -149,26 +154,34 @@ export default function AccountGeneral() {
               <RHFTextField name="phoneNumber" label="Phone Number" />
 
               <RHFTextField name="address" label="Address" />
+             
+              <Controller
+                name="date"
+                control={control}
+                render={({ field }) => (
+                  <DatePicker
+                    showToolbar={false}
+                    {...field}
+                    onChange={(newValue: Date | null) => field.onChange(newValue)}
+                    label="Ngày sinh"
+                    // inputFormat="dd/mm/yyyy"
+                    renderInput={(params) => <TextField {...params} fullWidth sx={{top: 0}}/>}
+                  />
+                )}
+              />
 
-              <RHFSelect name="country" label="Country" placeholder="Country">
-                <option value="" />
-                {countries.map((option) => (
-                  <option key={option.code} value={option.label}>
-                    {option.label}
-                  </option>
-                ))}
-              </RHFSelect>
+              <RHFRadioGroup
+                name="gender"
+                options={GENDER_OPTION}
+                sx={{
+                  '& .MuiFormControlLabel-root': { mr: 4 },
+                }}
+              />
 
-              <RHFTextField name="state" label="State/Region" />
-
-              <RHFTextField name="city" label="City" />
-
-              <RHFTextField name="zipCode" label="Zip/Code" />
+              
             </Box>
 
             <Stack spacing={3} alignItems="flex-end" sx={{ mt: 3 }}>
-              <RHFTextField name="about" multiline rows={4} label="About" />
-
               <LoadingButton type="submit" variant="contained" loading={isSubmitting}>
                 Save Changes
               </LoadingButton>

@@ -29,37 +29,14 @@ export default function UserAccountPage() {
   const TABS = [
     {
       value: 'general',
-      label: 'General',
+      label: 'Thông tin cá nhân',
       icon: <Iconify icon="ic:round-account-box" />,
       component: <AccountGeneral />,
     },
-    {
-      value: 'billing',
-      label: 'Billing',
-      icon: <Iconify icon="ic:round-receipt" />,
-      component: (
-        <AccountBilling
-          cards={_userPayment}
-          addressBook={_userAddressBook}
-          invoices={_userInvoices}
-        />
-      ),
-    },
-    {
-      value: 'notifications',
-      label: 'Notifications',
-      icon: <Iconify icon="eva:bell-fill" />,
-      component: <AccountNotifications />,
-    },
-    {
-      value: 'social_links',
-      label: 'Social links',
-      icon: <Iconify icon="eva:share-fill" />,
-      component: <AccountSocialLinks socialLinks={_userAbout.socialLinks} />,
-    },
+   
     {
       value: 'change_password',
-      label: 'Change password',
+      label: 'Đổi mật khẩu',
       icon: <Iconify icon="ic:round-vpn-key" />,
       component: <AccountChangePassword />,
     },

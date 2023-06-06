@@ -40,8 +40,8 @@ export const FinancialReportBook = Loadable(lazy(() => import('../pages/dashboar
 export const FinancialReportCf = Loadable(lazy(() => import('../pages/dashboard/FinancialReportCf')));
 export const FinancialRevenue = Loadable(lazy(() => import('../pages/dashboard/FinancialRevenue')));
 export const FinancialTransaction = Loadable(lazy(() => import('../pages/dashboard/FinancialTransaction')));
-//Account
-export const AccountPage = Loadable(lazy(() => import('../pages/dashboard/AccountPage')));
+
+
 //Nhân sự
 export const PersonnalBaseSalaryPage = Loadable(lazy(() => import('../pages/dashboard/PersonnalBaseSalaryPage')));
 export const PersonnalRolePage = Loadable(lazy(() => import('../pages/dashboard/PersonnalRolePage')));
