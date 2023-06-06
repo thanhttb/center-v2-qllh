@@ -133,7 +133,7 @@ export const BlankPage = Loadable(lazy(() => import('../pages/dashboard/BlankPag
 // MAIN
 // export const Page500 = Loadable(lazy(() => import('../pages/Page500')));
 // export const Page403 = Loadable(lazy(() => import('../pages/Page403')));
-export const Page404 = Loadable(lazy(() => import('../pages/Page404')));
+export const Page404 = Loadable(lazy(() => import('../pages/dashboard/Page404')));
 // export const HomePage = Loadable(lazy(() => import('../pages/HomePage')));
 // export const FaqsPage = Loadable(lazy(() => import('../pages/FaqsPage')));
 // export const AboutPage = Loadable(lazy(() => import('../pages/AboutPage')));

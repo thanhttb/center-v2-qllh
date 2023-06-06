@@ -396,7 +396,7 @@ export default function GeneralDashboardPage() {
               }}
             />
           </Grid>
-          <Grid item xs={12} md={8} container spacing={2}>
+          <Grid item xs={12} md={8} >
             <Grid item xs={4} md={3}>
               <DashboardWidgetSummary
                 title="Chưa điểm danh"

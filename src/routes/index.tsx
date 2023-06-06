@@ -65,7 +65,7 @@ import {
   //
   // Page500,
   // Page403,
-  // Page404,
+  Page404,
   // HomePage,
   // FaqsPage,
   // AboutPage,
@@ -243,47 +243,6 @@ export default function Router() {
             { path: 'status', element: <SettingStatusPage /> },
           ]
         },
-        // { path: 'centers', element: <SettingCenterPage /> },
-        // { path: 'rooms', element: <SettingRoomsPage /> },
-        // { path: 'courses', element: <SettingCoursePage /> },
-        // {
-        //   path: 'settings',
-        //   children: [
-        //     { path: 'relationship', element: <SettingRelationshipPage /> },
-        //     { path: 'step', element: <SettingStepPage /> },
-        //     { path: 'status', element: <SettingStatusPage /> },
-        //   ],
-        // },
-        // { path: 'entrance/quick-create', element: <StudentRegister /> },
-        // { path: 'entrance/list/:id', element: <EntranceList /> },
-        // { path: 'entrance/completed', element: <EntranceCompleted /> },
-        // { path: 'discount', element: <EntranceDiscount /> },
-        // { path: 'fee', element: <EntranceFee /> },
-
-        // Kế toán
-        // // { path: 'finacount', element: <FinancialFinaccount /> },
-        // // { path: 'transaction', element: <FinancialTransaction /> },
-        // // { path: 'payment', element: <FinancialPayment /> },
-        // // { path: 'receipt', element: <FinancialReceipt /> },
-        // {
-        //   path: 'report',
-        //   children: [
-        //     { element: <Navigate to="/dashboard/report/cf" replace />, index: true },
-        //     { path: 'cf', element: <FinancialReportCf /> },
-        //     { path: 'book', element: <FinancialReportBook /> },
-        //     { path: 'revenue', element: <FinancialRevenue /> },
-        //   ],
-        // },
-        // { path: 'misa', element: <FinancialMisa /> },
-
-        // Nhân sự
-        // { path: 'settings/role', element: <PersonnalRolePage /> },
-        // { path: 'settings/user', element: <PersonnalUserPage /> },
-        // { path: 'teachers', element: <PersonnalTeacherPage /> },
-        // { path: 'base-salary', element: <PersonnalBaseSalaryPage /> },
-
-        // { path: 'booking', element: <GeneralBookingPage /> },
-        // { path: 'file', element: <GeneralFilePage /> },
         {
           path: 'e-commerce',
           children: [
@@ -350,7 +309,10 @@ export default function Router() {
         { path: 'kanban', element: <KanbanPage /> },
         { path: 'permission-denied', element: <PermissionDeniedPage /> },
         { path: 'blank', element: <BlankPage /> },
+        { path: '*', element: <Navigate to="/404" replace /> },
+        { path: '404', element: <Page404 /> },
       ],
+      
     },
 
     // Main Routes
@@ -457,6 +419,6 @@ export default function Router() {
     //     { path: '403', element: <Page403 /> },
     //   ],
     // },
-    { path: '*', element: <Navigate to="/404" replace /> },
+    
   ]);
 }

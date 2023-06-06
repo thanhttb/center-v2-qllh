@@ -28,6 +28,7 @@ export const PATH_PAGE = {
 
 export const PATH_DASHBOARD = {
   // dashboard:  path(ROOTS_DASHBOARD, '/dashboard'),
+ 
   root: path(ROOTS_DASHBOARD, '/dashboard'),
   view: (name: string) => path(ROOTS_DASHBOARD, `/chat/${name}`),
   train: {
@@ -139,6 +140,7 @@ export const PATH_DASHBOARD = {
     view: (title: string) => path(ROOTS_DASHBOARD, `/blog/post/${title}`),
     demoView: path(ROOTS_DASHBOARD, '/blog/post/apply-these-7-secret-techniques-to-improve-event'),
   },
+  page404: '/404',
 };
 
 export const PATH_DOCS = {
