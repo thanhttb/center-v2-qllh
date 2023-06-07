@@ -67,14 +67,14 @@ export default function AuthLoginForm() {
 
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
-      <Stack spacing={3}>
+      <Stack spacing={3} sx={{ width: 500 }}>
         {!!errors.afterSubmit && <Alert severity="error">{errors.afterSubmit.message}</Alert>}
 
-        <RHFTextField name="email" label="Email address" />
+        <RHFTextField name="email" label="Địa chỉ Email" />
 
         <RHFTextField
           name="password"
-          label="Password"
+          label="Mật khẩu"
           type={showPassword ? 'text' : 'password'}
           InputProps={{
             endAdornment: (
@@ -86,9 +86,28 @@ export default function AuthLoginForm() {
             ),
           }}
         />
+
+        <LoadingButton
+          fullWidth
+          color="inherit"
+          size="large"
+          type="submit"
+          variant="contained"
+          loading={isSubmitSuccessful || isSubmitting}
+          sx={{
+            bgcolor: '#36B37E',
+            color: (theme) => (theme.palette.mode === 'light' ? 'common.white' : 'grey.800'),
+            '&:hover': {
+              bgcolor: '#36B37E',
+              color: (theme) => (theme.palette.mode === 'light' ? 'common.white' : 'grey.800'),
+            },
+          }}
+        >
+          ĐĂNG NHẬP NGAY
+        </LoadingButton>
       </Stack>
 
-      <Stack alignItems="flex-end" sx={{ my: 2 }}>
+      {/* <Stack alignItems="flex-end" sx={{ my: 2 }}>
         <Link
           to={"#"}
           component={RouterLink}
@@ -98,26 +117,7 @@ export default function AuthLoginForm() {
         >
           Forgot password?
         </Link>
-      </Stack>
-
-      <LoadingButton
-        fullWidth
-        color="inherit"
-        size="large"
-        type="submit"
-        variant="contained"
-        loading={isSubmitSuccessful || isSubmitting}
-        sx={{
-          bgcolor: 'text.primary',
-          color: (theme) => (theme.palette.mode === 'light' ? 'common.white' : 'grey.800'),
-          '&:hover': {
-            bgcolor: 'text.primary',
-            color: (theme) => (theme.palette.mode === 'light' ? 'common.white' : 'grey.800'),
-          },
-        }}
-      >
-        Login
-      </LoadingButton>
+      </Stack> */}
     </FormProvider>
   );
 }

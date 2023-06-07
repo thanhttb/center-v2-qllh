@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // @mui
+import { useTheme } from '@mui/material/styles';
 import { alpha } from '@mui/material/styles';
 import { Box, Divider, Typography, Stack, MenuItem } from '@mui/material';
 // routes
@@ -34,6 +35,7 @@ const OPTIONS = [
 
 export default function AccountPopover() {
   const navigate = useNavigate();
+  const theme = useTheme();
 
   const { user, logout } = useAuthContext();
 
@@ -71,7 +73,7 @@ export default function AccountPopover() {
         onClick={handleOpenPopover}
         sx={{
           p: 0,
-          pl: 1,
+          ml: 1,
           ...(openPopover && {
             '&:before': {
               zIndex: 1,
@@ -88,7 +90,7 @@ export default function AccountPopover() {
         <CustomAvatar src={user?.photoURL} alt={user?.displayName} name={user?.displayName} />
       </IconButtonAnimate>
 
-      <MenuPopover open={openPopover} onClose={handleClosePopover} sx={{ width: 200, p: 0 }}>
+      <MenuPopover open={openPopover} onClose={handleClosePopover} sx={{ width: 200, p: 0, pt: 2,zIndex: theme.zIndex.appBar + 1000 }}>
         <Box sx={{ my: 1.5, px: 2.5 }}>
           <Typography variant="subtitle2" noWrap>
             {user?.displayName}
