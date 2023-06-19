@@ -23,13 +23,16 @@ function NavHorizontal() {
       sx={{
         boxShadow: 0,
         top: HEADER.H_DASHBOARD_DESKTOP_OFFSET,
+        zIndex: theme.zIndex.appBar -1,
       }}
     >
       <Toolbar
         sx={{
           ...bgBlur({
             color: theme.palette.background.default,
+           
           }),
+         
         }}
       >
         <NavSectionHorizontal data={navConfig} />
@@ -45,6 +48,7 @@ export default memo(NavHorizontal);
 // ----------------------------------------------------------------------
 
 function Shadow({ sx, ...other }: BoxProps) {
+  const theme = useTheme();
   return (
     <Box
       sx={{
@@ -58,6 +62,7 @@ function Shadow({ sx, ...other }: BoxProps) {
         borderRadius: '50%',
         position: 'absolute',
         boxShadow: (theme) => theme.customShadows.z8,
+        
         ...sx,
       }}
       {...other}

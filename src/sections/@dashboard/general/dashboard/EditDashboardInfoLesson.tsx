@@ -1,7 +1,6 @@
 import * as Yup from 'yup';
-import { DatePicker } from '@mui/x-date-pickers';
+import { useTheme } from '@mui/material/styles';
 import { MobileDateTimePicker } from '@mui/x-date-pickers';
-import { StaticDateTimePicker } from '@mui/x-date-pickers/StaticDateTimePicker';
 // form
 import { useFormContext, Controller } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
@@ -79,6 +78,7 @@ const TAGS_OPTION = [
 ];
 
 export default function CheckoutBillingNewAddressForm({ open, onClose }: Props) {
+  const theme = useTheme();
   const [preview, setPreview] = useState(false);
   const [files, setFiles] = useState<(File | string)[]>([]);
 
@@ -181,7 +181,7 @@ export default function CheckoutBillingNewAddressForm({ open, onClose }: Props) 
   };
 
   return (
-    <Dialog fullWidth maxWidth="xl" open={open} onClose={onClose}>
+    <Dialog fullWidth maxWidth="xl" open={open} onClose={onClose} style={{zIndex: theme.zIndex.appBar + 100,}}>
       <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
         <DialogTitle bgcolor={'green'} color={'white'}>Sửa thông tin buổi học</DialogTitle>
 

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 // @mui
 import { Box, Stack, Drawer } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 // hooks
 import useResponsive from '../../../hooks/useResponsive';
 // config
@@ -23,7 +24,7 @@ type Props = {
 
 export default function NavVertical({ openNav, onCloseNav }: Props) {
   const { pathname } = useLocation();
-
+  const theme = useTheme();
   const isDesktop = useResponsive('up', 'lg');
 
   useEffect(() => {
@@ -37,12 +38,12 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
     <Scrollbar
       sx={{
         height: 1,
-        zIndex: '100 !important',
         '& .simplebar-content': {
           height: 1,
           display: 'flex',
           flexDirection: 'column',
         },
+        zIndex: theme.zIndex.appBar -1,
       }}
     >
       <Stack
@@ -78,6 +79,7 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
       sx={{
         flexShrink: { lg: 0 },
         width: { lg: NAV.W_BASE },
+        zIndex: theme.zIndex.appBar -1,
       }}
     >
       {isDesktop ? (

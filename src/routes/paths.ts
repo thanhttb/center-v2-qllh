@@ -69,21 +69,21 @@ export const PATH_DASHBOARD = {
  
   personal: {
     root: path(ROOTS_DASHBOARD, '/personal'),
-    role: path(ROOTS_DASHBOARD, '/role'),
-    user: path(ROOTS_DASHBOARD, '/user'),
-    teachers: path(ROOTS_DASHBOARD, '/teachers'),
-    base_salary: path(ROOTS_DASHBOARD, '/base-salary'),
+    role: path(ROOTS_DASHBOARD, '/personal/role'),
+    user: path(ROOTS_DASHBOARD, '/personal/user'),
+    teachers: path(ROOTS_DASHBOARD, '/personal/teachers'),
+    base_salary: path(ROOTS_DASHBOARD, '/personal/base-salary'),
  
   },
 
   settings: {
     root: path(ROOTS_DASHBOARD, '/settings'),
-    centers: path(ROOTS_DASHBOARD, '/centers'),
-    rooms: path(ROOTS_DASHBOARD, '/rooms'),
-    relationship: path(ROOTS_DASHBOARD, '/relationship'),
-    step: path(ROOTS_DASHBOARD, '/step'),
-    status: path(ROOTS_DASHBOARD, '/status'),
-    courses: path(ROOTS_DASHBOARD, '/courses'),
+    centers: path(ROOTS_DASHBOARD, '/settings/centers'),
+    rooms: path(ROOTS_DASHBOARD, '/settings/rooms'),
+    relationship: path(ROOTS_DASHBOARD, '/settings/relationship'),
+    step: path(ROOTS_DASHBOARD, '/settings/step'),
+    status: path(ROOTS_DASHBOARD, '/settings/status'),
+    courses: path(ROOTS_DASHBOARD, '/settings/courses'),
   },
 
   kanban: path(ROOTS_DASHBOARD, '/kanban'),

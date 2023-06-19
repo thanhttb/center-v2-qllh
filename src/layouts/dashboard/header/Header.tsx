@@ -85,7 +85,7 @@ export default function Header({ onOpenNav }: Props) {
         boxShadow: theme.customShadows.z4,
         // height: HEADER.H_MOBILE,
         backgroundColor: theme.palette.background.default,
-        zIndex: theme.zIndex.appBar + 1000,
+        zIndex: theme.zIndex.appBar ,
         // ...bgBlur({
         //   color: theme.palette.background.default,
         // }),

@@ -46,7 +46,7 @@ function StudentClassInformation() {
   //   function beforeCellRender(args: CellRenderEventArgs): void {
   //     if (ssObj.sheets[ssObj.activeSheetIndex].name === 'Order Details' && !ssObj.isOpen) {
   //         if (args.cell && args.cell.value) {
-  //             //Applying cell formatting before rendering the particular cell.
+              //Applying cell formatting before rendering the particular cell.
   //             switch (args.cell.value) {
   //                 case 'Laser Printer':
   //                     ssObj.cellFormat({ color: '#10c469', textDecoration: 'line-through' }, args.address);
