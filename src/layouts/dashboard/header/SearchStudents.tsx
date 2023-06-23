@@ -3,6 +3,7 @@ import { paramCase } from 'change-case';
 import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
 import { useNavigate } from 'react-router-dom';
+import { createStyles, makeStyles } from '@material-ui/core';
 // @mui
 import { Link, Typography, Autocomplete, InputAdornment } from '@mui/material';
 // utils
@@ -18,9 +19,24 @@ import { CustomTextField } from '../../../components/custom-input';
 import SearchNotFound from '../../../components/search-not-found';
 
 // ----------------------------------------------------------------------
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    textField: {
+      fontSize: '10px',
+      [theme.breakpoints.up('xs')]: {
+        width: 220,
+      },
+      [theme.breakpoints.up('md')]: {
+        width: 360,
+      },
+    },
+  })
+);
+
 
 export default function SearchStudents() {
   const navigate = useNavigate();
+  const classes = useStyles();
 
   const [searchProducts, setSearchProducts] = useState('');
 
@@ -61,13 +77,8 @@ export default function SearchStudents() {
       getOptionLabel={(product: IProduct) => product.name}
       noOptionsText={<SearchNotFound query={searchProducts} />}
       isOptionEqualToValue={(option, value) => option.id === value.id}
-      sx={{fontSize: '16px !important'}}
+      sx={{ fontSize: '16px !important' }}
       componentsProps={{
-        popper: {
-          sx: {
-            width: `360px !important`,
-          },
-        },
         paper: {
           sx: {
             '& .MuiAutocomplete-option': {
@@ -79,9 +90,8 @@ export default function SearchStudents() {
       renderInput={(params) => (
         <CustomTextField
           {...params}
-          width={360}
           placeholder="Tìm kiếm tên HS, SĐT hoặc EMAIL PH"
-          style={{fontSize: '10px !important'}}
+          className={classes.textField}
           onKeyUp={handleKeyUp}
           InputProps={{
             ...params.InputProps,

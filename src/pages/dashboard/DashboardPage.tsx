@@ -41,7 +41,7 @@ import {
   DashboardSelectDate,
   EditDashboardInfoLesson,
   NewDashboardInfoLesson,
-  AttendanceDashboardLesson
+  AttendanceDashboardLesson,
 } from '../../sections/@dashboard/general/dashboard';
 // assets
 
@@ -54,6 +54,46 @@ interface CustomColumnProps {
   email: string;
   phone: string;
 }
+
+const stats = {
+  diemdanh: 128,
+  hsmoi: 825,
+  hsnghi: 274,
+  hsnoti: 1688,
+  hsvang: 39,
+  upbt: 242,
+  uptl: 223,
+};
+const cardTitle = [
+  {
+    key: 'diemdanh',
+    title: 'Chưa điểm danh',
+  },
+  {
+    key: 'hsmoi',
+    title: 'HS mới',
+  },
+  {
+    key: 'hsnghi',
+    title: 'HS thôi học',
+  },
+  {
+    key: 'hsnoti',
+    title: 'Chưa gửi THHT',
+  },
+  {
+    key: 'hsvang',
+    title: 'Nghỉ không phép',
+  },
+  {
+    key: 'upbt',
+    title: 'Chưa up bài tập',
+  },
+  {
+    key: 'uptl',
+    title: 'Chưa up tài liệu',
+  },
+];
 
 const rows = [
   {
@@ -149,14 +189,6 @@ const rows = [
 ];
 
 // ----------------------------------------------------------------------
-const Transition = React.forwardRef(function Transition(
-  props: TransitionProps & {
-    children: React.ReactElement;
-  },
-  ref: React.Ref<unknown>
-) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
 
 export default function GeneralDashboardPage() {
   const { user } = useAuthContext();
@@ -170,7 +202,7 @@ export default function GeneralDashboardPage() {
   const [showLesson, setShowLesson] = useState(false);
   const [showAddLesson, setShowAddLesson] = useState(false);
   const [showAttendance, setShowAttendance] = useState(false);
-  const [editValue, setEditValue] = useState<Object | null | undefined>();
+  const [editValue, setEditValue] = useState<Object | null>();
 
   const [responsiveFullWidth, setResponsiveFullWidth] = useState(false);
   const isFullScreen = useMediaQuery(theme.breakpoints.down('sm'));
@@ -234,7 +266,7 @@ export default function GeneralDashboardPage() {
               </IconButton>
             </Tooltip>
             <Tooltip title="Điểm danh ca học">
-              <IconButton onClick={()=>handleAttendanceShow(params.row)}>
+              <IconButton onClick={() => handleAttendanceShow(params.row)}>
                 <AccessibilityNewRoundedIcon />
               </IconButton>
             </Tooltip>
@@ -317,10 +349,8 @@ export default function GeneralDashboardPage() {
 
   function MyToolbar() {
     return (
-      <GridToolbarContainer sx={{ justifyContent: 'space-between' }}>
-        <div>
-          <h3>Danh Sách Ca Học</h3>
-        </div>
+      <GridToolbarContainer sx={{ justifyContent: 'space-between', padding: '0 !important' }}>
+        <h2>Danh Sách Ca Học</h2>
         <div>
           <GridToolbarQuickFilter placeholder="Tìm kiếm" />
 
@@ -338,10 +368,11 @@ export default function GeneralDashboardPage() {
 
   function MyToolbarTuition() {
     return (
-      <GridToolbarContainer title="Danh Sách Học Phí" sx={{ justifyContent: 'space-between' }}>
-        <div>
-          <h3>Danh Sách Học Phí</h3>
-        </div>
+      <GridToolbarContainer
+        title="Danh Sách Học Phí"
+        sx={{ justifyContent: 'space-between', padding: '0 !important' }}
+      >
+        <h2>Danh Sách Học Phí</h2>
         <div>
           <GridToolbarQuickFilter placeholder="Tìm kiếm" />
           <GridToolbarExport />
@@ -360,20 +391,20 @@ export default function GeneralDashboardPage() {
   };
 
   const handleShowAddLesson = () => {
-    setShowAddLesson(true)
-  }
+    setShowAddLesson(true);
+  };
 
-  const handleCloseAddlesson=() =>{
+  const handleCloseAddlesson = () => {
     setShowAddLesson(false);
-  }
+  };
 
   const handleAttendanceShow = (item: any) => {
-    setShowAttendance(true)
-  }
+    setShowAttendance(true);
+  };
 
   const handleCloseAttendance = () => {
-    setShowAttendance(false)
-  }
+    setShowAttendance(false);
+  };
 
   return (
     <>
@@ -396,17 +427,17 @@ export default function GeneralDashboardPage() {
               }}
             />
           </Grid>
-          <Grid item xs={12} md={8} >
-            <Grid item xs={4} md={3}>
-              <DashboardWidgetSummary
-                title="Chưa điểm danh"
-                percent={2.6}
-                total={34}
-                chart={{
-                  colors: [theme.palette.primary.main],
-                  series: [5, 18, 12, 51, 68, 11, 39, 37, 27, 20],
-                }}
-              />
+          <Grid item xs={12} md={8}>
+            <Grid container spacing={1}>
+              {cardTitle.map((item) => {
+                const { key, title } = item;
+                const value = stats[key];
+                return (
+                  <Grid item xs={3} md={2} key={key}>
+                    <DashboardWidgetSummary title={`${title}`} total={value} />
+                  </Grid>
+                );
+              })}
             </Grid>
           </Grid>
 
@@ -423,6 +454,10 @@ export default function GeneralDashboardPage() {
             <DataGridPro
               {...data}
               rows={rowsData.rows}
+              localeText={{
+                // toolbarExport: 'Xuất file',
+                toolbarDensity: 'Căn chỉnh ',
+              }}
               columns={columns}
               loading={data.rows.length === 0}
               rowSelection={false}

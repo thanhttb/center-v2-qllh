@@ -16,7 +16,6 @@ type GuestGuardProps = {
 export default function GuestGuard({ children }: GuestGuardProps) {
   const { isAuthenticated, isInitialized } = useAuthContext();
 
-  console.log('isAuthenticated', isAuthenticated)
   if (isAuthenticated) {
     return <Navigate to={PATH_DASHBOARD.root} />;
   }

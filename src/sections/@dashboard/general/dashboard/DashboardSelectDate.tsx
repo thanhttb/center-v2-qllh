@@ -35,13 +35,13 @@ const MenuProps = {
 };
 
 const names = [
-  {id: 1, cs: 'Tất cả cơ sở'},
-  {id: 2, cs: 'VietElite Trụ sở điều hành'},
-  {id: 3, cs: 'VietElite Trần Duy Hưng'},
-  {id: 4, cs: 'VietElite Phạm Tuấn Tài'},
-  {id: 5, cs: 'VietElite Đỗ Quang'},
-  {id: 6, cs: 'VietElite Đỗ Quang Tiểu Học'},
-  {id: 7, cs: 'VietElite Văn Quán'},
+  {value: -1, label: 'Tất cả cơ sở'},
+  {value: 1, label: 'VietElite Trụ sở điều hành'},
+  {value: 2, label: 'VietElite Trần Duy Hưng'},
+  {value:3, label: 'VietElite Phạm Tuấn Tài'},
+  {value: 4, label: 'VietElite Đỗ Quang'},
+  {value: 5, label: 'VietElite Đỗ Quang Tiểu Học'},
+  {value: 6, label: 'VietElite Văn Quán'},
 ];
 
 
@@ -152,6 +152,7 @@ export default function DashboardSelectdate({
             <TextField
               {...params}
               fullWidth
+              size='small'
               // sx={{width: '100%'}}
             />
           )}
@@ -165,6 +166,7 @@ export default function DashboardSelectdate({
             <TextField
               {...params}
               fullWidth
+              size='small'
               // sx={{width: '100%' }}
             />
           )}
@@ -177,6 +179,7 @@ export default function DashboardSelectdate({
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
           multiple
+          size='small'
           value={personName}
           onChange={handleChange}
           input={<OutlinedInput id="select-multiple-chip" label="Cơ sở" />}
@@ -191,11 +194,11 @@ export default function DashboardSelectdate({
         >
           {names.map((name) => (
             <MenuItem
-              key={name.id}
-              value={name.cs}
-              style={getStyles(name.cs, personName, theme)}
+              key={name.value}
+              value={name.value}
+              style={getStyles(name.label, personName, theme)}
             >
-              {name.cs}
+              {name.label}
             </MenuItem>
           ))}
         </Select>

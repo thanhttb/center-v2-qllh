@@ -14,22 +14,16 @@ import Chart from '../../../../components/chart';
 interface Props extends CardProps {
   title: string;
   total: number;
-  percent: number;
-  chart: {
-    colors?: string[];
-    series: number[];
-    options?: ApexOptions;
-  };
+  
 }
 
-export default function DashboardWidgetSummary({ title, percent, total, chart, sx, ...other }: Props) {
-  const { colors, series, options } = chart;
+export default function DashboardWidgetSummary({ title, total, sx, ...other }: Props) {
   const theme = useTheme();
  
   return (
-    <Card sx={{ display: 'flex', alignItems: 'center', p: 1.5, ...sx, boxShadow: theme.customShadows.dropdown,  }} {...other}>
-      <Box sx={{ flexGrow: 1 }}>
-        <Typography style={{fontSize: 14}}>{title}:</Typography>
+    <Card sx={{ display: 'flex', alignItems: 'center', p: 1, ...sx, boxShadow: theme.customShadows.dropdown,  }} {...other}>
+      <Box sx={{ flexGrow: 0.5 }}>
+        <Typography style={{fontSize: 12, color: "text.secondary"}}>{title}:</Typography>
         <Typography variant="h5">{fNumber(total)}</Typography>
       </Box>
 
@@ -37,8 +31,3 @@ export default function DashboardWidgetSummary({ title, percent, total, chart, s
   );
 }
 
-// ----------------------------------------------------------------------
-
-type TrendingInfoProps = {
-  percent: number;
-};
