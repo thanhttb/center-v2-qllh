@@ -47,12 +47,10 @@ const MemoizedRow = React.memo(GridRow);
 
 const MemoizedColumnHeaders = React.memo(GridColumnHeaders);
 
-
-
 export default function ClassesPage() {
   function DetailPanelContent({ row: rowProp }: { row: Customer }) {
     const theme = useTheme();
-  
+
     return (
       // <Stack sx={{ py: 2, height: '100%', boxSizing: 'border-box' }} direction="column">
       <Paper sx={{ width: '50%', p: 2, boxShadow: theme.customShadows.dropdown, m: 2 }}>
@@ -85,7 +83,7 @@ export default function ClassesPage() {
       // </Stack>
     );
   }
-  
+
   const columns: GridColDef[] = [
     {
       field: 'actions',
@@ -101,7 +99,7 @@ export default function ClassesPage() {
                 <CreateIcon />
               </IconButton>
             </Tooltip>
-  
+
             <Tooltip title="Thêm ca học">
               <IconButton>
                 <PlaylistAddIcon />
@@ -129,7 +127,7 @@ export default function ClassesPage() {
       },
     },
   ];
-  
+
   const rows = [
     {
       id: 1,
@@ -198,7 +196,7 @@ export default function ClassesPage() {
       products: generateProducts(),
     },
   ];
-  
+
   function MyToolbar() {
     return (
       <GridToolbarContainer title="Danh Sách Lớp Học" sx={{ justifyContent: 'space-between' }}>
@@ -207,10 +205,12 @@ export default function ClassesPage() {
         </div>
         <div>
           <GridToolbarQuickFilter placeholder="Tìm kiếm" />
-  
+
           <GridToolbarDensitySelector />
-          <GridToolbarExport />
-          <Tooltip title="Thêm mới ca học">
+          <Tooltip title="Xuất danh sách lớp học">
+            <GridToolbarExport />
+          </Tooltip>
+          <Tooltip title="Thêm lớp học">
             <IconButton>
               <QueueIcon />
             </IconButton>
@@ -219,7 +219,7 @@ export default function ClassesPage() {
       </GridToolbarContainer>
     );
   }
-  
+
   function generateProducts() {
     const quantity = randomInt(1, 5);
     return [...Array(quantity)].map((_, index) => ({
@@ -229,9 +229,9 @@ export default function ClassesPage() {
       unitPrice: randomPrice(1, 1000),
     }));
   }
-  
+
   type Customer = typeof rows[number];
-  
+
   const theme = useTheme();
   let navigate = useNavigate();
   const [selectedRowId, setSelectedRowId] = React.useState(null);
@@ -247,8 +247,8 @@ export default function ClassesPage() {
 
   const handleRowClick = (params: any) => {
     // if (showClass == false) {
-      setSelectedRowId(params.id);
-      navigate(`/train/class/${params.id}`, { replace: true });
+    setSelectedRowId(params.id);
+    // navigate(`/train/class/${params.id}`);
     // }
   };
 
@@ -271,6 +271,9 @@ export default function ClassesPage() {
         <DataGridPro
           columns={columns}
           rows={rows}
+          localeText={{
+            toolbarDensity: 'Căn chỉnh ',
+          }}
           onRowClick={handleRowClick}
           rowThreshold={0}
           loading={rows.length === 0}

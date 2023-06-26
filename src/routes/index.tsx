@@ -13,18 +13,7 @@ import { PATH_AFTER_LOGIN } from '../config';
 import {
   // Auth
   LoginPage,
-  // RegisterPage,
-  // VerifyCodePage,
-  // NewPasswordPage,
-  // ResetPasswordPage,
-  // Dashboard: General
   GeneralDashboardPage,
-  GeneralAppPage,
-  GeneralFilePage,
-  GeneralBankingPage,
-  GeneralBookingPage,
-  GeneralEcommercePage,
-  GeneralAnalyticsPage,
   // Đào tạo
   ClassesPage,
   ClassPage,
@@ -101,6 +90,7 @@ import {
   QuestionsPage,
   TargetPage,
   EventsPage,
+  EventPage,
   CoursesPage,
 } from './elements';
 
@@ -145,6 +135,7 @@ export default function Router() {
             { path: 'cau-hoi', element: <QuestionsPage /> },
             { path: 'muc-tieu', element: <TargetPage /> },
             { path: 'events', element: <EventsPage /> },
+            { path: 'event/:id', element: <EventPage /> },
             { path: 'khoa-hoc', element: <CoursesPage /> },
           ],
         },

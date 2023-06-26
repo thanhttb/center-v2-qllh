@@ -24,6 +24,7 @@ export const AttendancesPage = Loadable(lazy(() => import('../pages/dashboard/At
 export const QuestionsPage = Loadable(lazy(() => import('../pages/dashboard/QuestionsPage')));
 export const TargetPage = Loadable(lazy(() => import('../pages/dashboard/TargetPage')));
 export const EventsPage = Loadable(lazy(() => import('../pages/dashboard/EventsPage')));
+export const EventPage = Loadable(lazy(() => import('../pages/dashboard/EventPage')));
 export const CoursesPage = Loadable(lazy(() => import('../pages/dashboard/CoursesPage')));
 // Công tác học sinh
 export const StudentRegister = Loadable(lazy(() => import('../pages/dashboard/EntranceStudentRegister')));

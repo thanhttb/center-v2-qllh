@@ -39,6 +39,7 @@ export const PATH_DASHBOARD = {
     cauHoi: path(ROOTS_DASHBOARD, '/train/cau-hoi'),
     mucTieu: path(ROOTS_DASHBOARD, '/train/muc-tieu'),
     events: path(ROOTS_DASHBOARD, '/train/events'),
+    event:(id:string) => path(ROOTS_DASHBOARD, `/train/event/${id}`),
     khoaHoc: path(ROOTS_DASHBOARD, '/train/khoa-hoc'),
   },
 
