@@ -74,6 +74,7 @@ export default function NavItem({
   );
 
   const renderItem = () => {
+
     // ExternalLink
     if (isExternalLink)
       return (

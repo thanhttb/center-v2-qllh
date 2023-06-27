@@ -95,6 +95,10 @@ import {
 } from './elements';
 
 // ----------------------------------------------------------------------
+const date = new Date();
+const dateNow = new Date(date.getFullYear(), date.getMonth()-1, date.getDate())
+let timestamp = dateNow.getTime();
+let toDate = new Date(date.getFullYear() -1, 0, 1).getTime();
 
 export default function Router() {
   return useRoutes([
@@ -145,7 +149,7 @@ export default function Router() {
           children: [
             { element: <Navigate to="/entrance/quick-create" replace />, index: true },
             { path: 'quick-create', element: <StudentRegister /> },
-            { path: 'list/:id', element: <EntranceList /> },
+            { path: `list/2_3_4_1/0/${toDate}/${timestamp}`, element: <EntranceList /> },
             { path: 'completed', element: <EntranceCompleted /> },
             { path: 'discount', element: <EntranceDiscount /> },
             { path: 'fee', element: <EntranceFee /> },

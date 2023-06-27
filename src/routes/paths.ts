@@ -26,9 +26,13 @@ export const PATH_PAGE = {
   components: '/components',
 };
 
+const date = new Date();
+const dateNow = new Date(date.getFullYear(), date.getMonth()-1, date.getDate())
+let timestamp = dateNow.getTime();
+let toDate = new Date(date.getFullYear() -1, 0, 1).getTime();
+
+
 export const PATH_DASHBOARD = {
-  // dashboard:  path(ROOTS_DASHBOARD, '/dashboard'),
- 
   root: path(ROOTS_DASHBOARD, '/dashboard'),
   view: (name: string) => path(ROOTS_DASHBOARD, `/chat/${name}`),
   train: {
@@ -47,7 +51,8 @@ export const PATH_DASHBOARD = {
     root: path(ROOTS_DASHBOARD, '/entrance'),
     create: path(ROOTS_DASHBOARD, '/entrance/quick-create'),
     completed: path(ROOTS_DASHBOARD, '/entrance/completed'),
-    list: path(ROOTS_DASHBOARD, '/entrance/list/2_3_4_5'),
+    list:(id: string| null) => path(ROOTS_DASHBOARD, `/entrance/list/${id}`),
+    demoList: path(ROOTS_DASHBOARD, `/entrance/list/2_3_4_1/0/${toDate}/${timestamp}`),
     discount: path(ROOTS_DASHBOARD, '/entrance/discount'),
     fee: path(ROOTS_DASHBOARD, '/entrance/fee'),
   },

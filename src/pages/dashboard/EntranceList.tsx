@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 //material
 import { Box, Grid, Typography, Card } from '@mui/material';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
@@ -42,7 +43,7 @@ function EntranceList() {
   const theme = useTheme();
   // date
   const dateNow = new Date();
-  var firstDay = new Date(dateNow.getFullYear(), dateNow.getMonth(), 1);
+  var firstDay = new Date(dateNow.getFullYear() -1,0, 1);
   const [filterStartDate, setFilterStartDate] = useState<Date | null>(firstDay);
   const [filterEndDate, setFilterEndDate] = useState<Date | null>(dateNow);
   // address
@@ -69,6 +70,9 @@ function EntranceList() {
 
   return (
     <>
+     <Helmet>
+        <title>Danh sách ghi danh</title>
+      </Helmet>
       <Box sx={{ boxShadow: theme.customShadows.dropdown, p: 2, borderRadius: 2 }}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={4}>

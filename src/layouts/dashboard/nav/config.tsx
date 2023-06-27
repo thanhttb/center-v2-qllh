@@ -68,14 +68,14 @@ const navConfig = [
         path: PATH_DASHBOARD.entrance.root,
         icon: <AccountBoxIcon />,
         children: [
-          { title: 'Đăng ký ghi danh', path: PATH_DASHBOARD.entrance.root },
+          { title: 'Đăng ký ghi danh', path: PATH_DASHBOARD.entrance.create },
           {
             title: 'Danh sách',
-            path: PATH_DASHBOARD.entrance.list,
+            path: PATH_DASHBOARD.entrance.demoList,
             children: [
               {
                 title: 'DS ghi danh',
-                path: PATH_DASHBOARD.entrance.list,
+                path: PATH_DASHBOARD.entrance.demoList,
               },
               {
                 title: 'DS hoàn thành',
