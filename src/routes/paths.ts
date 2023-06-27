@@ -51,7 +51,7 @@ export const PATH_DASHBOARD = {
     root: path(ROOTS_DASHBOARD, '/entrance'),
     create: path(ROOTS_DASHBOARD, '/entrance/quick-create'),
     completed: path(ROOTS_DASHBOARD, '/entrance/completed'),
-    list:(id: string| null) => path(ROOTS_DASHBOARD, `/entrance/list/${id}`),
+    list:(centers: string| null, step: string, toDate: string, fromDate: string) => path(ROOTS_DASHBOARD, `/entrance/list/${centers}/${step}/${toDate}/${fromDate}`),
     demoList: path(ROOTS_DASHBOARD, `/entrance/list/2_3_4_1/0/${toDate}/${timestamp}`),
     discount: path(ROOTS_DASHBOARD, '/entrance/discount'),
     fee: path(ROOTS_DASHBOARD, '/entrance/fee'),
