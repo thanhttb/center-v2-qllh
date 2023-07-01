@@ -478,7 +478,7 @@ export default function GeneralDashboardPage() {
             />
           </Grid>
           {/* Danh sách học phí */}
-          <Grid
+          {/* <Grid
             item
             sm={12}
             md={8}
@@ -507,7 +507,7 @@ export default function GeneralDashboardPage() {
               pagination
               pageSizeOptions={[5, 10, 25, 50, 100]}
             />
-          </Grid>
+          </Grid> */}
         </Grid>
 
         <EditDashboardInfoLesson open={showLesson} onClose={handleCloseLesson} />

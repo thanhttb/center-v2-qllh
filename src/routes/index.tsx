@@ -149,7 +149,7 @@ export default function Router() {
           children: [
             { element: <Navigate to="/entrance/quick-create" replace />, index: true },
             { path: 'quick-create', element: <StudentRegister /> },
-            { path: `list/2_3_4_1/0/${toDate}/${timestamp}`, element: <EntranceList /> },
+            { path: `list/2_3_4_5/0/${toDate}/${timestamp}`, element: <EntranceList /> },
             { path: `list/:centers/:step/:toDate/:fromDate`, element: <EntranceList /> },
             { path: 'completed', element: <EntranceCompleted /> },
             { path: 'discount', element: <EntranceDiscount /> },

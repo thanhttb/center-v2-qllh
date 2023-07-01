@@ -83,6 +83,7 @@ function EntranceList() {
               addressName={addressName}
               names={names}
               handleAddressName={handleAddressName}
+              setAddressName={setAddressName}
             />
           </Grid>
           <Grid item xs={12} md={4}>
