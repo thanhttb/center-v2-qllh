@@ -20,12 +20,15 @@ import AccountPopover from './AccountPopover';
 import LanguagePopover from './LanguagePopover';
 import ContactsPopover from './ContactsPopover';
 import NotificationsPopover from './NotificationsPopover';
-
+import { useState } from 'react';
+import axios from 'axios';
+import { useLocation, useNavigate } from 'react-router-dom';
 // ----------------------------------------------------------------------
-const topFilms = [
-  { title: 'The Shawshank Redemption', year: 1994 },
-  { title: 'The Godfather', year: 1972 },
-  { title: 'The Godfather: Part II', year: 1974 },
+const year_options = [
+  { id: 1, value: 2020, title: 'Năm học 2020 - 2021' },
+  { id: 2, value: 2021, title: 'Năm học 2021 - 2022' },
+  { id: 3, value: 2022, title: 'Năm học 2022 - 2023' },
+  { id: 4, value: 2023, title: 'Năm học 2023 - 2024' },
 ];
 
 type Props = {
@@ -34,6 +37,8 @@ type Props = {
 
 export default function Header({ onOpenNav }: Props) {
   const theme = useTheme();
+  let location = useLocation();
+  let navigation = useNavigate();
 
   const { themeLayout } = useSettingsContext();
 
@@ -44,6 +49,17 @@ export default function Header({ onOpenNav }: Props) {
   const isDesktop = useResponsive('up', 'lg');
 
   const isOffset = useOffSetTop(HEADER.H_DASHBOARD_DESKTOP) && !isNavHorizontal;
+
+  const [year, setYear] = useState(2023);
+
+  const handleChange = (value :  React.FormEvent<HTMLInputElement>) => {
+    axios.post("", {})
+    .then(res => {
+      navigation("/")
+    })
+    .catch(err => {
+    })
+  }
 
   const renderContent = (
     <>
@@ -64,7 +80,7 @@ export default function Header({ onOpenNav }: Props) {
       )}
 
       {/* <Searchbar /> */}
-      {isDesktop && <YearToolBar optionsRole={topFilms} />}
+      {isDesktop && <YearToolBar optionsRole={year_options} handleChange={handleChange} year={year}/>}
 
       <Stack
         flexGrow={1}

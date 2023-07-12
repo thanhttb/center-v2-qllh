@@ -295,6 +295,7 @@ const handleDetailPanelExpandedRowIdsChange = React.useCallback(
               pageSizeOptions={[5, 10, 25, 50, 100]}
               disableColumnFilter
               unstable_headerFilters
+              disableColumnMenu
 
               getDetailPanelContent={({ row }) => (
                 <Box sx={{ p: 2 }}>{`Chưa cài đặt lịch học`}</Box>

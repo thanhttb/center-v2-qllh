@@ -26,9 +26,10 @@ export const StyledSection = styled('div')(({ theme }) => ({
 export const StyledSectionBg = styled('div')(({ theme }) => ({
   ...bgGradient({
     color: alpha(theme.palette.background.default, theme.palette.mode === 'light' ? 0 : 0),
-    imgUrl: '/assets/illustrations/illustration_dashboard.png',
+    imgUrl: '/assets/illustrations/illustration_login.jpg',
+   
   }),
-  top: 0,
+  top: 70,
   left: 0,
   zIndex: -1,
   width: '100%',
